@@ -28,7 +28,7 @@ module PMP
     DEFAULT_ENDPOINT      = 'https://api.pmp.io/'.freeze
     
     # The value sent in the http header for 'User-Agent' if none is set
-    DEFAULT_USER_AGENT    = "PMP-SDK Ruby Gem #{PMP::VERSION}".freeze
+    DEFAULT_USER_AGENT    = "PMP Ruby Gem #{PMP::VERSION}".freeze
     
     # debug is defaulted to the ENV['DEBUG'], see below
 

@@ -4,12 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'pmp/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = 'pmp-sdk'
+  gem.name          = 'pmp'
   gem.version       = PMP::VERSION
   gem.authors       = ['Andrew Kuklewicz']
   gem.email         = ['andrew@prx.org']
-  gem.description   = %q{Public Media Platform Ruby SDK}
-  gem.summary       = %q{Public Media Platform Ruby SDK}
+  gem.description   = %q{Public Media Platform Ruby Gem}
+  gem.summary       = %q{Public Media Platform Ruby Gem}
   gem.homepage      = ''
   gem.license       = 'MIT'
 
@@ -28,7 +28,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency('guard-bundler')
   gem.add_development_dependency('guard-minitest')
 
-  gem.add_runtime_dependency('roar')
   gem.add_runtime_dependency('faraday')
   gem.add_runtime_dependency('faraday_middleware')
   gem.add_runtime_dependency('oauth2')

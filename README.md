@@ -1,12 +1,12 @@
-# Pmp::Sdk
+# PMP gem
 
-TODO: Write a gem description
+Gem to make it easier to use the PMP API, which is a hypermedia APi using the collection.doc+json format.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'pmp-sdk'
+    gem 'pmp'
 
 And then execute:
 
@@ -14,11 +14,11 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install pmp-sdk
+    $ gem install pmp
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: Write usage instructions here...
 
 ## Contributing
 
