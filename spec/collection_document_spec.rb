@@ -48,10 +48,11 @@ describe PMP::CollectionDocument do
 
   it "should load" do
     stub_request(:get, "https://api.pmp.io/").
-      with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443', 'User-Agent'=>'PMP Ruby Gem 0.0.1'}).
+      with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Authorization'=>'Bearer thisisatesttoken', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443', 'User-Agent'=>'PMP Ruby Gem 0.0.1'}).
       to_return(:status => 200, :body => "", :headers => {})
 
-    doc = PMP::CollectionDocument.new
+    doc = PMP::CollectionDocument.new(oauth_token: 'thisisatesttoken')
+    doc.oauth_token.must_equal 'thisisatesttoken'
     doc.load
   end
 

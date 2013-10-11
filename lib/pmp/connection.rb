@@ -12,7 +12,8 @@ module PMP
       :params,
       :request,
       :adapter,
-      :ssl
+      :ssl,
+      :oauth_token
     ].freeze
 
     def connection(options={})
@@ -44,9 +45,7 @@ module PMP
       options[:headers] = options[:headers].merge(headers)
 
       # clean out any that don't belong
-      options = options.select{|k,v| ALLOWED_CONNECTION_OPTIONS.include?(k.to_sym)}
-
-      options
+      options.select{|k,v| ALLOWED_CONNECTION_OPTIONS.include?(k.to_sym)}
     end
 
   end
