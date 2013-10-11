@@ -3,22 +3,39 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'pmp/version'
 
-Gem::Specification.new do |spec|
-  spec.name          = "pmp-sdk"
-  spec.version       = PMP::VERSION
-  spec.authors       = ["Andrew Kuklewicz"]
-  spec.email         = ["andrew@prx.org"]
-  spec.description   = %q{Public Media Platform Ruby SDK}
-  spec.summary       = %q{Public Media Platform Ruby SDK}
-  spec.homepage      = ""
-  spec.license       = "MIT"
+Gem::Specification.new do |gem|
+  gem.name          = 'pmp-sdk'
+  gem.version       = PMP::VERSION
+  gem.authors       = ['Andrew Kuklewicz']
+  gem.email         = ['andrew@prx.org']
+  gem.description   = %q{Public Media Platform Ruby SDK}
+  gem.summary       = %q{Public Media Platform Ruby SDK}
+  gem.homepage      = ''
+  gem.license       = 'MIT'
 
-  spec.files         = `git ls-files`.split($/)
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-  spec.require_paths = ["lib"]
+  gem.files         = `git ls-files`.split($/)
+  gem.executables   = gem.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
+  gem.require_paths = ['lib']
 
-  spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
-  spec.add_runtime_dependency "roar"
+  gem.add_development_dependency('bundler', '~> 1.3')
+  gem.add_development_dependency('rake')
+  gem.add_development_dependency('rake')
+  gem.add_development_dependency('minitest')
+  gem.add_development_dependency('webmock')
+  gem.add_development_dependency('pry')
+  gem.add_development_dependency('guard')
+  gem.add_development_dependency('guard-bundler')
+  gem.add_development_dependency('guard-minitest')
+
+  gem.add_runtime_dependency('roar')
+  gem.add_runtime_dependency('faraday')
+  gem.add_runtime_dependency('faraday_middleware')
+  gem.add_runtime_dependency('oauth2')
+  gem.add_runtime_dependency('multi_json')
+  gem.add_runtime_dependency('excon')
+  gem.add_runtime_dependency('hashie')
+  gem.add_runtime_dependency('activesupport')
+  gem.add_runtime_dependency('uri_template')
+
 end
