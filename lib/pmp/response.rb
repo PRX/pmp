@@ -1,7 +1,6 @@
 # -*- encoding: utf-8 -*-
 
 module PMP
-
   class Response
     attr_accessor :raw, :request
 

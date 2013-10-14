@@ -23,13 +23,24 @@ describe PMP::CollectionDocument do
     doc.href.must_equal "https://api.pmp.io/"
   end
 
-  it "can create from remote result" do
+  it "can create from document" do
     response = mashify({
       version: '1.0'
     })
 
     doc = PMP::CollectionDocument.new(document: response)
     doc.version.must_equal '1.0'
+  end
+
+  it "can create from remote result" do
+    raw = Minitest::Mock.new
+    raw.expect(:status, 200)
+    raw.expect(:body, mashify({ version: '1.0' }))
+    response = PMP::Response.new(raw, {})
+
+    doc = PMP::CollectionDocument.new(response: response)
+    doc.version.must_equal '1.0'
+    doc.must_be :loaded
   end
 
   it "should assign attributes" do
@@ -53,7 +64,9 @@ describe PMP::CollectionDocument do
 
     doc = PMP::CollectionDocument.new(oauth_token: 'thisisatesttoken')
     doc.oauth_token.must_equal 'thisisatesttoken'
+    doc.wont_be :loaded
     doc.load
+    doc.must_be :loaded
   end
 
 end

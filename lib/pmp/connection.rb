@@ -13,7 +13,8 @@ module PMP
       :request,
       :adapter,
       :ssl,
-      :oauth_token
+      :oauth_token,
+      :debug
     ].freeze
 
     def connection(options={})

@@ -17,7 +17,9 @@ module PMP
     end
 
     def parse_attributes(document)
-      Array(document['attributes']).each{|k,v| self.send("#{safe_name(k)}=", v)}
+      Array(document['attributes']).each do |k,v|
+        self.send("#{safe_name(k)}=", v)
+      end
     end
 
     def parse_links(document)
@@ -36,10 +38,6 @@ module PMP
 
     def parse_items(document)
       self.items = Array(document['items']).collect{|i| PMP::CollectionDocument.new(document:i)}
-    end
-
-    def safe_name(key)
-      key.gsub(/[\W]+/, '_')
     end
 
   end

@@ -3,6 +3,8 @@
 module PMP
   class Client
 
+    include Configuration
+
     def token(opts={})
       PMP::Token.new(opts).get_token
     end

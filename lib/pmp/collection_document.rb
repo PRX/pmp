@@ -5,6 +5,7 @@ module PMP
   # Using OpenStruct for now - perhaps use ActiveModel? hmm...
   class CollectionDocument < OpenStruct
 
+    include Utils
     include Configuration
     include Connection
     include Parser
@@ -76,7 +77,6 @@ module PMP
 
     # url includes any params - full url
     def request(method, url, body=nil) # :nodoc:
-      opts = options
       raw = connection(options.merge({url: url})).send(method) do |request|
         if [:post, :put].include?(method.to_sym) && !body.blank?
           request.body = body.is_a?(String) ? body : body.to_json

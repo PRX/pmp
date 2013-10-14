@@ -5,6 +5,7 @@ require 'active_support/all'
 
 require 'pmp/version'
 
+require 'pmp/utils'
 require 'pmp/configuration'
 require 'pmp/connection'
 require 'pmp/response'
