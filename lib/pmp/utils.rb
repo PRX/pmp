@@ -4,7 +4,7 @@ module PMP
   module Utils
 
     def to_ruby_safe_name(name)
-      safe = name.strip
+      safe = name.to_s.strip
       safe = safe.gsub(/[^\w_!?=]+/, '_').sub(/^[0-9!?=]/, '')
       safe[0..-2].gsub(/[!?=]+/, '_') + safe[-1]
     end
