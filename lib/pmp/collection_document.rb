@@ -91,13 +91,8 @@ module PMP
     end
 
     def method_missing(method, *args)
-      begin
-        super
-      rescue NoMethodError => err
-        raise err if loaded?
-        load
-        self.send(method, *args)
-      end
+      load if (method.to_s.last != '=') && !loaded?
+      super
     end
 
   end
