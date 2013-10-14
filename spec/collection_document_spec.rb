@@ -12,7 +12,7 @@ describe PMP::CollectionDocument do
     doc = PMP::CollectionDocument.new
   end
 
-  it "canget options from configuration" do
+  it "can get options from configuration" do
     doc = PMP::CollectionDocument.new
     doc.options.wont_be_nil
     doc.options[:adapter].must_equal :excon
@@ -67,6 +67,11 @@ describe PMP::CollectionDocument do
     doc.wont_be :loaded
     doc.load
     doc.must_be :loaded
+  end
+
+  it "should serialize to collection.doc+json" do
+    doc = PMP::CollectionDocument.new(document: json_fixture(:collection_basic))
+    doc.to_json.must_equal '{"version":"1.0","attributes":{"guid":"f84e9018-5c21-4b32-93f8-d519308620f0","title":"Peers Find Less Pressure Borrowing From Each Other","published":"2013-05-10T15:17:00.598Z","valid":{"from":"2013-05-10T15:17:00.598Z","to":"2213-05-10T15:17:00.598Z"},"byline":"by SOME PERSON","hreflang":"en","description":"","contentencoded":"...","contenttemplated":"...","items":[]},"links":{"profile":{"href":"http://api-sandbox.pmp.io/profiles/story"},"self":{"href":"http://api-sandbox.pmp.io/docs/f84e9018-5c21-4b32-93f8-d519308620f0"},"collection":{"href":"http://api-sandbox.pmp.io/docs/"}}}'
   end
 
 end

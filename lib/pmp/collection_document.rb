@@ -5,7 +5,6 @@ module PMP
   # Using OpenStruct for now - perhaps use ActiveModel? hmm...
   class CollectionDocument < OpenStruct
 
-    include Utils
     include Configuration
     include Connection
     include Parser
@@ -47,6 +46,10 @@ module PMP
       end
 
       yield(self) if block_given?
+    end
+
+    def attributes
+      marshal_dump
     end
 
     def response=(resp)

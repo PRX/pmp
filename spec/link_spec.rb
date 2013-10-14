@@ -6,7 +6,7 @@ require 'pmp/link'
 
 require 'webmock/minitest'
 
-describe PMP::CollectionDocument do
+describe PMP::Link do
 
   it "can create a new link" do
     parent = Minitest::Mock.new
@@ -27,6 +27,12 @@ describe PMP::CollectionDocument do
     info = {'href' => 'http://api-sandbox.pmp.io/docs/'}
     link = PMP::Link.new(parent, info)
     link.href.must_equal 'http://api-sandbox.pmp.io/docs/'
+  end
+
+  it "can become json" do
+    parent = Minitest::Mock.new
+    info = {'href' => 'http://api-sandbox.pmp.io/docs/'}
+    link = PMP::Link.new(parent, info)
   end
 
 end
