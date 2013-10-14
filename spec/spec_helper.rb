@@ -1,11 +1,13 @@
 # -*- encoding: utf-8 -*-
 
+require 'simplecov'
+SimpleCov.start
+
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/spec'
 require 'minitest/mock'
 require 'webmock/minitest'
-
 require 'hashie/mash'
 
 require 'pmp'
@@ -23,5 +25,9 @@ def mashify(body)
 end
 
 def json_fixture(name)
-  mashify(JSON.parse(File.read( File.dirname(__FILE__) + "/fixtures/#{name}.json")))
+  mashify(JSON.parse(json_file(name)))
+end
+
+def json_file(name)
+  File.read( File.dirname(__FILE__) + "/fixtures/#{name}.json")
 end
