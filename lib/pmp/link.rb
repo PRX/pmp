@@ -36,12 +36,16 @@ module PMP
       marshal_dump
     end
 
+    def find(params={})
+      self.class.new(parent, attributes.merge({'params'=>params}))
+    end
+
     def as_json
       extract_attributes
     end
 
     def url
-      URITemplate.new(href_template || href).expand(_params)
+      URITemplate.new(href_template || href).expand(params)
     end
 
     def retrieve
