@@ -74,11 +74,10 @@ describe PMP::CollectionDocument do
 
     it "should serialize to collection.doc+json" do
       @doc = PMP::CollectionDocument.new(document: json_fixture(:collection_basic))
-      @doc.to_json.must_equal '{"version":"1.0","attributes":{"guid":"f84e9018-5c21-4b32-93f8-d519308620f0","title":"Peers Find Less Pressure Borrowing From Each Other","published":"2013-05-10T15:17:00.598Z","valid":{"from":"2013-05-10T15:17:00.598Z","to":"2213-05-10T15:17:00.598Z"},"byline":"by SOME PERSON","hreflang":"en","description":"","contentencoded":"...","contenttemplated":"...","items":[]},"links":{"profile":{"href":"http://api-sandbox.pmp.io/profiles/story"},"self":{"href":"http://api-sandbox.pmp.io/docs/f84e9018-5c21-4b32-93f8-d519308620f0"},"collection":{"href":"http://api-sandbox.pmp.io/docs/"}}}'
+      @doc.to_json.must_equal '{"version":"1.0","links":{"profile":[{"href":"http://api-sandbox.pmp.io/profiles/story"}],"self":[{"href":"http://api-sandbox.pmp.io/docs/f84e9018-5c21-4b32-93f8-d519308620f0"}],"collection":[{"href":"http://api-sandbox.pmp.io/docs/"}]},"attributes":{"guid":"f84e9018-5c21-4b32-93f8-d519308620f0","title":"Peers Find Less Pressure Borrowing From Each Other","published":"2013-05-10T15:17:00.598Z","valid":{"from":"2013-05-10T15:17:00.598Z","to":"2213-05-10T15:17:00.598Z"},"byline":"by SOME PERSON","hreflang":"en","description":"","contentencoded":"...","contenttemplated":"..."}}'
     end
 
   end
-
 
   describe "loading" do
 
@@ -113,6 +112,26 @@ describe PMP::CollectionDocument do
       @doc.must_be :loaded
       creator.must_be_instance_of PMP::Link
     end
+
+  end
+
+  describe "queries" do
+
+    before(:each) {
+      root_doc =  json_file(:collection_root)
+
+      stub_request(:get, "https://api.pmp.io/").
+        with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Authorization'=>'Bearer thisisatesttoken', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443', 'User-Agent'=>'PMP Ruby Gem 0.0.1'}).
+        to_return(:status => 200, :body => root_doc, :headers => {})
+
+      @doc = PMP::CollectionDocument.new(oauth_token: 'thisisatesttoken')
+    }
+
+    it "should get the list of query links" do
+      queries = @doc.query
+      queries.must_be_instance_of Hash
+    end
+
 
   end
 

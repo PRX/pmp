@@ -11,6 +11,7 @@ require 'pmp/connection'
 require 'pmp/response'
 require 'pmp/parser'
 
+require 'pmp/links'
 require 'pmp/link'
 require 'pmp/collection_document'
 

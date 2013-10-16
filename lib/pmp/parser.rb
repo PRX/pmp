@@ -8,29 +8,39 @@ module PMP
     def as_json(options={})
       result = {}
       result['version']    = self.version
-      result['attributes'] = extract_attributes
       result['links']      = extract_links
+      result['attributes'] = extract_attributes
+
+      # more elegant?
+      result['attributes'].delete('items')
+
       result
     end
 
     def extract_attributes(obj=self)
       obj.attributes.inject({}) do |result, pair|
         value = pair.last
-        if !value.is_a?(PMP::Link)
-          name = to_json_key_name(pair.first)
-          result[name] = value
-        end
+        name = to_json_key_name(pair.first)
+        result[name] = value
         result
       end
     end
 
     def extract_links(obj=self)
-      obj.attributes.inject({}) do |result, pair|
+      obj.links.inject({}) do |result, pair|
         value = pair.last
-        if value.is_a?(PMP::Link)
-          name = to_json_key_name(pair.first)
-          result[name] = extract_attributes(value)
+        name = to_json_key_name(pair.first)
+
+        links = if value.is_a?(PMP::Link)
+          [extract_attributes(value)]
+        elsif value.is_a?(Array)
+          value.map{|v| extract_attributes(v)}
+        elsif value.is_a?(Hash)
+          value.values.map{|v| extract_attributes(v)}
         end
+
+        result[name] = links
+
         result
       end
     end
@@ -56,15 +66,31 @@ module PMP
 
     def parse_links(document)
       Array(document).each do |k,v|
-
-        link = if !v.is_a?(Array)
-          Link.new(self, v)
-        elsif v.size == 1
-          Link.new(self, v.first)
-        elsif v.size > 0
-          v.map{|l| Link.new(self, l)}
+        link = parse_link(k,v)        
+        if link
+          self.links[k] = link
         end
-        self.send("#{to_ruby_safe_name(k)}=", link) if link
+      end
+    end
+
+    def parse_link(name, info)
+
+      return parse_query_links(info) if (name.to_s == 'query')
+
+      if !info.is_a?(Array)
+        Link.new(self, info)
+      elsif info.size == 1
+        Link.new(self, info.first)
+      elsif info.size > 0
+        v.map{|l| Link.new(self, l)}
+      end
+    end
+
+    def parse_query_links(links)
+      links.inject({}) do |results, query|
+        rel = query['rels'].first
+        results[rel] = query
+        results
       end
     end
 

@@ -27,11 +27,16 @@ module PMP
     # has this resource actually been loaded from remote url or json document?
     attr_accessor :loaded
 
+    # private var to save names of links
+    attr_accessor :links
+
     # document is the original json derived doc used to create this resource
     # assumption is that doc is a parsed json doc confirming to collection.doc+json
     # TODO: check if this is a json string or hash, for now assume it has been mashified
     def initialize(options={}, &block)
       super()
+
+      self.links    = PMP::Links.new(self)
 
       self.href     = options.delete(:href)
 
@@ -49,7 +54,7 @@ module PMP
     end
 
     def attributes
-      marshal_dump
+      marshal_dump.delete_if{|k,v| links.keys.include?(k.to_s)}
     end
 
     def response=(resp)
@@ -88,6 +93,10 @@ module PMP
 
       # may not need this, but remember how we made this response
       PMP::Response.new(raw, {method: method, url: url, body: body})
+    end
+
+    def set_guid_to_uuid
+      self.guid = SecureRandom.uuid unless guid
     end
 
     def method_missing(method, *args)
