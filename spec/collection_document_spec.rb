@@ -3,7 +3,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 require 'pmp/collection_document'
-
 require 'webmock/minitest'
 
 describe PMP::CollectionDocument do
@@ -131,7 +130,6 @@ describe PMP::CollectionDocument do
       queries = @doc.query
       queries.must_be_instance_of Hash
     end
-
 
   end
 
