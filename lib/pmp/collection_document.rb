@@ -84,14 +84,17 @@ module PMP
       save_link = self.edit
       raise 'Edit link does not specify saving via put' unless (save_link && save_link.hints.allow.include?('PUT'))
       set_guid_if_blank
-      request(:put, save_link.url, self)
+      url = save_link.where(guid: self.guid).url
+      request(:put, url, self)
     end
 
     def delete
       delete_link = self.edit
       raise 'Edit link does not specify deleting' unless (delete_link && delete_link.hints.allow.include?('DELETE'))
       raise 'No guid specified to delete' if self.guid.blank?
-      request(:put, delete_link.url, self)
+
+      url = delete_link.where(guid: self.guid).url
+      request(:put, url, self)
     end
 
     def loaded?
