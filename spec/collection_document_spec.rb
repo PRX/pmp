@@ -112,6 +112,12 @@ describe PMP::CollectionDocument do
       creator.must_be_instance_of PMP::Link
     end
 
+    it "should provide a list of links" do
+      @doc.load
+      @doc.links.keys.sort.must_equal ["creator", "edit", "navigation", "query"]
+      @doc.links['creator'].must_be_instance_of PMP::Link
+    end
+
   end
 
   describe "queries" do
