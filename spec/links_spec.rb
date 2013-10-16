@@ -17,8 +17,8 @@ describe PMP::Links do
   end
 
   it "can access _parent" do
-    @links._parent = {}
-    @links._parent.wont_be_nil
+    @links.parent = {}
+    @links.parent.wont_be_nil
   end
 
   it "can have a link assigned" do

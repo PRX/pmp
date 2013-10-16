@@ -5,16 +5,16 @@ module PMP
 
     include Utils
 
-    attr_accessor :_parent
+    attr_accessor :parent
 
     def initialize(parent)
       super()
-      self._parent = parent
+      self.parent = parent
     end
 
     def []=(k, link)
       super
-      _parent.send("#{to_ruby_safe_name(k)}=", link)
+      parent.send("#{to_ruby_safe_name(k)}=", link)
     end
 
   end
