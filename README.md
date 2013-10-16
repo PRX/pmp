@@ -1,6 +1,8 @@
 # PMP gem
 
-Gem to make it easier to use the PMP API, which is a hypermedia APi using the collection.doc+json format.
+Gem to make it easier to use the PMP API, which is a hypermedia API using the collection.doc+json format.
+
+https://github.com/publicmediaplatform/pmpdocs/wiki
 
 Very big hat tip to the hyperresource gem: https://github.com/gamache/hyperresource
 
@@ -52,8 +54,6 @@ puts oauth_token.token
 root = pmp.root
 
 # or we can get it without the client, since PMP::CollectionDocument defaults to root
-root = pmp.root
-
 root = PMP::CollectionDocument.new(oauth_token: token, endpoint: endpoint)
 
 # wanna get an attribute, act like it is a ruby attribute
@@ -124,6 +124,7 @@ doc.delete
 ## To Do
 
 Think about integrating this lovely json schema parsing project: https://github.com/google/autoparse
+
 or this one: https://github.com/hoxworth/json-schema
 
 
