@@ -36,7 +36,7 @@ module PMP
       marshal_dump
     end
 
-    def find(params={})
+    def where(params={})
       self.class.new(parent, attributes.merge({'params'=>params}))
     end
 

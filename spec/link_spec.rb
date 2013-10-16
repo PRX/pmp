@@ -67,7 +67,7 @@ describe PMP::Link do
     @link = PMP::Link.new(@parent, l)
     @link.hints.must_equal l['hints']
     @link.url.must_equal "https://api-sandbox.pmp.io/docs"
-    @link.find('limit' => 10).url.must_equal "https://api-sandbox.pmp.io/docs?limit=10"
+    @link.where('limit' => 10).url.must_equal "https://api-sandbox.pmp.io/docs?limit=10"
     @link.url.must_equal "https://api-sandbox.pmp.io/docs"
   end
 

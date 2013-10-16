@@ -27,7 +27,7 @@ module PMP
     # has this resource actually been loaded from remote url or json document?
     attr_accessor :loaded
 
-    # private var to save names of links
+    # private var to save links obj, to handle link additions
     attr_accessor :links
 
     # document is the original json derived doc used to create this resource
@@ -74,9 +74,24 @@ module PMP
 
     def load
       if !loaded?
-        self.response = request(:get, self.href) 
+        self.response = request(:get, self.href || self.self.url)
         self.loaded = true
       end
+    end
+    alias_method :get, :load
+
+    def save
+      save_link = self.edit
+      raise 'Edit link does not specify saving via put' unless (save_link && save_link.hints.allow.include?('PUT'))
+      set_guid_if_blank
+      request(:put, save_link.url, self)
+    end
+
+    def delete
+      delete_link = self.edit
+      raise 'Edit link does not specify deleting' unless (delete_link && delete_link.hints.allow.include?('DELETE'))
+      raise 'No guid specified to delete' if self.guid.blank?
+      request(:put, delete_link.url, self)
     end
 
     def loaded?
@@ -95,8 +110,8 @@ module PMP
       PMP::Response.new(raw, {method: method, url: url, body: body})
     end
 
-    def set_guid_to_uuid
-      self.guid = SecureRandom.uuid unless guid
+    def set_guid_if_blank
+      self.guid = SecureRandom.uuid if guid.blank?
     end
 
     def method_missing(method, *args)

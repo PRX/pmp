@@ -16,6 +16,11 @@ describe PMP::Links do
     @links.wont_be_nil
   end
 
+  it "can access _parent" do
+    @links._parent = {}
+    @links._parent.wont_be_nil
+  end
+
   it "can have a link assigned" do
     link = {}
     @parent.expect(:foo=, link, Array(Object))
