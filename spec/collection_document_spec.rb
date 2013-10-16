@@ -131,6 +131,11 @@ describe PMP::CollectionDocument do
       queries.must_be_instance_of Hash
     end
 
+    it "should get a query by rels" do
+      queries = @doc.query
+      queries["urn:pmp:query:docs"].must_be_instance_of PMP::Link
+    end
+
   end
 
 end

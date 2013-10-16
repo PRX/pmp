@@ -89,7 +89,7 @@ module PMP
     def parse_query_links(links)
       links.inject({}) do |results, query|
         rel = query['rels'].first
-        results[rel] = query
+        results[rel] = Link.new(self, query)
         results
       end
     end
