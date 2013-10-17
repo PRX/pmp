@@ -82,7 +82,7 @@ module PMP
       elsif info.size == 1
         Link.new(self, info.first)
       elsif info.size > 0
-        v.map{|l| Link.new(self, l)}
+        info.map{|l| Link.new(self, l)}
       end
     end
 
