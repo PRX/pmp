@@ -11,9 +11,6 @@ module PMP
       result['links']      = extract_links
       result['attributes'] = extract_attributes
 
-      # more elegant?
-      result['attributes'].delete('items')
-
       result
     end
 
@@ -74,19 +71,16 @@ module PMP
     end
 
     def parse_link(name, info)
-
-      return parse_query_links(info) if (name.to_s == 'query')
-
       if !info.is_a?(Array)
         Link.new(self, info)
       elsif info.size == 1
         Link.new(self, info.first)
       elsif info.size > 0
-        info.map{|l| Link.new(self, l)}
+        parse_links_list(info)
       end
     end
 
-    def parse_query_links(links)
+    def parse_links_list(links)
       links.inject({}) do |results, query|
         rel = query['rels'].first
         results[rel] = Link.new(self, query)
