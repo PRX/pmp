@@ -57,7 +57,6 @@ root = pmp.root
 root = PMP::CollectionDocument.new(oauth_token: token, endpoint: endpoint)
 
 # wanna get an attribute, act like it is a ruby attribute
-
 puts root.guid
 > '04224975-e93c-4b17-9df9-96db37d318f3'
 

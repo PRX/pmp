@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ['andrew@prx.org']
   gem.description   = %q{Public Media Platform Ruby Gem}
   gem.summary       = %q{Public Media Platform Ruby Gem}
-  gem.homepage      = ''
+  gem.homepage      = 'https://github.com/PRX/pmp'
   gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($/)
