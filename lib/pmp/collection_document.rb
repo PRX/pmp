@@ -30,6 +30,10 @@ module PMP
     # private var to save links obj, to handle link additions
     attr_accessor :links
 
+    # this is a tricky, read-only list of items, same as if loaded from link->item links
+    # do not put into json form of this doc
+    attr_accessor :items
+
     # document is the original json derived doc used to create this resource
     # assumption is that doc is a parsed json doc confirming to collection.doc+json
     # TODO: check if this is a json string or hash, for now assume it has been mashified
