@@ -22,6 +22,7 @@ module PMP
       Faraday::Connection.new(opts) do |faraday|
         faraday.request :authorization, 'Bearer', opts[:oauth_token] unless opts[:oauth_token].nil?
         faraday.request :url_encoded
+        faraday.request :multipart
 
         faraday.response :mashify
         faraday.response :logger if opts[:debug]
