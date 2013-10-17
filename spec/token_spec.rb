@@ -24,7 +24,7 @@ describe PMP::Token do
                             
     stub_request(:post, "https://api-sandbox.pmp.io/auth/access_token").
       with(:body => {"grant_type"=>"client_credentials"},
-           :headers => {'Accept'=>'application/json', 'Authorization'=>'Basic dGhpc2lzbm90YS1yZWFsLWNsaWVudC1pZC1zb3Zlcnlzb3JyeTp0aGlzaXNub3RhcmVhbHNlY3JldGVpdGhlcg==', 'Content-Type'=>'application/x-www-form-urlencoded', 'Host'=>'api-sandbox.pmp.io:443', 'User-Agent'=>'PMP Ruby Gem 0.0.1'}).
+           :headers => {'Accept'=>'application/json', 'Authorization'=>'Basic dGhpc2lzbm90YS1yZWFsLWNsaWVudC1pZC1zb3Zlcnlzb3JyeTp0aGlzaXNub3RhcmVhbHNlY3JldGVpdGhlcg==', 'Content-Type'=>'application/x-www-form-urlencoded', 'Host'=>'api-sandbox.pmp.io:443'}).
       to_return(:status => 200, :body => response_body, :headers => {'Content-Type' => 'application/json; charset=utf-8'})
 
     client_id = "thisisnota-real-client-id-soverysorry"

@@ -54,7 +54,7 @@ module PMP
     end
 
     def attributes
-      marshal_dump.delete_if{|k,v| links.keys.include?(k.to_s)}
+      HashWithIndifferentAccess.new(marshal_dump.delete_if{|k,v| links.keys.include?(k.to_s)})
     end
 
     def response=(resp)

@@ -1,7 +1,7 @@
 # class to handle/manage and keep track of list of links in this doc
 
 module PMP
-  class Links < Hash
+  class Links < HashWithIndifferentAccess
 
     include Utils
 

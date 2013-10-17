@@ -26,7 +26,6 @@ describe PMP::CollectionDocument do
     it "should default href to endpoint" do
       @doc.href.must_equal "https://api.pmp.io/"
     end
-
   end
 
   describe 'make from response' do
@@ -76,6 +75,11 @@ describe PMP::CollectionDocument do
       @doc.to_json.must_equal '{"version":"1.0","links":{"profile":[{"href":"http://api-sandbox.pmp.io/profiles/story"}],"self":[{"href":"http://api-sandbox.pmp.io/docs/f84e9018-5c21-4b32-93f8-d519308620f0"}],"collection":[{"href":"http://api-sandbox.pmp.io/docs/"}]},"attributes":{"guid":"f84e9018-5c21-4b32-93f8-d519308620f0","title":"Peers Find Less Pressure Borrowing From Each Other","published":"2013-05-10T15:17:00.598Z","valid":{"from":"2013-05-10T15:17:00.598Z","to":"2213-05-10T15:17:00.598Z"},"byline":"by SOME PERSON","hreflang":"en","description":"","contentencoded":"...","contenttemplated":"..."}}'
     end
 
+    it "provides list of attributes (not links)" do
+      @doc.attributes.keys.must_be :include?, 'title'
+      @doc.attributes.keys.wont_be :include?, 'self'
+    end
+
   end
 
   describe "loading" do
@@ -84,7 +88,7 @@ describe PMP::CollectionDocument do
       root_doc =  json_file(:collection_root)
 
       stub_request(:get, "https://api.pmp.io/").
-        with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Authorization'=>'Bearer thisisatesttoken', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443', 'User-Agent'=>'PMP Ruby Gem 0.0.1'}).
+        with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Authorization'=>'Bearer thisisatesttoken', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
         to_return(:status => 200, :body => root_doc, :headers => {})
 
       @doc = PMP::CollectionDocument.new(oauth_token: 'thisisatesttoken')
@@ -126,7 +130,7 @@ describe PMP::CollectionDocument do
       root_doc =  json_file(:collection_root)
 
       stub_request(:get, "https://api.pmp.io/").
-        with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Authorization'=>'Bearer thisisatesttoken', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443', 'User-Agent'=>'PMP Ruby Gem 0.0.1'}).
+        with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Authorization'=>'Bearer thisisatesttoken', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
         to_return(:status => 200, :body => root_doc, :headers => {})
 
       @doc = PMP::CollectionDocument.new(oauth_token: 'thisisatesttoken')
@@ -140,6 +144,18 @@ describe PMP::CollectionDocument do
     it "should get a query by rels" do
       queries = @doc.query
       queries["urn:pmp:query:docs"].must_be_instance_of PMP::Link
+    end
+
+  end
+
+  describe 'persistence' do
+
+    it "can set missing guid" do
+
+    end
+
+    it "can save a new record" do
+
     end
 
   end
