@@ -8,8 +8,13 @@ describe PMP::Client do
     @pmp = PMP::Client.new
   }
 
+  it "make with options and pass along" do
+    pmp = PMP::Client.new(oauth_token: 'thisisatestvalueonly')
+    pmp.oauth_token.must_equal 'thisisatestvalueonly'
+    pmp.root.oauth_token.must_equal 'thisisatestvalueonly'
+  end
+
   it "returns a root api object" do
-    @pmp = PMP::Client.new
     @pmp.root.wont_be_nil
     @pmp.root.wont_be :loaded?
     @pmp.root.href.must_equal "https://api.pmp.io/"
