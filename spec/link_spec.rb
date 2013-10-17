@@ -18,6 +18,14 @@ describe PMP::Link do
     @link.wont_be_nil
   end
 
+  it "has a parent" do
+    @link = PMP::Link.new
+    @link.parent.wont_be_nil
+
+    @link = PMP::Link.new({}, @info)
+    @link.parent.must_equal({})
+  end
+
   it "can save params to attributes" do
     @link.href.must_equal 'http://api-sandbox.pmp.io/docs/'
   end
@@ -31,7 +39,12 @@ describe PMP::Link do
   end
 
   it "gets a url based on an href string" do
-    @link.url.must_equal 'http://api-sandbox.pmp.io/docs/'
+    @link.href.must_equal 'http://api-sandbox.pmp.io/docs/'
+    @link.href_template.must_be_nil
+    @link.params.must_equal({})
+
+    url = @link.url
+    url.must_equal 'http://api-sandbox.pmp.io/docs/'
   end
 
   it "can get a link for templated href" do

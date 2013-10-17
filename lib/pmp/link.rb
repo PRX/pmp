@@ -25,11 +25,24 @@ module PMP
 
     attr_accessor :params
 
-    def initialize(parent, link)
+    def initialize(parent=PMP::CollectionDocument.new, link={})
       super()
-      self.parent = parent || PMP::CollectionDocument.new
+      self.parent = parent
       self.params = link.delete('params') || {}
+      # puts "params: #{params.inspect}"
       parse_attributes(link)
+    end
+
+    def href
+      self[:href]
+    end
+
+    def href_template
+      self[:href_template]
+    end
+
+    def method
+      self[:method]
     end
 
     def attributes
@@ -45,17 +58,28 @@ module PMP
     end
 
     def url
+      # puts "url href_template: #{href_template}"
+      # puts "url href: #{href}"
       URITemplate.new(href_template || href).expand(params)
     end
 
     def retrieve
-      @_retrieved ||= parent.request((method || 'get').to_sym, url)
+      # puts "retrieve method: #{method}"
+      # puts "retrieve url: #{url}"
+      parent.request((method || 'get').to_sym, url)
     end
 
     def method_missing(method, *args)
-      begin
-        super
-      rescue NoMethodError => err
+      # puts "mm: #{method}"
+      # this is a method the link supports, call the link
+      # if this is an assignment, assign to the link
+      # if you want to assign to a linked doc(s), need to retrieve first
+      if self.respond_to?(method)
+        self.send(method, *args)
+      elsif method.to_s.last == '='
+       super
+      else
+        # puts "mm retrieve and send: #{method}"
         self.retrieve.send(method, *args)
       end
     end
