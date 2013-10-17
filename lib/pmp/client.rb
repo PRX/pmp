@@ -11,11 +11,11 @@ module PMP
     end
 
     def token(opts={})
-      PMP::Token.new(options.merge(opts)).get_token
+      @token ||= PMP::Token.new(options.merge(opts)).get_token
     end
 
-    def root(opts={}, &block)      
-      PMP::CollectionDocument.new(options.merge(opts), &block)
+    def root(opts={}, &block)
+      @root ||= PMP::CollectionDocument.new(options.merge(opts), &block)
     end
 
   end
