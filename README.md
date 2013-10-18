@@ -1,5 +1,7 @@
 # PMP gem
 
+[![Build Status](https://travis-ci.org/PRX/pmp.png)](https://travis-ci.org/PRX/pmp)
+
 Gem to make it easier to use the PMP API, which is a hypermedia API using the collection.doc+json format.
 
 https://github.com/publicmediaplatform/pmpdocs/wiki
