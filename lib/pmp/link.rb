@@ -25,9 +25,9 @@ module PMP
 
     attr_accessor :params
 
-    def initialize(parent=PMP::CollectionDocument.new, link={})
+    def initialize(parent=nil, link={})
       super()
-      self.parent = parent
+      self.parent = parent || PMP::CollectionDocument.new
       self.params = link.delete('params') || {}
       # puts "params: #{params.inspect}"
       parse_attributes(link)
@@ -66,7 +66,8 @@ module PMP
     def retrieve
       # puts "retrieve method: #{method}"
       # puts "retrieve url: #{url}"
-      parent.request((method || 'get').to_sym, url)
+      # response = parent.request((method || 'get').to_sym, url)
+      PMP::CollectionDocument.new(parent.options.merge(href: url))
     end
 
     def method_missing(method, *args)
@@ -74,10 +75,10 @@ module PMP
       # this is a method the link supports, call the link
       # if this is an assignment, assign to the link
       # if you want to assign to a linked doc(s), need to retrieve first
-      if self.respond_to?(method)
-        self.send(method, *args)
-      elsif method.to_s.last == '='
+      if method.to_s.last == '='
        super
+      elsif self.respond_to?(method)
+        self.send(method, *args)
       else
         # puts "mm retrieve and send: #{method}"
         self.retrieve.send(method, *args)

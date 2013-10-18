@@ -15,7 +15,8 @@ module PMP
     end
 
     def root(opts={}, &block)
-      @root ||= PMP::CollectionDocument.new(options.merge(opts), &block)
+      opts = options.merge(href: endpoint).merge(opts)
+      @root ||= PMP::CollectionDocument.new(opts, &block)
     end
 
   end

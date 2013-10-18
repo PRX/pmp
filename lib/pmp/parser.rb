@@ -71,12 +71,14 @@ module PMP
     end
 
     def parse_link(name, info)
-      if !info.is_a?(Array)
+      if ['query', 'edit', 'navigation'].include?(name.to_s)
+        parse_links_list(info)
+      elsif !info.is_a?(Array)
         Link.new(self, info)
       elsif info.size == 1
         Link.new(self, info.first)
-      elsif info.size > 0
-        parse_links_list(info)
+      elsif info.size > 0        
+        info.map{|l| Link.new(self, l)}
       end
     end
 

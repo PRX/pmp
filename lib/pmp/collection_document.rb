@@ -41,7 +41,7 @@ module PMP
       super()
 
       self.links    = PMP::Links.new(self)
-
+      self.version  = options.delete(:version) || '1.0'
       self.href     = options.delete(:href)
 
       # if there is a doc to be had, pull it out
@@ -50,11 +50,12 @@ module PMP
 
       apply_configuration(options)
 
-      if !loaded? && !href
-        self.href = endpoint
-      end
-
       yield(self) if block_given?
+    end
+
+    def items
+      load
+      @items
     end
 
     def attributes
@@ -77,28 +78,36 @@ module PMP
     end
 
     def load
-      if !loaded?
-        self.response = request(:get, self.href || self.self.url)
+      if !loaded? && href
+        self.response = request(:get, href)
         self.loaded = true
       end
     end
     alias_method :get, :load
 
     def save
-      save_link = self.edit
-      raise 'Edit link does not specify saving via put' unless (save_link && save_link.hints.allow.include?('PUT'))
       set_guid_if_blank
-      url = save_link.where(guid: self.guid).url
+
+      url = edit_link('PUT').where(guid: self.guid).url
       request(:put, url, self)
     end
 
     def delete
-      delete_link = self.edit
-      raise 'Edit link does not specify deleting' unless (delete_link && delete_link.hints.allow.include?('DELETE'))
       raise 'No guid specified to delete' if self.guid.blank?
 
-      url = delete_link.where(guid: self.guid).url
-      request(:put, url, self)
+      url = edit_link('DELETE').where(guid: self.guid).url
+      request(:delete, url)
+    end
+
+    def edit_link(method)
+      # first, need the root, use the endpoint
+      link = root_document.edit['urn:pmp:form:documentsave']
+      raise "Edit link does not specify saving via #{method}" unless (link && link.hints.allow.include?(method))
+      link
+    end
+
+    def root_document
+      PMP::CollectionDocument.new(options.merge(href: endpoint))
     end
 
     def loaded?
