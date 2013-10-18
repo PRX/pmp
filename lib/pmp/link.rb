@@ -31,22 +31,13 @@ module PMP
       self.params = link.delete('params') || {}
       # puts "params: #{params.inspect}"
       parse_attributes(link)
-    end
-
-    def href
-      self[:href]
-    end
-
-    def href_template
-      self[:href_template]
-    end
-
-    def method
-      self[:method]
+      [:href, :href_template, :method].each{|m| self.send("#{m}=", nil) unless respond_to?(m)}
     end
 
     def attributes
-      HashWithIndifferentAccess.new(marshal_dump)
+      attrs = HashWithIndifferentAccess.new(marshal_dump)
+      attrs.delete(attrs[:href_template].blank? ? :href_template : :href)
+      attrs
     end
 
     def where(params={})
@@ -75,7 +66,8 @@ module PMP
       # this is a method the link supports, call the link
       # if this is an assignment, assign to the link
       # if you want to assign to a linked doc(s), need to retrieve first
-      if method.to_s.last == '='
+      method_last = method.to_s.last
+      if method_last == '='
        super
       elsif self.respond_to?(method)
         self.send(method, *args)
