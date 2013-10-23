@@ -11,7 +11,7 @@ describe PMP::Link do
   before(:each) {
     @parent = Minitest::Mock.new
     @info = {'href' => 'http://api-sandbox.pmp.io/docs/'}
-    @link = PMP::Link.new(@parent, @info)
+    @link = PMP::Link.new(@info, @parent)
   }
 
   it "can create a new link" do
@@ -21,9 +21,9 @@ describe PMP::Link do
   it "has a parent" do
     @link = PMP::Link.new
     @link.parent.wont_be_nil
-
-    @link = PMP::Link.new({}, @info)
-    @link.parent.must_equal({})
+    parent = PMP::CollectionDocument.new
+    @link = PMP::Link.new(@info, parent)
+    @link.parent.must_equal(parent)
   end
 
   it "can save params to attributes" do
@@ -48,7 +48,7 @@ describe PMP::Link do
   end
 
   it "can get a link for templated href" do
-    @link = PMP::Link.new(@parent, query_document_info)
+    @link = PMP::Link.new(query_document_info, @parent)
     @link.hints.must_equal query_document_info['hints']
     @link.url.must_equal "https://api-sandbox.pmp.io/docs"
     @link.where('limit' => 10).url.must_equal "https://api-sandbox.pmp.io/docs?limit=10"
@@ -63,7 +63,7 @@ describe PMP::Link do
       with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api-sandbox.pmp.io:443'}).
       to_return(:status => 200, :body => link_doc, :headers => {})
 
-    @link = PMP::Link.new(nil, query_document_info)
+    @link = PMP::Link.new(query_document_info)
     docs = @link.where(limit: 10, tag: 'test')
     docs.must_be_instance_of PMP::Link
     guids = docs.items.collect(&:guid).sort

@@ -41,7 +41,7 @@ describe PMP::Parser do
   it "parses query links into a hash based on rels" do
     tc = TestParser.new
     tc.parse(json_fixture(:collection_root))
-    tc.query.must_be_instance_of Hash
+    tc.query.must_be_instance_of HashWithIndifferentAccess
     tc.query.keys.sort.must_equal ["urn:pmp:hreftpl:docs", "urn:pmp:hreftpl:profiles", "urn:pmp:hreftpl:schemas", "urn:pmp:query:docs", "urn:pmp:query:groups", "urn:pmp:query:guids", "urn:pmp:query:users"]
   end
 

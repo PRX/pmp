@@ -19,5 +19,13 @@ module PMP
       @root ||= PMP::CollectionDocument.new(opts, &block)
     end
 
+    # def new_of_type(type)
+    #   doc = PMP::CollectionDocument.new(options)
+    #   profile = Link.new
+    #   profile.href = 
+    #   doc.links['profile'] = Link.new
+
+    # end
+
   end
 end

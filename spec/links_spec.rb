@@ -8,8 +8,9 @@ require 'pmp/links'
 describe PMP::Links do
 
   before(:each) {
-    @parent = Minitest::Mock.new    
+    @parent = PMP::CollectionDocument.new
     @links = PMP::Links.new(@parent)
+    @parent.links = @links
   }
 
   it "can create a new links obj" do
@@ -23,9 +24,9 @@ describe PMP::Links do
 
   it "can have a link assigned" do
     link = {}
-    @parent.expect(:foo=, link, Array(Object))
     @links['foo'] = link
     @links['foo'].must_equal link
+    @parent.foo.must_equal link
   end
 
 end

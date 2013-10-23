@@ -63,7 +63,7 @@ module PMP
 
     def parse_links(document)
       Array(document).each do |k,v|
-        link = parse_link(k,v)        
+        link = parse_link(k,v)
         if link
           self.links[k] = link
         end
@@ -74,18 +74,18 @@ module PMP
       if ['query', 'edit', 'navigation'].include?(name.to_s)
         parse_links_list(info)
       elsif !info.is_a?(Array)
-        Link.new(self, info)
+        Link.new(info)
       elsif info.size == 1
-        Link.new(self, info.first)
+        Link.new(info.first)
       elsif info.size > 0        
-        info.map{|l| Link.new(self, l)}
+        info.map{|l| Link.new(l)}
       end
     end
 
     def parse_links_list(links)
       links.inject({}) do |results, query|
         rel = query['rels'].first
-        results[rel] = Link.new(self, query)
+        results[rel] = Link.new(query)
         results
       end
     end

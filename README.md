@@ -110,7 +110,7 @@ doc.title = "this is another awesome example, cool?"
 doc.adding_an_attribute = "this will get saved as a new attribute adding-an-attribute"
 
 # can add links (doesn't check schema yet)
-doc.links['some-new-link'] = PMP::Link.new(doc, {href:'http://somenewlink.io'})
+doc.links['some-new-link'] = PMP::Link.new({href:'http://somenewlink.io'})
 new_link = doc.some_new_link
 
 # save changes

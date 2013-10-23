@@ -25,9 +25,9 @@ module PMP
 
     attr_accessor :params
 
-    def initialize(parent=nil, link={})
+    def initialize(link={}, parent=nil)
       super()
-      self.parent = parent || PMP::CollectionDocument.new
+      self.parent = parent || link.delete('parent') || PMP::CollectionDocument.new
       self.params = link.delete('params') || {}
       # puts "params: #{params.inspect}"
       parse_attributes(link)
@@ -41,7 +41,7 @@ module PMP
     end
 
     def where(params={})
-      self.class.new(parent, attributes.merge({'params'=>params}))
+      self.class.new(attributes.merge({'params'=>params}), parent)
     end
 
     def as_json

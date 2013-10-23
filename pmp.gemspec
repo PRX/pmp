@@ -27,7 +27,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency('guard-bundler')
   gem.add_development_dependency('guard-minitest')
   gem.add_development_dependency('simplecov')
-  gem.add_development_dependency('simplecov-gem-adapter')
 
   gem.add_runtime_dependency('faraday')
   gem.add_runtime_dependency('faraday_middleware')

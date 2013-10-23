@@ -140,7 +140,7 @@ describe PMP::CollectionDocument do
 
     it "should get the list of query links" do
       queries = @doc.query
-      queries.must_be_instance_of Hash
+      queries.must_be_instance_of HashWithIndifferentAccess
     end
 
     it "should get a query by rels" do
@@ -157,6 +157,13 @@ describe PMP::CollectionDocument do
       doc.guid.must_be_nil
       doc.set_guid_if_blank
       doc.guid.wont_be_nil
+    end
+
+    it "can add a new link" do
+      doc = PMP::CollectionDocument.new
+      link = PMP::Link.new(href: 'http://pmp.io/test')
+      doc.links['test'] = link
+      doc.test.must_equal link
     end
 
     it "can save a new record" do
