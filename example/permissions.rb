@@ -42,12 +42,12 @@ puts "Step 1 complete: organizations: #{organzations.to_json}\n\n"
 # ------------------------------------------------------------------------------
 # Step 2: Make 4 permission groups, 0:[0,1], 1:[0], 2:[1], and an empty group 3:[]
 # ------------------------------------------------------------------------------
-orgs = [ [0,1], [0], [1], [] ]
-permission_groups = (0..2).map do |index|
+group_orgs = [ [0,1], [0], [1], [] ]
+permission_groups = group_orgs.each_with_index do |orgs, index|
   group = pmp.doc_of_type('group')
   group.tags = ['pmp_example_permissions']
   group.title = "pmp ruby example, permissions: permission group #{index}"
-  group.links['item'] = orgs[index].map{|o| PMP::Link(href: organization[o].href)} if (orgs[index].size > 0)
+  group.links['item'] = orgs.map{|o| PMP::Link(href: organization[o].href)} if (orgs.size > 0)
   group.save
   group
 end
