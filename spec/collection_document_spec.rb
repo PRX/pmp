@@ -177,12 +177,13 @@ describe PMP::CollectionDocument do
       # stub saving the new doc
       stub_request(:put, "https://publish-sandbox.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42").
         with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'publish-sandbox.pmp.io:443'}).
-        to_return(:status => 200, :body => '{"url":"https://publish-sandbox.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42"}')
+        to_return(:status => 200, :body => '{"url":"https://api-sandbox.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42"}')
 
-      doc = PMP::CollectionDocument.new
+      doc = PMP::CollectionDocument.new(oauth_token: 'thisisatestvalueonly')
       doc.guid = "c144e4df-021b-41e6-9cf3-42ac49bcbd42"
       doc.title = "testing"
       doc.save
+      doc.href.must_equal "https://api-sandbox.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42"
     end
 
     it "can delete a record" do
@@ -197,7 +198,7 @@ describe PMP::CollectionDocument do
         with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'publish-sandbox.pmp.io:443'}).
         to_return(:status => 204, :body => "", :headers => {})
 
-      doc = PMP::CollectionDocument.new
+      doc = PMP::CollectionDocument.new(oauth_token: 'thisisatestvalueonly')
       doc.guid = "c144e4df-021b-41e6-9cf3-42ac49bcbd42"
       doc.delete
     end

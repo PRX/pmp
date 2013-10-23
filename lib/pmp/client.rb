@@ -19,13 +19,17 @@ module PMP
       @root ||= PMP::CollectionDocument.new(opts, &block)
     end
 
-    # def new_of_type(type)
-    #   doc = PMP::CollectionDocument.new(options)
-    #   profile = Link.new
-    #   profile.href = 
-    #   doc.links['profile'] = Link.new
+    def doc_of_type(type)
+      doc = PMP::CollectionDocument.new(options)
+      doc.links['profile'] = Link.new(href: profile_href_for_type(type), type: "application/vnd.pmp.collection.doc+json")
+      doc
+    end
 
-    # end
+    # private
+
+    def profile_href_for_type(type)
+      "#{endpoint}profiles/#{type}"
+    end
 
   end
 end

@@ -5,7 +5,7 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 describe PMP::Client do
 
   before(:each) {
-    @pmp = PMP::Client.new
+    @pmp = PMP::Client.new(oauth_token: 'thisisatestvalueonly')
   }
 
   it "make with options and pass along" do
@@ -30,6 +30,15 @@ describe PMP::Client do
 
     @root = @pmp.root
     @root.creator.must_be_instance_of PMP::Link
+  end
+
+  it "creates profile uri for type" do
+    @pmp.profile_href_for_type('foo').must_equal("https://api.pmp.io/profiles/foo")
+  end
+
+  it "makes a doc of a profile type" do
+    user = @pmp.doc_of_type('user')
+    user.links['profile'].href.must_equal "https://api.pmp.io/profiles/user"
   end
 
 end

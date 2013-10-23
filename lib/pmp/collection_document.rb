@@ -87,9 +87,9 @@ module PMP
 
     def save
       set_guid_if_blank
-
       url = edit_link('PUT').where(guid: self.guid).url
-      request(:put, url, self)
+      response = request(:put, url, self)
+      self.href = response.body['url']
     end
 
     def delete
@@ -114,8 +114,18 @@ module PMP
       !!self.loaded
     end
 
+    def setup_oauth_token
+      if !oauth_token
+        token = PMP::Token.new(options).get_token
+        self.oauth_token = token.token
+      end
+    end
+
     # url includes any params - full url
     def request(method, url, body=nil) # :nodoc:
+
+      setup_oauth_token
+
       raw = connection(options.merge({url: url})).send(method) do |request|
         if [:post, :put].include?(method.to_sym) && !body.blank?
           request.body = body.is_a?(String) ? body : body.to_json

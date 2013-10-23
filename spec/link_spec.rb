@@ -9,7 +9,7 @@ require 'webmock/minitest'
 describe PMP::Link do
 
   before(:each) {
-    @parent = Minitest::Mock.new
+    @parent = PMP::CollectionDocument.new(oauth_token:'thisisnotarealtoken')
     @info = {'href' => 'http://api-sandbox.pmp.io/docs/'}
     @link = PMP::Link.new(@info, @parent)
   }
@@ -63,7 +63,7 @@ describe PMP::Link do
       with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api-sandbox.pmp.io:443'}).
       to_return(:status => 200, :body => link_doc, :headers => {})
 
-    @link = PMP::Link.new(query_document_info)
+    @link = PMP::Link.new(query_document_info, @parent)
     docs = @link.where(limit: 10, tag: 'test')
     docs.must_be_instance_of PMP::Link
     guids = docs.items.collect(&:guid).sort
