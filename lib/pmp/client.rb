@@ -11,14 +11,17 @@ module PMP
     end
 
     def credentials(opts={})
+      @credentials = nil if (opts != {})
       @credentials ||= PMP::Credential.new(options.merge(opts))
     end
 
     def token(opts={})
+      @token = nil if (opts != {})
       @token ||= PMP::Token.new(options.merge(opts)).get_token
     end
 
     def root(opts={})
+      @root = nil if (opts != {})
       opts = options.merge(href: endpoint).merge(opts)
       @root ||= PMP::CollectionDocument.new(opts)
     end
@@ -33,6 +36,11 @@ module PMP
 
     def profile_href_for_type(type)
       "#{endpoint}profiles/#{type}"
+    end
+
+    # assume you want to make a call on the root doc for stuff it can do
+    def method_missing(method, *args)
+      self.root.send(method, *args)
     end
 
   end

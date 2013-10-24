@@ -21,7 +21,6 @@ describe PMP::Client do
   end
 
   it "root doc can be loaded" do
-
     root_doc =  json_file(:collection_root)
 
     stub_request(:get, "https://api.pmp.io/").
@@ -31,6 +30,17 @@ describe PMP::Client do
     @root = @pmp.root
     @root.creator.must_be_instance_of PMP::Link
   end
+
+  it "calls the root doc when client does not have method" do
+    root_doc =  json_file(:collection_root)
+
+    stub_request(:get, "https://api.pmp.io/").
+      with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
+      to_return(:status => 200, :body => root_doc, :headers => {})
+
+    @pmp.creator.must_be_instance_of PMP::Link    
+  end
+
 
   it "gets a credentials object" do
     @pmp.credentials.wont_be_nil
