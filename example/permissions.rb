@@ -24,11 +24,11 @@ pmp = PMP::Client.new(client_id: client_id, client_secret: client_secret, endpoi
 # ------------------------------------------------------------------------------
 organizations = (0..2).map do |index|
   # make a new 'organization' of profile type user
-  org = pmp.doc_of_type('user')
-
+  org       = pmp.doc_of_type('user')
+  
   org.title = "pmp ruby example, permissions: org #{index}"
-  org.tags = ['pmp_example_permissions']
-  org.auth = {
+  org.tags  = ['pmp_example_permissions']
+  org.auth  = {
     user:     "pmp_ruby_org_#{index}",
     password: SecureRandom.uuid,
     scope:    'write'
@@ -43,13 +43,48 @@ puts "Step 1 complete: organizations: #{organzations.to_json}\n\n"
 # Step 2: Make 4 permission groups, 0:[0,1], 1:[0], 2:[1], and an empty group 3:[]
 # ------------------------------------------------------------------------------
 group_orgs = [ [0,1], [0], [1], [] ]
-permission_groups = group_orgs.each_with_index do |orgs, index|
-  group = pmp.doc_of_type('group')
-  group.tags = ['pmp_example_permissions']
-  group.title = "pmp ruby example, permissions: permission group #{index}"
+permission_groups = group_orgs.collect do |orgs|
+  group               = pmp.doc_of_type('group')
+  group.tags          = ['pmp_example_permissions']
+  group.title         = "pmp ruby example, permissions: permission group #{orgs.inspect}"
   group.links['item'] = orgs.map{|o| PMP::Link(href: organization[o].href)} if (orgs.size > 0)
   group.save
   group
 end
 
 puts "Step 2 complete: permission_groups: #{permission_groups.to_json}\n\n"
+
+# ------------------------------------------------------------------------------
+# Step 3: Make docs to be protected
+# ------------------------------------------------------------------------------
+documents = (0..3).collect do |index|
+  doc = pmp.doc_of_type('story')
+  doc.tags  = ['pmp_example_permissions']
+  doc.title = "pmp ruby example, permissions: story #{index}"
+end
+
+documents[0].links['permission'] = { href: permission_groups[0].href, operation: 'read' }
+
+documents[1].links['permission'] = [
+  {
+    href: permission_groups[2].href,
+    operation: 'read',
+    blacklist: true
+  },
+  {
+    href: permission_groups[1].href,
+    operation: 'read'
+  },
+]
+
+documents[3].links['permission'] = { href: permission_groups[3].href, operation: 'read' }
+
+documents.each{|d| d.save }
+
+
+# ------------------------------------------------------------------------------
+# Step 4: Make credentials for each org
+# ------------------------------------------------------------------------------
+credentials = organizations.map do |org|
+  pmp.credentials.create(user: org.auth['user'], password: org.auth['password'])
+end
