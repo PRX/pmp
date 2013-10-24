@@ -1,7 +1,11 @@
 # -*- encoding: utf-8 -*-
 
 require 'simplecov'
+require 'coveralls'
+
 SimpleCov.command_name 'Unit Tests'
+SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
+# SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 SimpleCov.start
 
 require 'minitest'

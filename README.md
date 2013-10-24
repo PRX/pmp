@@ -1,6 +1,7 @@
 # PMP gem
 
 [![Build Status](https://travis-ci.org/PRX/pmp.png)](https://travis-ci.org/PRX/pmp)
+[![Coverage Status](https://coveralls.io/repos/PRX/pmp/badge.png)](https://coveralls.io/r/PRX/pmp)
 
 Gem to make it easier to use the PMP API, which is a hypermedia API using the collection.doc+json format.
 
