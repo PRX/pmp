@@ -16,6 +16,7 @@ require 'pmp/link'
 require 'pmp/collection_document'
 
 require 'pmp/token'
+require 'pmp/credential'
 require 'pmp/client'
 
 module PMP

@@ -20,7 +20,13 @@ module PMP
     def connection(options={})
       opts = process_options(options)
       Faraday::Connection.new(opts) do |faraday|
-        faraday.request :authorization, 'Bearer', opts[:oauth_token] unless opts[:oauth_token].nil?
+
+        if opts[:basic] && opts[:user] && opts[:password]
+          faraday.request :basic_auth, opts[:user], opts[:password]
+        elsif opts[:oauth_token]
+          faraday.request :authorization, 'Bearer', opts[:oauth_token]
+        end
+
         faraday.request :url_encoded
         faraday.request :multipart
 

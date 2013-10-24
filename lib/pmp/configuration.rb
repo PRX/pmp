@@ -8,6 +8,8 @@ module PMP
     extend ActiveSupport::Concern
 
     VALID_OPTIONS_KEYS = [
+      :user,
+      :password,
       :client_id,
       :client_secret,
       :oauth_token,

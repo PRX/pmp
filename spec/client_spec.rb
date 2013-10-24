@@ -32,6 +32,35 @@ describe PMP::Client do
     @root.creator.must_be_instance_of PMP::Link
   end
 
+  it "gets a credentials object" do
+    @pmp.credentials.wont_be_nil
+  end
+
+  it "gets a token object" do
+
+    access_token = "thisisnotanaccesstokenno"
+    response_body = {
+      access_token: access_token,
+      token_type: "Bearer",
+      token_issue_date: DateTime.now,
+      token_expires_in: 24*60*60
+    }.to_json
+
+    stub_request(:post, "https://api.pmp.io/auth/access_token").
+      with(:body => {"grant_type"=>"client_credentials"},
+           :headers => {'Accept'=>'application/json', 'Authorization'=>'Basic dGhpc2lzbm90YS1yZWFsLWNsaWVudC1pZC1zb3Zlcnlzb3JyeTp0aGlzaXNub3RhcmVhbHNlY3JldGVpdGhlcg==', 'Content-Type'=>'application/x-www-form-urlencoded', 'Host'=>'api.pmp.io:443'}).
+      to_return(:status => 200, :body => response_body, :headers => {'Content-Type' => 'application/json; charset=utf-8'})
+
+
+
+    client_id = "thisisnota-real-client-id-soverysorry"
+    client_secret = "thisisnotarealsecreteither"
+
+    pmp = PMP::Client.new(client_id: client_id, client_secret: client_secret)
+
+    pmp.token.wont_be_nil
+  end
+
   it "creates profile uri for type" do
     @pmp.profile_href_for_type('foo').must_equal("https://api.pmp.io/profiles/foo")
   end
