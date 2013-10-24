@@ -3,12 +3,12 @@
 require 'simplecov'
 require 'coveralls'
 
-Coveralls.wear!
-
 SimpleCov.command_name 'Unit Tests'
-SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
 SimpleCov.start
-
 
 require 'minitest'
 require 'minitest/autorun'
