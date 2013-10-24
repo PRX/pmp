@@ -167,6 +167,15 @@ describe PMP::CollectionDocument do
       queries["urn:pmp:query:docs"].must_be_instance_of PMP::Link
     end
 
+    it "should handle 404 results on a search" do
+
+      stub_request(:get, "https://api-sandbox.pmp.io/docs").
+        with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Authorization'=>'Bearer thisisatesttoken', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api-sandbox.pmp.io:443', 'User-Agent'=>'PMP Ruby Gem 0.2.0'}).
+        to_return(:status=>404, :body=>"Not Found", :remote_ip=>"107.20.158.113", :headers=>{"Access-Control-Allow-Headers"=>"origin, x-http-method-override, accept, content-type, authorization, x-pingother", "Access-Control-Allow-Methods"=>"GET,OPTIONS,HEAD,PUT,POST,DELETE,PATCH", "Access-Control-Allow-Origin"=>"*", "Content-Type"=>"application/vnd.pmp.collection.doc+json", "Date"=>"Thu, 24 Oct 2013 17:20:04 GMT", "Vary"=>"Accept-Encoding", "X-Powered-By"=>"Express", "X-Response-Time"=>"18ms", "Content-Length"=>"9", "Connection"=>"keep-alive"})
+
+      @doc.query["urn:pmp:query:docs"].items.must_equal []
+    end
+
   end
 
   describe 'persistence' do

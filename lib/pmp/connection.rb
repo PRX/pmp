@@ -30,12 +30,13 @@ module PMP
           faraday.request :authorization, 'Bearer', opts[:oauth_token]
         end
 
-        faraday.request :url_encoded
         faraday.request :multipart
+        faraday.request :url_encoded
 
         faraday.response :mashify
         faraday.response :logger if opts[:debug]
         faraday.response :json
+        faraday.response :raise_error
 
         faraday.adapter opts[:adapter]
       end

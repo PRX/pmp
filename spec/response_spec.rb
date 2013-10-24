@@ -18,15 +18,15 @@ describe PMP::Response do
     response = PMP::Response.new(@raw, @request)
   end
 
-  it "can raise an error" do
-    raw = Minitest::Mock.new
-    raw.expect(:status, 500).expect(:status, 500)
-    proc{ PMP::Response.new(raw, @request) }.must_raise RuntimeError
+  # it "can raise an error" do
+  #   raw = Minitest::Mock.new
+  #   raw.expect(:status, 500).expect(:status, 500)
+  #   proc{ PMP::Response.new(raw, @request) }.must_raise RuntimeError
 
-    raw = Minitest::Mock.new
-    raw.expect(:status, 600).expect(:status, 600)
-    proc{ PMP::Response.new(raw, @request) }.must_raise RuntimeError
-  end
+  #   raw = Minitest::Mock.new
+  #   raw.expect(:status, 600).expect(:status, 600)
+  #   proc{ PMP::Response.new(raw, @request) }.must_raise RuntimeError
+  # end
 
   it "can return body" do
     @raw.expect(:body, {foo: 'bar'})

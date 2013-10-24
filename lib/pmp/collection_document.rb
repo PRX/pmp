@@ -55,7 +55,7 @@ module PMP
 
     def items
       load
-      @items
+      @items ||= []
     end
 
     def attributes
@@ -126,9 +126,17 @@ module PMP
 
       setup_oauth_token
 
-      raw = connection(options.merge({url: url})).send(method) do |request|
-        if [:post, :put].include?(method.to_sym) && !body.blank?
-          request.body = body.is_a?(String) ? body : body.to_json
+      begin
+        raw = connection(options.merge({url: url})).send(method) do |request|
+          if [:post, :put].include?(method.to_sym) && !body.blank?
+            request.body = body.is_a?(String) ? body : body.to_json
+          end
+        end
+      rescue Faraday::Error::ResourceNotFound=>not_found_ex
+        if (method.to_sym == :get)
+          raw = OpenStruct.new(body: nil, status: 404)
+        else
+          raise not_found_ex
         end
       end
 
