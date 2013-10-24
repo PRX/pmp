@@ -74,12 +74,6 @@ module PMP
       self
     end
 
-    def options
-      options = {}
-      VALID_OPTIONS_KEYS.each { |k| options[k] = send(k) }
-      options
-    end
-
     module ClassMethods
 
       def keys

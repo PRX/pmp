@@ -14,6 +14,9 @@ module PMP
       :adapter,
       :ssl,
       :oauth_token,
+      :basic_auth,
+      :user,
+      :password,
       :debug
     ].freeze
 
@@ -21,7 +24,7 @@ module PMP
       opts = process_options(options)
       Faraday::Connection.new(opts) do |faraday|
 
-        if opts[:basic] && opts[:user] && opts[:password]
+        if opts[:basic_auth] && opts[:user] && opts[:password]
           faraday.request :basic_auth, opts[:user], opts[:password]
         elsif opts[:oauth_token]
           faraday.request :authorization, 'Bearer', opts[:oauth_token]

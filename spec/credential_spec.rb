@@ -12,6 +12,11 @@ describe PMP::Credential do
     @credential = PMP::Credential.new(user: "test", password: "password", endpoint: "https://api-sandbox.pmp.io/")
   }
 
+  it "has the user and password in the config" do
+    @credential.user.must_equal 'test'
+    @credential.password.must_equal 'password'
+  end
+
   it "gets the base path for this subclass of API" do
     credential = PMP::Credential.new
     credential.credentials_url.must_equal "https://api.pmp.io/auth/credentials"
@@ -27,7 +32,7 @@ describe PMP::Credential do
                             
     stub_request(:post, "https://api-sandbox.pmp.io/auth/credentials").
       with(:body => {"label"=>"what", "scope"=>"read", "token_expires_in"=>"2592000"},
-           :headers => {'Accept'=>'*/*', 'Content-Type'=>'application/x-www-form-urlencoded', 'Host'=>'api-sandbox.pmp.io:443'}).
+           :headers => {'Accept'=>'*/*', 'Authorization'=>'Basic dGVzdDpwYXNzd29yZA==', 'Content-Type'=>'application/x-www-form-urlencoded', 'Host'=>'api-sandbox.pmp.io:443'}).
       to_return(:status => 200, :body => response_body, :headers => {})
 
     new_creds = @credential.create(label: 'what')
@@ -55,9 +60,9 @@ describe PMP::Credential do
       ]
     }.to_json
 
-  stub_request(:get, "https://api-sandbox.pmp.io/auth/credentials").
-    with(:headers => {'Accept'=>'*/*', 'Host'=>'api-sandbox.pmp.io:443'}).
-    to_return(:status => 200, :body => response_body, :headers => {})
+    stub_request(:get, "https://api-sandbox.pmp.io/auth/credentials").
+      with(:headers => {'Accept'=>'*/*', 'Authorization'=>'Basic dGVzdDpwYXNzd29yZA==', 'Content-Type'=>'', 'Host'=>'api-sandbox.pmp.io:443'}).
+      to_return(:status => 200, :body => response_body, :headers => {})
     
     all_creds = @credential.list
   end

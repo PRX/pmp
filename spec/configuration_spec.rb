@@ -15,28 +15,36 @@ end
 describe PMP::Configuration do
 
   before {
+    @tc = TestConfiguration.new
     @client_id     = ENV['PMP_API_KEY']    || "pmp-test-key"
     @client_secret = ENV['PMP_API_SECRET'] || "pmp-test-secret"
   }
 
   it "is initialized with defaults" do
-    tc = TestConfiguration.new
-    tc.options.wont_be_nil
-    tc.options.keys.sort.must_equal PMP::Configuration::VALID_OPTIONS_KEYS.sort
-    tc.options[:endpoint].must_equal PMP::Configuration::DEFAULT_ENDPOINT
+    @tc.options.wont_be_nil
+    @tc.options.keys.sort.must_equal PMP::Configuration::VALID_OPTIONS_KEYS.sort
+    @tc.options[:endpoint].must_equal PMP::Configuration::DEFAULT_ENDPOINT
+  end
+
+  it "can use block to configure" do
+    @tc.endpoint.wont_equal 'foo'
+    @tc.configure {|c| c.endpoint = 'foo'}
+    @tc.endpoint.must_equal 'foo'
+  end
+
+  it "can provide a list of keys" do
+    TestConfiguration.keys.must_be_instance_of Array
   end
 
   it "can access configuration methods" do
-    tc = TestConfiguration.new
-    tc.endpoint.must_equal PMP::Configuration::DEFAULT_ENDPOINT
+    @tc.endpoint.must_equal PMP::Configuration::DEFAULT_ENDPOINT
   end
 
   it "can change config and see reflected in options" do
-    tc = TestConfiguration.new
-    tc.endpoint.must_equal PMP::Configuration::DEFAULT_ENDPOINT
-    tc.endpoint = 'test'
-    tc.endpoint.must_equal 'test'
-    tc.options[:endpoint].must_equal 'test'
+    @tc.endpoint.must_equal PMP::Configuration::DEFAULT_ENDPOINT
+    @tc.endpoint = 'test'
+    @tc.endpoint.must_equal 'test'
+    @tc.options[:endpoint].must_equal 'test'
   end
 
   it "is initialized with specific values" do
