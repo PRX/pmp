@@ -100,6 +100,25 @@ describe PMP::CollectionDocument do
       @doc.oauth_token.must_equal 'thisisatesttoken'
     end
 
+    it "should should get oauth_token if missing" do
+
+      response_body = {
+        access_token: 'thisisalsoatesttoken',
+        token_type: "Bearer",
+        token_issue_date: DateTime.now,
+        token_expires_in: 24*60*60
+      }.to_json
+
+      stub_request(:post, "https://api.pmp.io/auth/access_token").
+        with(:body => {"grant_type"=>"client_credentials"},
+             :headers => {'Accept'=>'application/json', 'Authorization'=>'Basic Og==', 'Content-Type'=>'application/x-www-form-urlencoded', 'Host'=>'api.pmp.io:443'}).
+        to_return(:status => 200, :body => response_body, :headers => {'Content-Type' => 'application/json; charset=utf-8'})
+
+      @doc.oauth_token = nil
+      @doc.setup_oauth_token
+      @doc.oauth_token.must_equal 'thisisalsoatesttoken'
+    end
+
     it "should load" do
       @doc.wont_be :loaded
       @doc.load
