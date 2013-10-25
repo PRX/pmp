@@ -25,21 +25,23 @@ module PMP
       opts = process_options(options)
       Faraday::Connection.new(opts) do |faraday|
 
-        if opts[:basic_auth] && opts[:user] && opts[:password]
-          faraday.request :basic_auth, opts[:user], opts[:password]
-        elsif opts[:oauth_token]
-          faraday.request :authorization, opts[:token_type], opts[:oauth_token]
-        end
+        add_request_auth(opts, faraday)
 
-        faraday.request :multipart
-        faraday.request :url_encoded
+        [:multipart, :url_encoded].each{|mw| faraday.request(mw) }
 
-        faraday.response :mashify
-        faraday.response :json
-        faraday.response :raise_error
+        [:mashify, :json, :raise_error].each{|mw| faraday.response(mw) }
+
         faraday.response :logger if opts[:debug]
 
         faraday.adapter opts[:adapter]
+      end
+    end
+
+    def add_request_auth(opts, faraday)
+      if opts[:basic_auth] && opts[:user] && opts[:password]
+        faraday.request :basic_auth, opts[:user], opts[:password]
+      elsif opts[:oauth_token]
+        faraday.request :authorization, opts[:token_type], opts[:oauth_token]
       end
     end
 

@@ -28,6 +28,12 @@ describe PMP::Parser do
     tc.parse(nil)
   end
 
+  it "will parse links without array comtainer" do
+    tc = TestParser.new
+    tc.parse(json_fixture(:collection_links))
+    tc.links['self'].href.must_equal "http://api-sandbox.pmp.io/docs/f84e9018-5c21-4b32-93f8-d519308620f0"
+  end
+
   it "will un-parse to hash for json serialization" do
     tc = TestParser.new
     tc.parse(json_fixture(:collection_basic))
@@ -45,5 +51,13 @@ describe PMP::Parser do
     tc.query.keys.sort.must_equal ["urn:pmp:hreftpl:docs", "urn:pmp:hreftpl:profiles", "urn:pmp:hreftpl:schemas", "urn:pmp:query:docs", "urn:pmp:query:groups", "urn:pmp:query:guids", "urn:pmp:query:users"]
   end
 
+  it "will unparse links" do
+    tc = TestParser.new
+    tc.parse(json_fixture(:collection_root))
+    tc.links['test1'] = PMP::Link.new(href: 'https://api-sandbox.pmp.io/test1')
+    tc.links['test2'] = [PMP::Link.new(href: 'https://api-sandbox.pmp.io/test2a'), PMP::Link.new(href: 'https://api-sandbox.pmp.io/test2b')]
+    hash = tc.as_json
+    hash['links'].keys.sort.must_equal ["creator", "edit", "navigation", "query", "test1", "test2"]
+  end
 
 end

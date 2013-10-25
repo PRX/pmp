@@ -194,7 +194,26 @@ describe PMP::CollectionDocument do
       doc.test.must_equal link
     end
 
-    it "can save a new record" do
+    it "can save a record" do
+
+      # stub getting the root doc
+      root_doc =  json_file(:collection_root)
+      stub_request(:get, "https://api.pmp.io/").
+        with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
+        to_return(:status => 200, :body => root_doc, :headers => {})
+
+      # stub saving the new doc
+      stub_request(:put, "https://publish-sandbox.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42").
+        with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'publish-sandbox.pmp.io:443'}).
+        to_return(:status => 404, :body => '{"error":"FAIL"}')
+
+      doc = PMP::CollectionDocument.new(oauth_token: 'thisisatestvalueonly')
+      doc.guid = "c144e4df-021b-41e6-9cf3-42ac49bcbd42"
+      doc.title = "testing"
+      proc{ doc.save }.must_raise Faraday::Error::ResourceNotFound
+    end
+
+    it "should handle 404 results on a save" do
 
       # stub getting the root doc
       root_doc =  json_file(:collection_root)
@@ -212,6 +231,11 @@ describe PMP::CollectionDocument do
       doc.title = "testing"
       doc.save
       doc.href.must_equal "https://api-sandbox.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42"
+
+      doc.title.must_equal "testing"
+      doc.title = "testing an update"
+      doc.save
+      doc.title.must_equal "testing an update"
     end
 
     it "can delete a record" do

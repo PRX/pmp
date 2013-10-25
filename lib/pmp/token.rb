@@ -36,13 +36,13 @@ module PMP
     def connection_options(opts={})
       headers = opts.delete(:headers) || {}
       options = {
-        :headers => {
+        headers: {
           'User-Agent'   => opts[:user_agent],
           'Accept'       => 'application/json',
           'Content-Type' => 'application/x-www-form-urlencoded'
         },
-        :ssl => {:verify => false},
-        :url => opts[:endpoint]
+        ssl: {:verify => false},
+        url: opts[:endpoint]
       }.merge(opts)
       options[:headers] = options[:headers].merge(headers)
 

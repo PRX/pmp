@@ -69,8 +69,6 @@ module PMP
       method_last = method.to_s.last
       if method_last == '='
        super
-      elsif self.respond_to?(method)
-        self.send(method, *args)
       else
         # puts "mm retrieve and send: #{method}"
         self.retrieve.send(method, *args)
