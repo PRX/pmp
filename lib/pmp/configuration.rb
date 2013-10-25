@@ -38,20 +38,26 @@ module PMP
 
     included do
 
-      attr_accessor :options
+      attr_accessor :current_options
 
       VALID_OPTIONS_KEYS.each do |key|
         define_method "#{key}=" do |arg|
           self.instance_variable_set("@#{key}", arg)
-          self.options.merge!({:"#{key}" => arg})
+          self.current_options.merge!({:"#{key}" => arg})
         end
       end
 
     end
 
+    def options
+      options = {}
+      VALID_OPTIONS_KEYS.each { |k| options[k] = send(k) }
+      options
+    end
+
     def apply_configuration(opts={})
-      reset! unless @options
-      self.options = options.merge(opts)
+      options = PMP.options.merge(opts)
+      self.current_options = options
       VALID_OPTIONS_KEYS.each do |key|
         send("#{key}=", options[key])
       end
@@ -72,6 +78,10 @@ module PMP
       self.user_agent    = DEFAULT_USER_AGENT
       self.debug         = ENV['DEBUG']
       self
+    end
+
+    def self.extended(base)
+      base.reset!
     end
 
     module ClassMethods

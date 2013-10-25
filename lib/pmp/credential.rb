@@ -41,7 +41,7 @@ module PMP
         'Content-Type' => [:put, :post].include?(method) ? "application/x-www-form-urlencoded" : nil
       }
 
-      conn_opts = options.merge({headers: headers, basic_auth: true})
+      conn_opts = current_options.merge({headers: headers, basic_auth: true})
 
       raw = connection(conn_opts).send(method, url, body)
       PMP::Response.new(raw, {method: method, url: url, body: body})

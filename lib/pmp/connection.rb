@@ -34,9 +34,9 @@ module PMP
         faraday.request :url_encoded
 
         faraday.response :mashify
-        faraday.response :logger if opts[:debug]
         faraday.response :json
         faraday.response :raise_error
+        faraday.response :logger if opts[:debug]
 
         faraday.adapter opts[:adapter]
       end

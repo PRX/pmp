@@ -44,7 +44,7 @@ module PMP
       self.class.new(attributes.merge({'params'=>params}), parent)
     end
 
-    def as_json
+    def as_json(options={})
       extract_attributes
     end
 
@@ -58,7 +58,7 @@ module PMP
       # puts "retrieve method: #{method}"
       # puts "retrieve url: #{url}"
       # response = parent.request((method || 'get').to_sym, url)
-      PMP::CollectionDocument.new(parent.options.merge(href: url))
+      @doc ||= PMP::CollectionDocument.new(parent.options.merge(href: url, root: parent.root))
     end
 
     def method_missing(method, *args)

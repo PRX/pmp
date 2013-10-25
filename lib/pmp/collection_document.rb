@@ -39,16 +39,17 @@ module PMP
     # TODO: check if this is a json string or hash, for now assume it has been mashified
     def initialize(options={}, &block)
       super()
+      apply_configuration(options)
+
+      self.root     = current_options.delete(:root)
+      self.href     = current_options.delete(:href)
+      self.version  = current_options.delete(:version) || '1.0'
 
       self.links    = PMP::Links.new(self)
-      self.version  = options.delete(:version) || '1.0'
-      self.href     = options.delete(:href)
 
       # if there is a doc to be had, pull it out
-      self.response = options.delete(:response)
-      self.original = options.delete(:document)
-
-      apply_configuration(options)
+      self.response = current_options.delete(:response)
+      self.original = current_options.delete(:document)
 
       yield(self) if block_given?
     end
@@ -100,14 +101,21 @@ module PMP
     end
 
     def edit_link(method)
-      # first, need the root, use the endpoint
       link = root_document.edit['urn:pmp:form:documentsave']
       raise "Edit link does not specify saving via #{method}" unless (link && link.hints.allow.include?(method))
       link
     end
 
+    def root
+      @root
+    end
+
+    def root=(r)
+      @root
+    end
+
     def root_document
-      PMP::CollectionDocument.new(options.merge(href: endpoint))
+      @root ||= PMP::CollectionDocument.new(current_options.merge(href: endpoint))
     end
 
     def loaded?
@@ -116,7 +124,7 @@ module PMP
 
     def setup_oauth_token
       if !oauth_token
-        token = PMP::Token.new(options).get_token
+        token = PMP::Token.new(current_options).get_token
         self.oauth_token = token.token
       end
     end
@@ -127,7 +135,7 @@ module PMP
       setup_oauth_token
 
       begin
-        raw = connection(options.merge({url: url})).send(method) do |request|
+        raw = connection(current_options.merge({url: url})).send(method) do |request|
           if [:post, :put].include?(method.to_sym) && !body.blank?
             request.body = body.is_a?(String) ? body : body.to_json
           end
