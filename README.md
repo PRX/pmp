@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/PRX/pmp.png)](https://travis-ci.org/PRX/pmp)
 [![Coverage Status](https://coveralls.io/repos/PRX/pmp/badge.png)](https://coveralls.io/r/PRX/pmp)
+[![Code Climate](https://codeclimate.com/github/PRX/pmp.png)](https://codeclimate.com/github/PRX/pmp)
 [![Dependency Status](https://gemnasium.com/PRX/pmp.png)](https://gemnasium.com/PRX/pmp)
 [![Gem Version](https://badge.fury.io/rb/pmp.png)](http://badge.fury.io/rb/pmp)
 
