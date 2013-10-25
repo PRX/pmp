@@ -1073,5 +1073,3 @@ retrieved: {
 
 
 Step 5 complete, all done!
-
-[12:06:55][andrew][~/dev/projects/pmp/pmp]> 
