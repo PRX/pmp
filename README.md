@@ -1,13 +1,16 @@
-# PMP gem
+# PMP (Public Media Platform)
 
 [![Build Status](https://travis-ci.org/PRX/pmp.png)](https://travis-ci.org/PRX/pmp)
 [![Coverage Status](https://coveralls.io/repos/PRX/pmp/badge.png)](https://coveralls.io/r/PRX/pmp)
+[![Dependency Status](https://gemnasium.com/PRX/pmp.png)](https://gemnasium.com/PRX/pmp)
+[![Gem Version](https://badge.fury.io/rb/pmp.png)](http://badge.fury.io/rb/pmp)
 
-Gem to make it easier to use the PMP API, which is a hypermedia API using the collection.doc+json format.
+Gem to make it easier to use the PMP (Public Media Platform) API, which is a hypermedia API using the collection.doc+json format.
+
+You can learn more about the PMP here:
 
 https://github.com/publicmediaplatform/pmpdocs/wiki
 
-Very big hat tip to the hyperresource gem: https://github.com/gamache/hyperresource
 
 
 ## Installation
@@ -26,11 +29,14 @@ Or install it yourself as:
 
 ## Usage
 
-You can go through the `PMP::Client` as a convenience or start with a `PMP::CollectionDocument`
+You should usually go through the `PMP::Client` as a convenience or start with a `PMP::CollectionDocument`.
+
+Below is a basic guide, you can also [see the examples for more info](example/).
+
 
 ```ruby
 
-# so you need a few things, like the endpoint, default is "https://api.pmp.io"
+# so you need a few things, like the endpoint, but default is "https://api.pmp.io"
 endpoint = "https://api-sandbox.pmp.io"
 
 # and you need credentials, the gem doesn't help you create these (yet)
@@ -67,17 +73,21 @@ puts root.guid
 puts root.links.keys.sort
 > ["creator", "edit", "navigation", "query"]
 
+# don't feel like getting root first? Methods on the client get passed on to root
+puts pmp.links.keys.sort
+> ["creator", "edit", "navigation", "query"]
+
 # want to get the creator link?
-puts root.links["creator"]
+puts pmp.links["creator"]
 > #<PMP::Link href="https://api-sandbox.pmp.io/docs/af676335-21df-4486-ab43-e88c1b48f026">
 
 # get the same thing as a method
-puts root.creator
+puts pmp.creator
 > #<PMP::Link href="https://api-sandbox.pmp.io/docs/af676335-21df-4486-ab43-e88c1b48f026">
 
 # like the root doc itself, this is lazy loaded
 # but ask for an attribute on there, and you'll get the doc loaded up
-puts root.creator.guid
+puts pmp.creator.guid
 
 #### http get request to link href occurs, loads info about the creator
 > 'af676335-21df-4486-ab43-e88c1b48f026'
@@ -89,7 +99,6 @@ puts root.creator.guid
 Once you have a doc, you can save or delete it like so:
 
 ```ruby
-
 # create a new blank doc, will generatr a guid automatically if not present
 doc = PMP::CollectionDocument.new()
 doc.title = "this is an example, ok?"
@@ -119,16 +128,17 @@ doc.save
 
 # never mind, delete it
 doc.delete
-
-
 ```
+
+# Credits
+
+Very big hat tip to the hyperresource gem: https://github.com/gamache/hyperresource
 
 ## To Do
 
 Think about integrating this lovely json schema parsing project: https://github.com/google/autoparse
 
 or this one: https://github.com/hoxworth/json-schema
-
 
 ## Contributing
 
