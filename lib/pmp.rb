@@ -20,4 +20,5 @@ require 'pmp/credential'
 require 'pmp/client'
 
 module PMP
+  extend Configuration
 end
