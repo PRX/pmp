@@ -14,6 +14,7 @@ module PMP
       :adapter,
       :ssl,
       :oauth_token,
+      :token_type,
       :basic_auth,
       :user,
       :password,
@@ -27,7 +28,7 @@ module PMP
         if opts[:basic_auth] && opts[:user] && opts[:password]
           faraday.request :basic_auth, opts[:user], opts[:password]
         elsif opts[:oauth_token]
-          faraday.request :authorization, 'Bearer', opts[:oauth_token]
+          faraday.request :authorization, opts[:token_type], opts[:oauth_token]
         end
 
         faraday.request :multipart

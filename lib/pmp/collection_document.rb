@@ -126,6 +126,7 @@ module PMP
       if !oauth_token
         token = PMP::Token.new(current_options).get_token
         self.oauth_token = token.token
+        self.token_type  = token.params['token_type']
       end
     end
 

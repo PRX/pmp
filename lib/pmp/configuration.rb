@@ -13,6 +13,7 @@ module PMP
       :client_id,
       :client_secret,
       :oauth_token,
+      :token_type,
       :adapter,
       :endpoint,
       :user_agent,
@@ -31,6 +32,8 @@ module PMP
     
     # The value sent in the http header for 'User-Agent' if none is set
     DEFAULT_USER_AGENT    = "PMP Ruby Gem #{PMP::VERSION}".freeze
+
+    DEFAULT_TOKEN_TYPE    = 'Bearer'
     
     # debug is defaulted to the ENV['DEBUG'], see below
 
@@ -76,6 +79,7 @@ module PMP
       self.adapter       = DEFAULT_ADAPTER
       self.endpoint      = DEFAULT_ENDPOINT
       self.user_agent    = DEFAULT_USER_AGENT
+      self.token_type    = DEFAULT_TOKEN_TYPE
       self.debug         = ENV['DEBUG']
       self
     end

@@ -35,6 +35,7 @@ describe PMP::Token do
     token_api= PMP::Token.new(client_id: client_id, client_secret: client_secret, endpoint: endpoint)
     token = token_api.get_token
     token.token.must_equal access_token
+    token.params['token_type'].must_equal 'Bearer'
   end
 
 end
