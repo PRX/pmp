@@ -1,0 +1,1077 @@
+> bundle exec example/permissions.rb
+
+
+Setup complete: pmp client: #<PMP::Client:0x007fb3848d8d28 @current_options={:user=>nil, :password=>nil, :client_id=>"REDACTED", :client_secret=>"REDACTED", :oauth_token=>nil, :adapter=>:excon, :endpoint=>"https://api-sandbox.pmp.io/", :user_agent=>"PMP Ruby Gem 0.2.1", :debug=>nil}, @user=nil, @password=nil, @client_id="REDACTED", @client_secret="REDACTED", @oauth_token=nil, @adapter=:excon, @endpoint="https://api-sandbox.pmp.io/", @user_agent="PMP Ruby Gem 0.2.1", @debug=nil>
+
+
+
+Step 0 complete: deleted 0
+
+
+
+Step 1 complete: organizations: [
+  {
+    "version": "1.0",
+    "links": {
+      "profile": [
+        {
+          "href": "https://api-sandbox.pmp.io/profiles/user",
+          "type": "application/vnd.pmp.collection.doc+json"
+        }
+      ]
+    },
+    "attributes": {
+      "title": "pmp ruby example, permissions: org 0",
+      "tags": [
+        "pmp_example_permissions"
+      ],
+      "auth": {
+        "user": "pmp_ruby_org_0",
+        "password": "bf9ba7a7-5a30-49bc-986e-ba4b44a1743e",
+        "scope": "write"
+      },
+      "guid": "57be0d5a-fd30-4dc0-8d6a-898fed13fcd5"
+    }
+  },
+  {
+    "version": "1.0",
+    "links": {
+      "profile": [
+        {
+          "href": "https://api-sandbox.pmp.io/profiles/user",
+          "type": "application/vnd.pmp.collection.doc+json"
+        }
+      ]
+    },
+    "attributes": {
+      "title": "pmp ruby example, permissions: org 1",
+      "tags": [
+        "pmp_example_permissions"
+      ],
+      "auth": {
+        "user": "pmp_ruby_org_1",
+        "password": "46c45522-a30e-449b-87e5-467c633c46c8",
+        "scope": "write"
+      },
+      "guid": "814bd758-5d3c-4ec9-b514-1d39f8d395d9"
+    }
+  },
+  {
+    "version": "1.0",
+    "links": {
+      "profile": [
+        {
+          "href": "https://api-sandbox.pmp.io/profiles/user",
+          "type": "application/vnd.pmp.collection.doc+json"
+        }
+      ]
+    },
+    "attributes": {
+      "title": "pmp ruby example, permissions: org 2",
+      "tags": [
+        "pmp_example_permissions"
+      ],
+      "auth": {
+        "user": "pmp_ruby_org_2",
+        "password": "924a0d05-0d83-4115-b305-fd4ab6274072",
+        "scope": "write"
+      },
+      "guid": "f267e7a9-747e-4870-8c6b-d33eeb284eb1"
+    }
+  }
+]
+
+
+
+Step 2 complete: permission_groups: [
+  {
+    "version": "1.0",
+    "links": {
+      "profile": [
+        {
+          "href": "https://api-sandbox.pmp.io/profiles/group",
+          "type": "application/vnd.pmp.collection.doc+json"
+        }
+      ],
+      "item": [
+        {
+          "href": "https://api-sandbox.pmp.io/docs/57be0d5a-fd30-4dc0-8d6a-898fed13fcd5"
+        },
+        {
+          "href": "https://api-sandbox.pmp.io/docs/814bd758-5d3c-4ec9-b514-1d39f8d395d9"
+        }
+      ]
+    },
+    "attributes": {
+      "tags": [
+        "pmp_example_permissions"
+      ],
+      "title": "pmp ruby example, permissions: permission group [0, 1]",
+      "guid": "278d9749-7b83-4132-a521-e8b4d359c57a"
+    }
+  },
+  {
+    "version": "1.0",
+    "links": {
+      "profile": [
+        {
+          "href": "https://api-sandbox.pmp.io/profiles/group",
+          "type": "application/vnd.pmp.collection.doc+json"
+        }
+      ],
+      "item": [
+        {
+          "href": "https://api-sandbox.pmp.io/docs/57be0d5a-fd30-4dc0-8d6a-898fed13fcd5"
+        }
+      ]
+    },
+    "attributes": {
+      "tags": [
+        "pmp_example_permissions"
+      ],
+      "title": "pmp ruby example, permissions: permission group [0]",
+      "guid": "d67a7b89-15e9-40db-8b80-8b0333663bec"
+    }
+  },
+  {
+    "version": "1.0",
+    "links": {
+      "profile": [
+        {
+          "href": "https://api-sandbox.pmp.io/profiles/group",
+          "type": "application/vnd.pmp.collection.doc+json"
+        }
+      ],
+      "item": [
+        {
+          "href": "https://api-sandbox.pmp.io/docs/814bd758-5d3c-4ec9-b514-1d39f8d395d9"
+        }
+      ]
+    },
+    "attributes": {
+      "tags": [
+        "pmp_example_permissions"
+      ],
+      "title": "pmp ruby example, permissions: permission group [1]",
+      "guid": "4039c6d5-574c-4f03-a6e2-55b042c0c38c"
+    }
+  },
+  {
+    "version": "1.0",
+    "links": {
+      "profile": [
+        {
+          "href": "https://api-sandbox.pmp.io/profiles/group",
+          "type": "application/vnd.pmp.collection.doc+json"
+        }
+      ]
+    },
+    "attributes": {
+      "tags": [
+        "pmp_example_permissions"
+      ],
+      "title": "pmp ruby example, permissions: permission group []",
+      "guid": "e8209cb5-7d03-4a48-8195-7ec8afd30fbe"
+    }
+  }
+]
+
+
+
+Step 3 complete: documents: [
+  {
+    "version": "1.0",
+    "links": {
+      "profile": [
+        {
+          "href": "https://api-sandbox.pmp.io/profiles/story",
+          "type": "application/vnd.pmp.collection.doc+json"
+        }
+      ],
+      "permission": [
+        {
+          "href": "https://api-sandbox.pmp.io/docs/278d9749-7b83-4132-a521-e8b4d359c57a",
+          "operation": "read"
+        }
+      ]
+    },
+    "attributes": {
+      "tags": [
+        "pmp_example_permissions",
+        "pmp_example_permissions_test_doc"
+      ],
+      "title": "pmp ruby example, permissions: story 0",
+      "guid": "458cfa66-79c5-4769-8e3d-e4540d59e8d9"
+    }
+  },
+  {
+    "version": "1.0",
+    "links": {
+      "profile": [
+        {
+          "href": "https://api-sandbox.pmp.io/profiles/story",
+          "type": "application/vnd.pmp.collection.doc+json"
+        }
+      ],
+      "permission": [
+        {
+          "href": "https://api-sandbox.pmp.io/docs/4039c6d5-574c-4f03-a6e2-55b042c0c38c",
+          "operation": "read",
+          "blacklist": true
+        },
+        {
+          "href": "https://api-sandbox.pmp.io/docs/d67a7b89-15e9-40db-8b80-8b0333663bec",
+          "operation": "read"
+        }
+      ]
+    },
+    "attributes": {
+      "tags": [
+        "pmp_example_permissions",
+        "pmp_example_permissions_test_doc"
+      ],
+      "title": "pmp ruby example, permissions: story 1",
+      "guid": "4c41b1e6-ec3e-4fc8-848e-132445493cd8"
+    }
+  },
+  {
+    "version": "1.0",
+    "links": {
+      "profile": [
+        {
+          "href": "https://api-sandbox.pmp.io/profiles/story",
+          "type": "application/vnd.pmp.collection.doc+json"
+        }
+      ]
+    },
+    "attributes": {
+      "tags": [
+        "pmp_example_permissions",
+        "pmp_example_permissions_test_doc"
+      ],
+      "title": "pmp ruby example, permissions: story 2",
+      "guid": "17195f0a-e97f-46fd-8d20-3dff6743e961"
+    }
+  },
+  {
+    "version": "1.0",
+    "links": {
+      "profile": [
+        {
+          "href": "https://api-sandbox.pmp.io/profiles/story",
+          "type": "application/vnd.pmp.collection.doc+json"
+        }
+      ],
+      "permission": [
+        {
+          "href": "https://api-sandbox.pmp.io/docs/e8209cb5-7d03-4a48-8195-7ec8afd30fbe",
+          "operation": "read"
+        }
+      ]
+    },
+    "attributes": {
+      "tags": [
+        "pmp_example_permissions",
+        "pmp_example_permissions_test_doc"
+      ],
+      "title": "pmp ruby example, permissions: story 3",
+      "guid": "740c2a8c-0c20-450a-8453-1a4279dd1451"
+    }
+  }
+]
+
+create credentials for org: {:user=>"pmp_ruby_org_0", :password=>"bf9ba7a7-5a30-49bc-986e-ba4b44a1743e", :scope=>"write"}
+create credentials for org: {:user=>"pmp_ruby_org_1", :password=>"46c45522-a30e-449b-87e5-467c633c46c8", :scope=>"write"}
+create credentials for org: {:user=>"pmp_ruby_org_2", :password=>"924a0d05-0d83-4115-b305-fd4ab6274072", :scope=>"write"}
+waiting.....
+
+
+Step 4 complete: credentials: [
+  {
+    "client_id": "9cb4a7ec-3298-416e-b455-af6e267f43f0",
+    "client_secret": "566dcb077a5feaa3a8cca12f",
+    "token_expires_in": "2592000",
+    "scope": "read",
+    "label": "pmp_ruby_org_0: 2013-10-25 12:06:30 -0400"
+  },
+  {
+    "client_id": "9e0ddd0d-55bb-4691-b362-35e0ea0ca440",
+    "client_secret": "9b3c449e623b4ae9cf5f307e",
+    "token_expires_in": "2592000",
+    "scope": "read",
+    "label": "pmp_ruby_org_1: 2013-10-25 12:06:30 -0400"
+  },
+  {
+    "client_id": "7d9a41d7-1a6e-4c91-afb8-8765610a09e4",
+    "client_secret": "babb90131f5078feea27eab6",
+    "token_expires_in": "2592000",
+    "scope": "read",
+    "label": "pmp_ruby_org_2: 2013-10-25 12:06:31 -0400"
+  }
+]
+
+
+
+Step 5: TEST TIME!
+
+org 0 should retrieve 3 items
+org 0 got token: 64c50e5b033524e289f0ff4d
+waiting.....
+SUCCESS: org 0 retrieved 3 items, expected 3.
+retrieved: {
+  "version": "1.0",
+  "links": {
+    "item": [
+      {
+        "href": "https://api-sandbox.pmp.io/docs/17195f0a-e97f-46fd-8d20-3dff6743e961"
+      },
+      {
+        "href": "https://api-sandbox.pmp.io/docs/4c41b1e6-ec3e-4fc8-848e-132445493cd8"
+      },
+      {
+        "href": "https://api-sandbox.pmp.io/docs/458cfa66-79c5-4769-8e3d-e4540d59e8d9"
+      }
+    ],
+    "navigation": [
+      {
+        "href": "https://api-sandbox.pmp.io/docs?tag=pmp_example_permissions_test_doc",
+        "rels": [
+          "urn:pmp:navigation:self"
+        ],
+        "totalitems": 3,
+        "totalpages": 1,
+        "pagenum": 1
+      }
+    ],
+    "query": [
+      {
+        "href-template": "https://api-sandbox.pmp.io/users{?limit,offset,tag,collection,text,searchsort,has}",
+        "title": "Query for users",
+        "rels": [
+          "urn:pmp:query:users"
+        ],
+        "href-vars": {
+          "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "tag": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "collection": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "text": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "searchsort": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "has": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      {
+        "href-template": "https://api-sandbox.pmp.io/groups{?limit,offset,tag,collection,text,searchsort,has}",
+        "title": "Query for groups",
+        "rels": [
+          "urn:pmp:query:groups"
+        ],
+        "href-vars": {
+          "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "tag": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "collection": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "text": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "searchsort": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      {
+        "href-template": "https://api-sandbox.pmp.io/profiles{/guid}",
+        "title": "Access profiles",
+        "rels": [
+          "urn:pmp:hreftpl:profiles"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      {
+        "href-template": "https://api-sandbox.pmp.io/schemas{/guid}",
+        "title": "Access schemas",
+        "rels": [
+          "urn:pmp:hreftpl:schemas"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        },
+        "type": "application/schema+json"
+      },
+      {
+        "href-template": "https://api-sandbox.pmp.io/docs{/guid}{?limit,offset}",
+        "title": "Access documents",
+        "rels": [
+          "urn:pmp:hreftpl:docs"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      {
+        "href-template": "https://api-sandbox.pmp.io/docs{?limit,offset,tag,collection,text,searchsort,has,author,distributor,distributorgroup,startdate,enddate,profile,language}",
+        "title": "Query for documents",
+        "rels": [
+          "urn:pmp:query:docs"
+        ],
+        "href-vars": {
+          "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "tag": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "collection": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "text": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "searchsort": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "has": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "author": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "distributor": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "distributorgroup": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "startdate": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "enddate": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "profile": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "language": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      {
+        "href": "https://api-sandbox.pmp.io/guids",
+        "title": "Generate guids",
+        "rels": [
+          "urn:pmp:query:guids"
+        ],
+        "hints": {
+          "allow": [
+            "POST"
+          ],
+          "accept-post": [
+            "application/x-www-form-urlencoded"
+          ]
+        },
+        "type": "application/json"
+      }
+    ],
+    "edit": [
+      {
+        "href-template": "https://publish-sandbox.pmp.io/docs{/guid}",
+        "title": "Document Save",
+        "rels": [
+          "urn:pmp:form:documentsave"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+        },
+        "hints": {
+          "formats": [
+            "application/vnd.pmp.collection.doc+json"
+          ],
+          "allow": [
+            "PUT",
+            "DELETE"
+          ],
+          "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Collection.doc-JSON-Media-Type"
+        }
+      },
+      {
+        "href-template": "https://publish-sandbox.pmp.io/profiles{/guid}",
+        "title": "Profile Save",
+        "rels": [
+          "urn:pmp:form:profilesave"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+        },
+        "hints": {
+          "formats": [
+            "application/vnd.pmp.collection.doc+json"
+          ],
+          "allow": [
+            "PUT",
+            "DELETE"
+          ],
+          "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Profile-profile"
+        }
+      },
+      {
+        "href-template": "https://publish-sandbox.pmp.io/schemas{/guid}",
+        "title": "Schema Save",
+        "rels": [
+          "urn:pmp:form:schemasave"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+        },
+        "hints": {
+          "formats": [
+            "application/schema+json"
+          ],
+          "allow": [
+            "PUT",
+            "DELETE"
+          ],
+          "docs": "http://json-schema.org/"
+        }
+      },
+      {
+        "href": "https://publish-sandbox.pmp.io/files",
+        "title": "Upload a rich media file",
+        "rels": [
+          "urn:pmp:form:mediaupload"
+        ],
+        "href-vars": {
+          "submission": "https://github.com/publicmediaplatform/pmpdocs/wiki/Media-File-Upload"
+        },
+        "hints": {
+          "allow": [
+            "POST"
+          ],
+          "accept-post": [
+            "multipart/form-data"
+          ]
+        }
+      }
+    ]
+  },
+  "attributes": {
+    "valid": {
+      "from": "2013-10-25T16:06:38+00:00",
+      "to": "3013-10-25T16:06:38+00:00"
+    },
+    "created": "2013-10-25T16:06:38+00:00",
+    "modified": "2013-10-25T16:06:38+00:00"
+  }
+}
+
+org 1 should retrieve 2 items
+org 1 got token: c7ee185495f4d4fe2a508fa1
+waiting.....
+SUCCESS: org 1 retrieved 2 items, expected 2.
+retrieved: {
+  "version": "1.0",
+  "links": {
+    "item": [
+      {
+        "href": "https://api-sandbox.pmp.io/docs/17195f0a-e97f-46fd-8d20-3dff6743e961"
+      },
+      {
+        "href": "https://api-sandbox.pmp.io/docs/458cfa66-79c5-4769-8e3d-e4540d59e8d9"
+      }
+    ],
+    "navigation": [
+      {
+        "href": "https://api-sandbox.pmp.io/docs?tag=pmp_example_permissions_test_doc",
+        "rels": [
+          "urn:pmp:navigation:self"
+        ],
+        "totalitems": 2,
+        "totalpages": 1,
+        "pagenum": 1
+      }
+    ],
+    "query": [
+      {
+        "href-template": "https://api-sandbox.pmp.io/users{?limit,offset,tag,collection,text,searchsort,has}",
+        "title": "Query for users",
+        "rels": [
+          "urn:pmp:query:users"
+        ],
+        "href-vars": {
+          "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "tag": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "collection": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "text": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "searchsort": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "has": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      {
+        "href-template": "https://api-sandbox.pmp.io/groups{?limit,offset,tag,collection,text,searchsort,has}",
+        "title": "Query for groups",
+        "rels": [
+          "urn:pmp:query:groups"
+        ],
+        "href-vars": {
+          "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "tag": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "collection": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "text": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "searchsort": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      {
+        "href-template": "https://api-sandbox.pmp.io/profiles{/guid}",
+        "title": "Access profiles",
+        "rels": [
+          "urn:pmp:hreftpl:profiles"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      {
+        "href-template": "https://api-sandbox.pmp.io/schemas{/guid}",
+        "title": "Access schemas",
+        "rels": [
+          "urn:pmp:hreftpl:schemas"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        },
+        "type": "application/schema+json"
+      },
+      {
+        "href-template": "https://api-sandbox.pmp.io/docs{/guid}{?limit,offset}",
+        "title": "Access documents",
+        "rels": [
+          "urn:pmp:hreftpl:docs"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      {
+        "href-template": "https://api-sandbox.pmp.io/docs{?limit,offset,tag,collection,text,searchsort,has,author,distributor,distributorgroup,startdate,enddate,profile,language}",
+        "title": "Query for documents",
+        "rels": [
+          "urn:pmp:query:docs"
+        ],
+        "href-vars": {
+          "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "tag": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "collection": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "text": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "searchsort": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "has": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "author": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "distributor": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "distributorgroup": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "startdate": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "enddate": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "profile": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "language": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      {
+        "href": "https://api-sandbox.pmp.io/guids",
+        "title": "Generate guids",
+        "rels": [
+          "urn:pmp:query:guids"
+        ],
+        "hints": {
+          "allow": [
+            "POST"
+          ],
+          "accept-post": [
+            "application/x-www-form-urlencoded"
+          ]
+        },
+        "type": "application/json"
+      }
+    ],
+    "edit": [
+      {
+        "href-template": "https://publish-sandbox.pmp.io/docs{/guid}",
+        "title": "Document Save",
+        "rels": [
+          "urn:pmp:form:documentsave"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+        },
+        "hints": {
+          "formats": [
+            "application/vnd.pmp.collection.doc+json"
+          ],
+          "allow": [
+            "PUT",
+            "DELETE"
+          ],
+          "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Collection.doc-JSON-Media-Type"
+        }
+      },
+      {
+        "href-template": "https://publish-sandbox.pmp.io/profiles{/guid}",
+        "title": "Profile Save",
+        "rels": [
+          "urn:pmp:form:profilesave"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+        },
+        "hints": {
+          "formats": [
+            "application/vnd.pmp.collection.doc+json"
+          ],
+          "allow": [
+            "PUT",
+            "DELETE"
+          ],
+          "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Profile-profile"
+        }
+      },
+      {
+        "href-template": "https://publish-sandbox.pmp.io/schemas{/guid}",
+        "title": "Schema Save",
+        "rels": [
+          "urn:pmp:form:schemasave"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+        },
+        "hints": {
+          "formats": [
+            "application/schema+json"
+          ],
+          "allow": [
+            "PUT",
+            "DELETE"
+          ],
+          "docs": "http://json-schema.org/"
+        }
+      },
+      {
+        "href": "https://publish-sandbox.pmp.io/files",
+        "title": "Upload a rich media file",
+        "rels": [
+          "urn:pmp:form:mediaupload"
+        ],
+        "href-vars": {
+          "submission": "https://github.com/publicmediaplatform/pmpdocs/wiki/Media-File-Upload"
+        },
+        "hints": {
+          "allow": [
+            "POST"
+          ],
+          "accept-post": [
+            "multipart/form-data"
+          ]
+        }
+      }
+    ]
+  },
+  "attributes": {
+    "valid": {
+      "from": "2013-10-25T16:06:44+00:00",
+      "to": "3013-10-25T16:06:44+00:00"
+    },
+    "created": "2013-10-25T16:06:44+00:00",
+    "modified": "2013-10-25T16:06:44+00:00"
+  }
+}
+
+org 2 should retrieve 1 items
+org 2 got token: 183ad3f013df12884e7e8d3f
+waiting.....
+SUCCESS: org 2 retrieved 1 items, expected 1.
+retrieved: {
+  "version": "1.0",
+  "links": {
+    "item": [
+      {
+        "href": "https://api-sandbox.pmp.io/docs/17195f0a-e97f-46fd-8d20-3dff6743e961"
+      }
+    ],
+    "navigation": [
+      {
+        "href": "https://api-sandbox.pmp.io/docs?tag=pmp_example_permissions_test_doc",
+        "rels": [
+          "urn:pmp:navigation:self"
+        ],
+        "totalitems": 1,
+        "totalpages": 1,
+        "pagenum": 1
+      }
+    ],
+    "query": [
+      {
+        "href-template": "https://api-sandbox.pmp.io/users{?limit,offset,tag,collection,text,searchsort,has}",
+        "title": "Query for users",
+        "rels": [
+          "urn:pmp:query:users"
+        ],
+        "href-vars": {
+          "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "tag": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "collection": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "text": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "searchsort": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "has": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      {
+        "href-template": "https://api-sandbox.pmp.io/groups{?limit,offset,tag,collection,text,searchsort,has}",
+        "title": "Query for groups",
+        "rels": [
+          "urn:pmp:query:groups"
+        ],
+        "href-vars": {
+          "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "tag": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "collection": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "text": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "searchsort": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      {
+        "href-template": "https://api-sandbox.pmp.io/profiles{/guid}",
+        "title": "Access profiles",
+        "rels": [
+          "urn:pmp:hreftpl:profiles"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      {
+        "href-template": "https://api-sandbox.pmp.io/schemas{/guid}",
+        "title": "Access schemas",
+        "rels": [
+          "urn:pmp:hreftpl:schemas"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        },
+        "type": "application/schema+json"
+      },
+      {
+        "href-template": "https://api-sandbox.pmp.io/docs{/guid}{?limit,offset}",
+        "title": "Access documents",
+        "rels": [
+          "urn:pmp:hreftpl:docs"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      {
+        "href-template": "https://api-sandbox.pmp.io/docs{?limit,offset,tag,collection,text,searchsort,has,author,distributor,distributorgroup,startdate,enddate,profile,language}",
+        "title": "Query for documents",
+        "rels": [
+          "urn:pmp:query:docs"
+        ],
+        "href-vars": {
+          "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "tag": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "collection": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "text": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "searchsort": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "has": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "author": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "distributor": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "distributorgroup": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "startdate": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "enddate": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "profile": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
+          "language": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+        },
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      {
+        "href": "https://api-sandbox.pmp.io/guids",
+        "title": "Generate guids",
+        "rels": [
+          "urn:pmp:query:guids"
+        ],
+        "hints": {
+          "allow": [
+            "POST"
+          ],
+          "accept-post": [
+            "application/x-www-form-urlencoded"
+          ]
+        },
+        "type": "application/json"
+      }
+    ],
+    "edit": [
+      {
+        "href-template": "https://publish-sandbox.pmp.io/docs{/guid}",
+        "title": "Document Save",
+        "rels": [
+          "urn:pmp:form:documentsave"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+        },
+        "hints": {
+          "formats": [
+            "application/vnd.pmp.collection.doc+json"
+          ],
+          "allow": [
+            "PUT",
+            "DELETE"
+          ],
+          "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Collection.doc-JSON-Media-Type"
+        }
+      },
+      {
+        "href-template": "https://publish-sandbox.pmp.io/profiles{/guid}",
+        "title": "Profile Save",
+        "rels": [
+          "urn:pmp:form:profilesave"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+        },
+        "hints": {
+          "formats": [
+            "application/vnd.pmp.collection.doc+json"
+          ],
+          "allow": [
+            "PUT",
+            "DELETE"
+          ],
+          "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Profile-profile"
+        }
+      },
+      {
+        "href-template": "https://publish-sandbox.pmp.io/schemas{/guid}",
+        "title": "Schema Save",
+        "rels": [
+          "urn:pmp:form:schemasave"
+        ],
+        "href-vars": {
+          "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+        },
+        "hints": {
+          "formats": [
+            "application/schema+json"
+          ],
+          "allow": [
+            "PUT",
+            "DELETE"
+          ],
+          "docs": "http://json-schema.org/"
+        }
+      },
+      {
+        "href": "https://publish-sandbox.pmp.io/files",
+        "title": "Upload a rich media file",
+        "rels": [
+          "urn:pmp:form:mediaupload"
+        ],
+        "href-vars": {
+          "submission": "https://github.com/publicmediaplatform/pmpdocs/wiki/Media-File-Upload"
+        },
+        "hints": {
+          "allow": [
+            "POST"
+          ],
+          "accept-post": [
+            "multipart/form-data"
+          ]
+        }
+      }
+    ]
+  },
+  "attributes": {
+    "valid": {
+      "from": "2013-10-25T16:06:51+00:00",
+      "to": "3013-10-25T16:06:51+00:00"
+    },
+    "created": "2013-10-25T16:06:51+00:00",
+    "modified": "2013-10-25T16:06:51+00:00"
+  }
+}
+
+
+
+Step 5 complete, all done!
+
+[12:06:55][andrew][~/dev/projects/pmp/pmp]> 
