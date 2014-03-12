@@ -66,10 +66,10 @@ describe PMP::CollectionDocument do
     end
 
     it "should set-up links" do
-      @doc.profile.must_be_instance_of PMP::Link
-      @doc.profile.href.must_equal "http://api-sandbox.pmp.io/profiles/story"
-      @doc.self.href.must_equal "http://api-sandbox.pmp.io/docs/f84e9018-5c21-4b32-93f8-d519308620f0"
-      @doc.collection.href.must_equal "http://api-sandbox.pmp.io/docs/"
+      @doc.profile.first.must_be_instance_of PMP::Link
+      @doc.profile.first.href.must_equal "http://api-sandbox.pmp.io/profiles/story"
+      @doc.self.first.href.must_equal "http://api-sandbox.pmp.io/docs/f84e9018-5c21-4b32-93f8-d519308620f0"
+      @doc.collection.first.href.must_equal "http://api-sandbox.pmp.io/docs/"
     end
 
     it "should serialize to collection.doc+json" do
@@ -132,7 +132,7 @@ describe PMP::CollectionDocument do
 
     it "should load lazily when attr not found" do
       @doc.wont_be :loaded
-      creator = @doc.creator
+      creator = @doc.creator.first
       @doc.must_be :loaded
       creator.must_be_instance_of PMP::Link
     end
@@ -140,7 +140,7 @@ describe PMP::CollectionDocument do
     it "should provide a list of links" do
       @doc.load
       @doc.links.keys.sort.must_equal ["creator", "edit", "navigation", "query"]
-      @doc.links['creator'].must_be_instance_of PMP::Link
+      @doc.links['creator'].first.must_be_instance_of PMP::Link
     end
 
   end
