@@ -78,17 +78,17 @@ puts root.links.keys.sort
 puts pmp.links.keys.sort
 > ["creator", "edit", "navigation", "query"]
 
-# want to get the creator link?
-puts pmp.links["creator"]
+# want to get the creator link? (N.B. following a link always returns an Array, note use of `first`):
+puts pmp.links["creator"].first
 > #<PMP::Link href="https://api-sandbox.pmp.io/docs/af676335-21df-4486-ab43-e88c1b48f026">
 
 # get the same thing as a method
-puts pmp.creator
+puts pmp.creator.first
 > #<PMP::Link href="https://api-sandbox.pmp.io/docs/af676335-21df-4486-ab43-e88c1b48f026">
 
 # like the root doc itself, this is lazy loaded
 # but ask for an attribute on there, and you'll get the doc loaded up
-puts pmp.creator.guid
+puts pmp.creator.first.guid
 
 #### http get request to link href occurs, loads info about the creator
 > 'af676335-21df-4486-ab43-e88c1b48f026'
@@ -109,7 +109,7 @@ doc.save
 guid = doc.guid
 
 # how about the link to self
-self_href = doc.self.href
+self_href = doc.self.first.href
 
 # get a new doc using self, could just have used the link, this is a bad example perhaps
 doc = PMP::CollectionDocument.new(href: self_href)
