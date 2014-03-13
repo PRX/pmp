@@ -34,6 +34,12 @@ describe PMP::Parser do
     tc.links['self'].href.must_equal "http://api-sandbox.pmp.io/docs/f84e9018-5c21-4b32-93f8-d519308620f0"
   end
 
+  it "will parse empty arrays into empty arrays" do
+    tc = TestParser.new
+    tc.parse(json_fixture(:collection_links))
+    tc.links['edit-form'].must_equal Array.new
+  end
+
   it "will un-parse to hash for json serialization" do
     tc = TestParser.new
     tc.parse(json_fixture(:collection_basic))
@@ -41,7 +47,7 @@ describe PMP::Parser do
     # puts "basic as_json: #{hash}"
     hash.keys.sort.must_equal ['attributes', 'links', 'version']
     hash['attributes']['guid'].must_equal "f84e9018-5c21-4b32-93f8-d519308620f0"
-    hash['links'].keys.sort.must_equal ["collection", "profile", "self"]
+    hash['links'].keys.sort.must_equal ["collection", "edit-form", "profile", "queries", "self"]
   end
 
   it "parses query links into a hash based on rels" do
