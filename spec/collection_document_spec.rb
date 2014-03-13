@@ -93,7 +93,7 @@ describe PMP::CollectionDocument do
         with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Authorization'=>'Bearer thisisatesttoken', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
         to_return(:status => 200, :body => root_doc, :headers => {})
 
-      @doc = PMP::CollectionDocument.new(oauth_token: 'thisisatesttoken', href: "https://api.pmp.io/")
+      @doc = PMP::CollectionDocument.new(oauth_token: 'thisisatesttoken', href: "https://api.pmp.io/", client_id: "fake", client_secret: "fake")
     }
 
     it "should use oauth token" do
@@ -111,7 +111,7 @@ describe PMP::CollectionDocument do
 
       stub_request(:post, "https://api.pmp.io/auth/access_token").
         with(:body => {"grant_type"=>"client_credentials"},
-             :headers => {'Accept'=>'application/json', 'Authorization'=>'Basic Og==', 'Content-Type'=>'application/x-www-form-urlencoded', 'Host'=>'api.pmp.io:443'}).
+             :headers => {'Accept'=>'application/json', 'Authorization'=>'Basic ZmFrZTpmYWtl', 'Content-Type'=>'application/x-www-form-urlencoded', 'Host'=>'api.pmp.io:443'}).
         to_return(:status => 200, :body => response_body, :headers => {'Content-Type' => 'application/json; charset=utf-8'})
 
       @doc.oauth_token = nil
