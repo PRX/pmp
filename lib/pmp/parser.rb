@@ -75,8 +75,8 @@ module PMP
         parse_links_list(info)
       elsif !info.is_a?(Array)
         Link.new(info)
-      elsif info.size == 1
-        Link.new(info.first)
+      # elsif info.size == 1
+      #   Link.new(info.first)
       elsif info.size > 0        
         info.map{|l| Link.new(l)}
       end

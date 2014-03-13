@@ -28,7 +28,7 @@ describe PMP::Client do
       to_return(:status => 200, :body => root_doc, :headers => {})
 
     @root = @pmp.root
-    @root.creator.must_be_instance_of PMP::Link
+    @root.creator.first.must_be_instance_of PMP::Link
   end
 
   it "calls the root doc when client does not have method" do
@@ -38,7 +38,7 @@ describe PMP::Client do
       with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
       to_return(:status => 200, :body => root_doc, :headers => {})
 
-    @pmp.creator.must_be_instance_of PMP::Link    
+    @pmp.creator.first.must_be_instance_of PMP::Link
   end
 
 

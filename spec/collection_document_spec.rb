@@ -66,10 +66,10 @@ describe PMP::CollectionDocument do
     end
 
     it "should set-up links" do
-      @doc.profile.must_be_instance_of PMP::Link
-      @doc.profile.href.must_equal "http://api-sandbox.pmp.io/profiles/story"
-      @doc.self.href.must_equal "http://api-sandbox.pmp.io/docs/f84e9018-5c21-4b32-93f8-d519308620f0"
-      @doc.collection.href.must_equal "http://api-sandbox.pmp.io/docs/"
+      @doc.profile.first.must_be_instance_of PMP::Link
+      @doc.profile.first.href.must_equal "http://api-sandbox.pmp.io/profiles/story"
+      @doc.self.first.href.must_equal "http://api-sandbox.pmp.io/docs/f84e9018-5c21-4b32-93f8-d519308620f0"
+      @doc.collection.first.href.must_equal "http://api-sandbox.pmp.io/docs/"
     end
 
     it "should serialize to collection.doc+json" do
@@ -93,7 +93,7 @@ describe PMP::CollectionDocument do
         with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Authorization'=>'Bearer thisisatesttoken', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
         to_return(:status => 200, :body => root_doc, :headers => {})
 
-      @doc = PMP::CollectionDocument.new(oauth_token: 'thisisatesttoken', href: "https://api.pmp.io/")
+      @doc = PMP::CollectionDocument.new(oauth_token: 'thisisatesttoken', href: "https://api.pmp.io/", client_id: "fake", client_secret: "fake")
     }
 
     it "should use oauth token" do
@@ -111,7 +111,7 @@ describe PMP::CollectionDocument do
 
       stub_request(:post, "https://api.pmp.io/auth/access_token").
         with(:body => {"grant_type"=>"client_credentials"},
-             :headers => {'Accept'=>'application/json', 'Authorization'=>'Basic Og==', 'Content-Type'=>'application/x-www-form-urlencoded', 'Host'=>'api.pmp.io:443'}).
+             :headers => {'Accept'=>'application/json', 'Authorization'=>'Basic ZmFrZTpmYWtl', 'Content-Type'=>'application/x-www-form-urlencoded', 'Host'=>'api.pmp.io:443'}).
         to_return(:status => 200, :body => response_body, :headers => {'Content-Type' => 'application/json; charset=utf-8'})
 
       @doc.oauth_token = nil
@@ -132,7 +132,7 @@ describe PMP::CollectionDocument do
 
     it "should load lazily when attr not found" do
       @doc.wont_be :loaded
-      creator = @doc.creator
+      creator = @doc.creator.first
       @doc.must_be :loaded
       creator.must_be_instance_of PMP::Link
     end
@@ -140,7 +140,7 @@ describe PMP::CollectionDocument do
     it "should provide a list of links" do
       @doc.load
       @doc.links.keys.sort.must_equal ["creator", "edit", "navigation", "query"]
-      @doc.links['creator'].must_be_instance_of PMP::Link
+      @doc.links['creator'].first.must_be_instance_of PMP::Link
     end
 
   end
