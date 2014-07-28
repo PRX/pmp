@@ -11,29 +11,23 @@ module PMP
       :url,
       :params,
       :request,
-      :adapter,
       :ssl,
-      :oauth_token,
-      :token_type,
-      :basic_auth,
-      :user,
-      :password,
-      :debug
+      :proxy
     ].freeze
 
     def connection(options={})
       opts = process_options(options)
       Faraday::Connection.new(opts) do |faraday|
 
-        add_request_auth(opts, faraday)
+        add_request_auth(options, faraday)
 
         [:multipart, :url_encoded].each{|mw| faraday.request(mw) }
 
         [:mashify, :json, :raise_error].each{|mw| faraday.response(mw) }
 
-        faraday.response :logger if opts[:debug]
+        faraday.response :logger if options[:debug]
 
-        faraday.adapter opts[:adapter]
+        faraday.adapter options[:adapter]
       end
     end
 

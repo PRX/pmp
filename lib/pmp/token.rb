@@ -46,7 +46,8 @@ module PMP
       }.merge(opts)
       options[:headers] = options[:headers].merge(headers)
 
-      options
+      # clean out any that don't belong
+      options.select{|k,v| PMP::Connection::ALLOWED_CONNECTION_OPTIONS.include?(k.to_sym)}
     end
 
   end
