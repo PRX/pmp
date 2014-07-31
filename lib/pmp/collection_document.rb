@@ -101,7 +101,7 @@ module PMP
     end
 
     def edit_link(method)
-      link = root_document.edit['urn:pmp:form:documentsave']
+      link = root_document.edit['urn:collectiondoc:form:documentsave']
       raise "Edit link does not specify saving via #{method}" unless (link && link.hints.allow.include?(method))
       link
     end
@@ -123,7 +123,7 @@ module PMP
     end
 
     def setup_oauth_token
-      if !oauth_token
+      if !oauth_token && current_options[:client_id] && current_options[:client_secret]
         token = PMP::Token.new(current_options).get_token
         self.oauth_token = token.token
         self.token_type  = token.params['token_type']
