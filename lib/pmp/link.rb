@@ -9,7 +9,7 @@ require 'ostruct'
 # :href_vars,     # { "collection": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval" }
 # :hreflang,      # Language of the linked document
 # :hints,         # Hints about interacting with the link, such as HTTP methods, e.g. "hints": { "allow": ["GET", "PUT", "DELETE"] }
-# :rels,          # [ "urn:pmp:query:users" ]
+# :rels,          # [ "urn:collectiondoc:query:users" ]
 # :method,        # http method - get, post, put, etc.
 # :type,          # 'image/png' - mime type of linked resource
 # :title,         # name/title of thing linked in

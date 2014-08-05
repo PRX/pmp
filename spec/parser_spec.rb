@@ -54,7 +54,7 @@ describe PMP::Parser do
     tc = TestParser.new
     tc.parse(json_fixture(:collection_root))
     tc.query.must_be_instance_of HashWithIndifferentAccess
-    tc.query.keys.sort.must_equal ["urn:pmp:hreftpl:docs", "urn:pmp:hreftpl:profiles", "urn:pmp:hreftpl:schemas", "urn:pmp:query:docs", "urn:pmp:query:groups", "urn:pmp:query:guids", "urn:pmp:query:users"]
+    tc.query.keys.sort.must_equal ["urn:collectiondoc:hreftpl:docs", "urn:collectiondoc:hreftpl:profiles", "urn:collectiondoc:hreftpl:schemas", "urn:collectiondoc:query:docs", "urn:collectiondoc:query:groups", "urn:collectiondoc:query:guids", "urn:collectiondoc:query:profiles", "urn:collectiondoc:query:schemas", "urn:collectiondoc:query:users"]
   end
 
   it "will unparse links" do
@@ -63,7 +63,7 @@ describe PMP::Parser do
     tc.links['test1'] = PMP::Link.new(href: 'https://api-sandbox.pmp.io/test1')
     tc.links['test2'] = [PMP::Link.new(href: 'https://api-sandbox.pmp.io/test2a'), PMP::Link.new(href: 'https://api-sandbox.pmp.io/test2b')]
     hash = tc.as_json
-    hash['links'].keys.sort.must_equal ["creator", "edit", "navigation", "query", "test1", "test2"]
+    hash['links'].keys.sort.must_equal ["auth", "bookmark", "creator", "edit", "item", "navigation", "query", "test1", "test2"]
   end
 
 end

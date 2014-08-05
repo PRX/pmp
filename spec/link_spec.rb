@@ -67,8 +67,8 @@ describe PMP::Link do
     docs = @link.where(limit: 10, tag: 'test')
     docs.must_be_instance_of PMP::Link
     guids = docs.items.collect(&:guid).sort
-    guids.first.must_equal "03796e02-48f4-40aa-b457-2ffeba3d8d39"
-    guids.last.must_equal "e30690e1-3f20-408a-9dba-94172caf49c7"
+    guids.first.must_equal "0c9eeb61-dba5-431a-be8e-ad74c64aad2b"
+    guids.last.must_equal "e77aa925-53e0-4cfd-8f16-db6146faef3e"
   end
 
   def query_document_info
@@ -96,7 +96,7 @@ describe PMP::Link do
             "text" => "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
         },
         "rels" => [
-            "urn:pmp:query:docs"
+            "urn:collectiondoc:query:docs"
         ],
         "title" => "Query for documents"
     }

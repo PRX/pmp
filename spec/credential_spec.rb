@@ -23,16 +23,22 @@ describe PMP::Credential do
   end
 
   it "create a credential" do
+    root_doc =  json_file(:collection_root)
+
+    stub_request(:get, "https://api-sandbox.pmp.io/").
+      with(:headers => {'Accept'=>'application/vnd.collection.doc+json', 'Content-Type'=>'application/vnd.collection.doc+json', 'Host'=>'api-sandbox.pmp.io:443'}).
+      to_return(:status => 200, :body => root_doc, :headers => {})
+
     response_body = {
       client_id: "thisisnota-real-client-id-soverysorry",
       client_secret: "thisisnotarealsecreteither",
       token_expires_in: 1209600,
       scope: "write"
     }.to_json
-                            
-    stub_request(:post, "https://api-sandbox.pmp.io/auth/credentials").
+
+    stub_request(:post, "https://publish-sandbox.pmp.io/auth/credentials").
       with(:body => {"label"=>"what", "scope"=>"read", "token_expires_in"=>"2592000"},
-           :headers => {'Accept'=>'*/*', 'Authorization'=>'Basic dGVzdDpwYXNzd29yZA==', 'Content-Type'=>'application/x-www-form-urlencoded', 'Host'=>'api-sandbox.pmp.io:443'}).
+           :headers => {'Accept'=>'*/*', 'Authorization'=>'Basic dGVzdDpwYXNzd29yZA==', 'Content-Type'=>'application/x-www-form-urlencoded', 'Host'=>'publish-sandbox.pmp.io:443'}).
       to_return(:status => 200, :body => response_body, :headers => {})
 
     new_creds = @credential.create(label: 'what')
@@ -63,7 +69,7 @@ describe PMP::Credential do
     stub_request(:get, "https://api-sandbox.pmp.io/auth/credentials").
       with(:headers => {'Accept'=>'*/*', 'Authorization'=>'Basic dGVzdDpwYXNzd29yZA==', 'Content-Type'=>'', 'Host'=>'api-sandbox.pmp.io:443'}).
       to_return(:status => 200, :body => response_body, :headers => {})
-    
+
     all_creds = @credential.list
   end
 
