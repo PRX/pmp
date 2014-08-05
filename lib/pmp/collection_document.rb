@@ -138,7 +138,7 @@ module PMP
       begin
         raw = connection(current_options.merge({url: url})).send(method) do |request|
           if [:post, :put].include?(method.to_sym) && !body.blank?
-            request.body = body.is_a?(String) ? body : body.to_json
+            request.body = body.is_a?(String) ? body : body.to_put_json
           end
         end
       rescue Faraday::Error::ResourceNotFound=>not_found_ex
@@ -151,6 +151,18 @@ module PMP
 
       # may not need this, but remember how we made this response
       PMP::Response.new(raw, {method: method, url: url, body: body})
+    end
+
+    # blacklist what we PUT back to the server
+    def as_put_json
+      obj = self.as_json.select { |k,v| %w(attributes links).include?(k) }
+      obj['attributes'].reject! { |k,v| %w(created modified).include?(k) }
+      obj['links'].reject! { |k,v| %w(creator query edit auth).include?(k) }
+      obj
+    end
+
+    def to_put_json
+      as_put_json.to_json
     end
 
     def set_guid_if_blank
