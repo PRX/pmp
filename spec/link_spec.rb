@@ -60,7 +60,7 @@ describe PMP::Link do
     link_doc = json_file(:collection_query)
 
     stub_request(:get, "https://api-sandbox.pmp.io/docs?limit=10&tag=test").
-      with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api-sandbox.pmp.io:443'}).
+      with(:headers => {'Accept'=>'application/vnd.collection.doc+json', 'Content-Type'=>'application/vnd.collection.doc+json', 'Host'=>'api-sandbox.pmp.io:443'}).
       to_return(:status => 200, :body => link_doc, :headers => {})
 
     @link = PMP::Link.new(query_document_info, @parent)

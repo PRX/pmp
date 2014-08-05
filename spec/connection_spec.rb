@@ -29,7 +29,7 @@ describe PMP::Connection do
     opts = @tc.process_options(user_agent:'user_agent', headers:{foo:'bar'})
     opts[:headers][:foo].must_equal 'bar'
     opts[:headers]['User-Agent'].must_equal 'user_agent'
-    opts[:headers]['Accept'].must_equal "application/vnd.pmp.collection.doc+json"
+    opts[:headers]['Accept'].must_equal "application/vnd.collection.doc+json"
   end
 
 end

@@ -220,7 +220,7 @@
                 },
                 "hints": {
                     "formats": [
-                        "application/vnd.pmp.collection.doc+json"
+                        "application/vnd.collection.doc+json"
                     ],
                     "allow": [
                         "PUT",
@@ -240,7 +240,7 @@
                 },
                 "hints": {
                     "formats": [
-                        "application/vnd.pmp.collection.doc+json"
+                        "application/vnd.collection.doc+json"
                     ],
                     "allow": [
                         "PUT",
@@ -329,7 +329,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -349,7 +349,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -437,7 +437,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -457,7 +457,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -561,7 +561,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -581,7 +581,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -694,7 +694,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -714,7 +714,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -827,7 +827,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -847,7 +847,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -960,7 +960,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -980,7 +980,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -1086,7 +1086,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -1106,7 +1106,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -1212,7 +1212,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -1232,7 +1232,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -1338,7 +1338,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -1358,7 +1358,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -1464,7 +1464,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",
@@ -1484,7 +1484,7 @@
                         },
                         "hints": {
                             "formats": [
-                                "application/vnd.pmp.collection.doc+json"
+                                "application/vnd.collection.doc+json"
                             ],
                             "allow": [
                                 "PUT",

@@ -25,7 +25,7 @@
                     ],
                     "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Collection.doc-JSON-Media-Type",
                     "formats": [
-                        "application/vnd.pmp.collection.doc+json"
+                        "application/vnd.collection.doc+json"
                     ]
                 },
                 "href-template": "https://publish-sandbox.pmp.io/docs{/guid}",
@@ -45,7 +45,7 @@
                     ],
                     "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Profile-profile",
                     "formats": [
-                        "application/vnd.pmp.collection.doc+json"
+                        "application/vnd.collection.doc+json"
                     ]
                 },
                 "href-template": "https://publish-sandbox.pmp.io/profiles{/guid}",
