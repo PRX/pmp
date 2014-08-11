@@ -22,7 +22,12 @@ module PMP
     end
 
     def create(params={})
-      response = request(:post, credentials_url, create_params(params))
+      response = request(:post, create_credentials_url, create_params(params))
+      response.body
+    end
+
+    def destroy(client_id)
+      response = request(:delete, remove_credentials_url(client_id))
       response.body
     end
 
@@ -49,6 +54,19 @@ module PMP
 
     def credentials_url
       "#{endpoint}auth/credentials"
+    end
+
+    def create_credentials_url
+      root_document.auth['urn:collectiondoc:form:createcredentials'].url
+    end
+
+    def remove_credentials_url(client_id)
+      link = root_document.auth['urn:collectiondoc:form:removecredentials']
+      link.where(client_id: client_id).url
+    end
+
+    def root_document
+      @root ||= PMP::CollectionDocument.new(current_options.merge(href: endpoint))
     end
 
   end

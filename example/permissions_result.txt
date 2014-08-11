@@ -16,7 +16,7 @@ Step 1 complete: organizations: [
       "profile": [
         {
           "href": "https://api-sandbox.pmp.io/profiles/user",
-          "type": "application/vnd.pmp.collection.doc+json"
+          "type": "application/vnd.collection.doc+json"
         }
       ]
     },
@@ -39,7 +39,7 @@ Step 1 complete: organizations: [
       "profile": [
         {
           "href": "https://api-sandbox.pmp.io/profiles/user",
-          "type": "application/vnd.pmp.collection.doc+json"
+          "type": "application/vnd.collection.doc+json"
         }
       ]
     },
@@ -62,7 +62,7 @@ Step 1 complete: organizations: [
       "profile": [
         {
           "href": "https://api-sandbox.pmp.io/profiles/user",
-          "type": "application/vnd.pmp.collection.doc+json"
+          "type": "application/vnd.collection.doc+json"
         }
       ]
     },
@@ -90,7 +90,7 @@ Step 2 complete: permission_groups: [
       "profile": [
         {
           "href": "https://api-sandbox.pmp.io/profiles/group",
-          "type": "application/vnd.pmp.collection.doc+json"
+          "type": "application/vnd.collection.doc+json"
         }
       ],
       "item": [
@@ -116,7 +116,7 @@ Step 2 complete: permission_groups: [
       "profile": [
         {
           "href": "https://api-sandbox.pmp.io/profiles/group",
-          "type": "application/vnd.pmp.collection.doc+json"
+          "type": "application/vnd.collection.doc+json"
         }
       ],
       "item": [
@@ -139,7 +139,7 @@ Step 2 complete: permission_groups: [
       "profile": [
         {
           "href": "https://api-sandbox.pmp.io/profiles/group",
-          "type": "application/vnd.pmp.collection.doc+json"
+          "type": "application/vnd.collection.doc+json"
         }
       ],
       "item": [
@@ -162,7 +162,7 @@ Step 2 complete: permission_groups: [
       "profile": [
         {
           "href": "https://api-sandbox.pmp.io/profiles/group",
-          "type": "application/vnd.pmp.collection.doc+json"
+          "type": "application/vnd.collection.doc+json"
         }
       ]
     },
@@ -185,7 +185,7 @@ Step 3 complete: documents: [
       "profile": [
         {
           "href": "https://api-sandbox.pmp.io/profiles/story",
-          "type": "application/vnd.pmp.collection.doc+json"
+          "type": "application/vnd.collection.doc+json"
         }
       ],
       "permission": [
@@ -210,7 +210,7 @@ Step 3 complete: documents: [
       "profile": [
         {
           "href": "https://api-sandbox.pmp.io/profiles/story",
-          "type": "application/vnd.pmp.collection.doc+json"
+          "type": "application/vnd.collection.doc+json"
         }
       ],
       "permission": [
@@ -240,7 +240,7 @@ Step 3 complete: documents: [
       "profile": [
         {
           "href": "https://api-sandbox.pmp.io/profiles/story",
-          "type": "application/vnd.pmp.collection.doc+json"
+          "type": "application/vnd.collection.doc+json"
         }
       ]
     },
@@ -259,7 +259,7 @@ Step 3 complete: documents: [
       "profile": [
         {
           "href": "https://api-sandbox.pmp.io/profiles/story",
-          "type": "application/vnd.pmp.collection.doc+json"
+          "type": "application/vnd.collection.doc+json"
         }
       ],
       "permission": [
@@ -490,7 +490,7 @@ retrieved: {
         },
         "hints": {
           "formats": [
-            "application/vnd.pmp.collection.doc+json"
+            "application/vnd.collection.doc+json"
           ],
           "allow": [
             "PUT",
@@ -510,7 +510,7 @@ retrieved: {
         },
         "hints": {
           "formats": [
-            "application/vnd.pmp.collection.doc+json"
+            "application/vnd.collection.doc+json"
           ],
           "allow": [
             "PUT",
@@ -742,7 +742,7 @@ retrieved: {
         },
         "hints": {
           "formats": [
-            "application/vnd.pmp.collection.doc+json"
+            "application/vnd.collection.doc+json"
           ],
           "allow": [
             "PUT",
@@ -762,7 +762,7 @@ retrieved: {
         },
         "hints": {
           "formats": [
-            "application/vnd.pmp.collection.doc+json"
+            "application/vnd.collection.doc+json"
           ],
           "allow": [
             "PUT",
@@ -991,7 +991,7 @@ retrieved: {
         },
         "hints": {
           "formats": [
-            "application/vnd.pmp.collection.doc+json"
+            "application/vnd.collection.doc+json"
           ],
           "allow": [
             "PUT",
@@ -1011,7 +1011,7 @@ retrieved: {
         },
         "hints": {
           "formats": [
-            "application/vnd.pmp.collection.doc+json"
+            "application/vnd.collection.doc+json"
           ],
           "allow": [
             "PUT",

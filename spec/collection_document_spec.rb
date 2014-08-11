@@ -26,7 +26,7 @@ describe PMP::CollectionDocument do
     it "should default href to endpoint" do
       @doc.href.must_be_nil
       @doc.href = "https://api.pmp.io/"
-      @doc.href.must_equal "https://api.pmp.io/"      
+      @doc.href.must_equal "https://api.pmp.io/"
     end
   end
 
@@ -90,7 +90,7 @@ describe PMP::CollectionDocument do
       root_doc =  json_file(:collection_root)
 
       stub_request(:get, "https://api.pmp.io/").
-        with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Authorization'=>'Bearer thisisatesttoken', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
+        with(:headers => {'Accept'=>'application/vnd.collection.doc+json', 'Authorization'=>'Bearer thisisatesttoken', 'Content-Type'=>'application/vnd.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
         to_return(:status => 200, :body => root_doc, :headers => {})
 
       @doc = PMP::CollectionDocument.new(oauth_token: 'thisisatesttoken', href: "https://api.pmp.io/", client_id: "fake", client_secret: "fake")
@@ -139,7 +139,7 @@ describe PMP::CollectionDocument do
 
     it "should provide a list of links" do
       @doc.load
-      @doc.links.keys.sort.must_equal ["creator", "edit", "navigation", "query"]
+      @doc.links.keys.sort.must_equal ["auth", "bookmark", "creator", "edit", "item", "navigation", "query"]
       @doc.links['creator'].first.must_be_instance_of PMP::Link
     end
 
@@ -151,7 +151,7 @@ describe PMP::CollectionDocument do
       root_doc =  json_file(:collection_root)
 
       stub_request(:get, "https://api.pmp.io/").
-        with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Authorization'=>'Bearer thisisatesttoken', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
+        with(:headers => {'Accept'=>'application/vnd.collection.doc+json', 'Authorization'=>'Bearer thisisatesttoken', 'Content-Type'=>'application/vnd.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
         to_return(:status => 200, :body => root_doc, :headers => {})
 
       @doc = PMP::CollectionDocument.new(oauth_token: 'thisisatesttoken', href: "https://api.pmp.io/")
@@ -164,16 +164,16 @@ describe PMP::CollectionDocument do
 
     it "should get a query by rels" do
       queries = @doc.query
-      queries["urn:pmp:query:docs"].must_be_instance_of PMP::Link
+      queries["urn:collectiondoc:query:docs"].must_be_instance_of PMP::Link
     end
 
     it "should handle 404 results on a search" do
 
       stub_request(:get, "https://api-sandbox.pmp.io/docs").
-        with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Authorization'=>'Bearer thisisatesttoken', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api-sandbox.pmp.io:443'}).
-        to_return(:status=>404, :body=>"Not Found", :remote_ip=>"107.20.158.113", :headers=>{"Access-Control-Allow-Headers"=>"origin, x-http-method-override, accept, content-type, authorization, x-pingother", "Access-Control-Allow-Methods"=>"GET,OPTIONS,HEAD,PUT,POST,DELETE,PATCH", "Access-Control-Allow-Origin"=>"*", "Content-Type"=>"application/vnd.pmp.collection.doc+json", "Date"=>"Thu, 24 Oct 2013 17:20:04 GMT", "Vary"=>"Accept-Encoding", "X-Powered-By"=>"Express", "X-Response-Time"=>"18ms", "Content-Length"=>"9", "Connection"=>"keep-alive"})
+        with(:headers => {'Accept'=>'application/vnd.collection.doc+json', 'Authorization'=>'Bearer thisisatesttoken', 'Content-Type'=>'application/vnd.collection.doc+json', 'Host'=>'api-sandbox.pmp.io:443'}).
+        to_return(:status=>404, :body=>"Not Found", :remote_ip=>"107.20.158.113", :headers=>{"Access-Control-Allow-Headers"=>"origin, x-http-method-override, accept, content-type, authorization, x-pingother", "Access-Control-Allow-Methods"=>"GET,OPTIONS,HEAD,PUT,POST,DELETE,PATCH", "Access-Control-Allow-Origin"=>"*", "Content-Type"=>"application/vnd.collection.doc+json", "Date"=>"Thu, 24 Oct 2013 17:20:04 GMT", "Vary"=>"Accept-Encoding", "X-Powered-By"=>"Express", "X-Response-Time"=>"18ms", "Content-Length"=>"9", "Connection"=>"keep-alive"})
 
-      @doc.query["urn:pmp:query:docs"].items.must_equal []
+      @doc.query["urn:collectiondoc:query:docs"].items.must_equal []
     end
 
   end
@@ -199,12 +199,12 @@ describe PMP::CollectionDocument do
       # stub getting the root doc
       root_doc =  json_file(:collection_root)
       stub_request(:get, "https://api.pmp.io/").
-        with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
+        with(:headers => {'Accept'=>'application/vnd.collection.doc+json', 'Content-Type'=>'application/vnd.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
         to_return(:status => 200, :body => root_doc, :headers => {})
 
       # stub saving the new doc
       stub_request(:put, "https://publish-sandbox.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42").
-        with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'publish-sandbox.pmp.io:443'}).
+        with(:headers => {'Accept'=>'application/vnd.collection.doc+json', 'Content-Type'=>'application/vnd.collection.doc+json', 'Host'=>'publish-sandbox.pmp.io:443'}).
         to_return(:status => 404, :body => '{"error":"FAIL"}')
 
       doc = PMP::CollectionDocument.new(oauth_token: 'thisisatestvalueonly')
@@ -219,15 +219,15 @@ describe PMP::CollectionDocument do
       root_doc =  json_file(:collection_root)
 
       stub_request(:get, "https://api.pmp.io/").
-        with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
+        with(:headers => {'Accept'=>'application/vnd.collection.doc+json', 'Content-Type'=>'application/vnd.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
         to_return(:status => 200, :body => root_doc, :headers => {})
 
       doc = PMP::CollectionDocument.new(oauth_token: 'thisisatestvalueonly')
 
 
       stub_request(:put, "https://publish-sandbox.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42").
-        with(:body => "{\"version\":\"1.0\",\"links\":{},\"attributes\":{\"guid\":\"c144e4df-021b-41e6-9cf3-42ac49bcbd42\",\"title\":\"testing\"}}",
-             :headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Authorization'=>'Bearer thisisatestvalueonly', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'publish-sandbox.pmp.io:443'}).
+        with(:body => "{\"links\":{},\"attributes\":{\"guid\":\"c144e4df-021b-41e6-9cf3-42ac49bcbd42\",\"title\":\"testing\"}}",
+             :headers => {'Accept'=>'application/vnd.collection.doc+json', 'Authorization'=>'Bearer thisisatestvalueonly', 'Content-Type'=>'application/vnd.collection.doc+json', 'Host'=>'publish-sandbox.pmp.io:443'}).
         to_return(:status => 200, :body => '{"url":"https://api-sandbox.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42"}')
 
       doc.guid = "c144e4df-021b-41e6-9cf3-42ac49bcbd42"
@@ -240,8 +240,8 @@ describe PMP::CollectionDocument do
 
 
       stub_request(:put, "https://publish-sandbox.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42").
-        with(:body => "{\"version\":\"1.0\",\"links\":{},\"attributes\":{\"guid\":\"c144e4df-021b-41e6-9cf3-42ac49bcbd42\",\"title\":\"testing an update\"}}",
-             :headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Authorization'=>'Bearer thisisatestvalueonly', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'publish-sandbox.pmp.io:443'}).
+        with(:body => "{\"links\":{},\"attributes\":{\"guid\":\"c144e4df-021b-41e6-9cf3-42ac49bcbd42\",\"title\":\"testing an update\"}}",
+             :headers => {'Accept'=>'application/vnd.collection.doc+json', 'Authorization'=>'Bearer thisisatestvalueonly', 'Content-Type'=>'application/vnd.collection.doc+json', 'Host'=>'publish-sandbox.pmp.io:443'}).
         to_return(:status => 200, :body => '{"url":"https://api-sandbox.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42"}')
 
       doc.title.must_equal "testing"
@@ -255,11 +255,11 @@ describe PMP::CollectionDocument do
       # stub getting the root doc
       root_doc =  json_file(:collection_root)
       stub_request(:get, "https://api.pmp.io/").
-        with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
+        with(:headers => {'Accept'=>'application/vnd.collection.doc+json', 'Content-Type'=>'application/vnd.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
         to_return(:status => 200, :body => root_doc, :headers => {})
 
       stub_request(:delete, "https://publish-sandbox.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42").
-        with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'publish-sandbox.pmp.io:443'}).
+        with(:headers => {'Accept'=>'application/vnd.collection.doc+json', 'Content-Type'=>'application/vnd.collection.doc+json', 'Host'=>'publish-sandbox.pmp.io:443'}).
         to_return(:status => 204, :body => "", :headers => {})
 
       doc = PMP::CollectionDocument.new(oauth_token: 'thisisatestvalueonly')

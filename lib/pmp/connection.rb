@@ -45,8 +45,8 @@ module PMP
         :headers => {
           # generic http headers
           'User-Agent'   => opts[:user_agent],
-          'Accept'       => "application/vnd.pmp.collection.doc+json",
-          'Content-Type' => "application/vnd.pmp.collection.doc+json"
+          'Accept'       => "application/vnd.collection.doc+json",
+          'Content-Type' => "application/vnd.collection.doc+json"
         },
         :ssl => {:verify => false},
         :url => opts[:endpoint]

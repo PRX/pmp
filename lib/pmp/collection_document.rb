@@ -100,7 +100,7 @@ module PMP
     end
 
     def edit_link(method)
-      link = root_document.edit['urn:pmp:form:documentsave']
+      link = root_document.edit['urn:collectiondoc:form:documentsave']
       raise "Edit link does not specify saving via #{method}" unless (link && link.hints.allow.include?(method))
       link
     end
@@ -122,7 +122,7 @@ module PMP
     end
 
     def setup_oauth_token
-      if !oauth_token
+      if !oauth_token && current_options[:client_id] && current_options[:client_secret]
         token = PMP::Token.new(current_options).get_token
         self.oauth_token = token.token
         self.token_type  = token.params['token_type']
@@ -137,7 +137,7 @@ module PMP
       begin
         raw = connection(current_options.merge({url: url})).send(method) do |request|
           if [:post, :put].include?(method.to_sym) && !body.blank?
-            request.body = body.is_a?(String) ? body : body.to_json
+            request.body = PMP::CollectionDocument.to_persist_json(body)
           end
         end
       rescue Faraday::Error::ResourceNotFound=>not_found_ex
@@ -150,6 +150,18 @@ module PMP
 
       # may not need this, but remember how we made this response
       PMP::Response.new(raw, {method: method, url: url, body: body})
+    end
+
+    # static method to filter out static parts of c.doc+j hash before PUT/POST to PMP server
+    # in the future this should be fixed in PMP API to no longer be necessary
+    def self.to_persist_json(body)
+      return body.to_s if body.is_a?(String) || !body.respond_to?(:as_json)
+
+      result = body.as_json.select! { |k,v| %w(attributes links).include?(k) }
+      result['attributes'].reject! { |k,v| %w(created modified).include?(k) }
+      result['links'].reject! { |k,v| %w(creator query edit auth).include?(k) }
+
+      result.to_json
     end
 
     def attributes_map
