@@ -1,93 +1,82 @@
 {
     "version": "1.0",
-    "attributes": {
-        "valid": {
-            "from": "2013-10-18T02:52:05+00:00",
-            "to": "3013-10-18T02:52:05+00:00"
-        },
-        "created": "2013-10-18T02:52:05+00:00",
-        "modified": "2013-10-18T02:52:05+00:00"
-    },
+    "href": "https://api-sandbox.pmp.io/docs",
     "links": {
         "item": [
             {
-                "href": "https://api-sandbox.pmp.io/docs/03acacda-f397-4515-857e-ad1f199dc8f0"
+                "href": "https://api-sandbox.pmp.io/docs/a360c31b-58ec-46a0-8198-a92efa960188"
             },
             {
-                "href": "https://api-sandbox.pmp.io/docs/03796e02-48f4-40aa-b457-2ffeba3d8d39"
+                "href": "https://api-sandbox.pmp.io/docs/e77aa925-53e0-4cfd-8f16-db6146faef3e"
             },
             {
-                "href": "https://api-sandbox.pmp.io/docs/0bab001c-5eb9-2d2f-011c-111751a609ca"
+                "href": "https://api-sandbox.pmp.io/docs/70809fac-82d1-4864-ae13-b58fb3543a6e"
             },
             {
-                "href": "https://api-sandbox.pmp.io/docs/ca7b2bba-4157-4ac3-810e-9f6a0fbe3968"
+                "href": "https://api-sandbox.pmp.io/docs/3e53f16a-e086-4269-ba84-196cf21bf8a9"
             },
             {
-                "href": "https://api-sandbox.pmp.io/docs/465998de-012b-49ff-84fc-2c9c7bf382a6"
+                "href": "https://api-sandbox.pmp.io/docs/0c9eeb61-dba5-431a-be8e-ad74c64aad2b"
             },
             {
-                "href": "https://api-sandbox.pmp.io/docs/e30690e1-3f20-408a-9dba-94172caf49c7"
+                "href": "https://api-sandbox.pmp.io/docs/a79b1983-bd6e-448c-ac6f-601dd5366f41"
             },
             {
-                "href": "https://api-sandbox.pmp.io/docs/d93c9f40-377f-40fa-a5b5-627211a72299"
+                "href": "https://api-sandbox.pmp.io/docs/5acb929e-1ce5-4d5a-a09d-6cb615c05b63"
             },
             {
-                "href": "https://api-sandbox.pmp.io/docs/2335cc13-a9ad-4692-98df-9c2b72e50dbd"
+                "href": "https://api-sandbox.pmp.io/docs/c2e536cf-f885-493f-a5f1-34dc87d53943"
             },
             {
-                "href": "https://api-sandbox.pmp.io/docs/d2754131-3c4d-4edb-a186-cce67ed68995"
+                "href": "https://api-sandbox.pmp.io/docs/46f3e464-7f76-4529-8a69-fd20cb5047a0"
             },
             {
-                "href": "https://api-sandbox.pmp.io/docs/3268cca2-8879-40e4-8d11-f1bacbda2866"
+                "href": "https://api-sandbox.pmp.io/docs/bb6e5679-c581-4db5-8b17-94365230d7e2"
             }
         ],
         "navigation": [
             {
                 "href": "https://api-sandbox.pmp.io/docs?",
                 "rels": [
-                    "urn:pmp:navigation:self"
+                    "self"
                 ],
-                "totalitems": 150,
-                "totalpages": 15,
+                "totalitems": 66380,
+                "totalpages": 6638,
                 "pagenum": 1
             },
             {
                 "href": "https://api-sandbox.pmp.io/docs?offset=10",
                 "rels": [
-                    "urn:pmp:navigation:next"
+                    "next"
                 ],
                 "pagenum": 2
             },
             {
                 "href": "https://api-sandbox.pmp.io/docs?",
                 "rels": [
-                    "urn:pmp:navigation:first"
+                    "first"
                 ],
                 "pagenum": 1
             },
             {
-                "href": "https://api-sandbox.pmp.io/docs?offset=150",
+                "href": "https://api-sandbox.pmp.io/docs?offset=66380",
                 "rels": [
-                    "urn:pmp:navigation:last"
+                    "last"
                 ],
-                "pagenum": 15
+                "pagenum": 6638
             }
         ],
         "query": [
             {
-                "href-template": "https://api-sandbox.pmp.io/users{?limit,offset,tag,collection,text,searchsort,has}",
-                "title": "Query for users",
+                "href-template": "https://api-sandbox.pmp.io/docs{/guid}{?limit,offset}",
+                "title": "Access documents",
                 "rels": [
-                    "urn:pmp:query:users"
+                    "urn:collectiondoc:hreftpl:docs"
                 ],
                 "href-vars": {
-                    "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "tag": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "collection": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "text": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "searchsort": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "has": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+                    "guid": "http://docs.pmp.io/wiki/Globaly-Unique-Identifiers-for-PMP-Documents",
+                    "limit": "http://docs.pmp.io/wiki/Content-Retrieval#limit",
+                    "offset": "http://docs.pmp.io/wiki/Content-Retrieval#offset"
                 },
                 "hints": {
                     "allow": [
@@ -96,18 +85,28 @@
                 }
             },
             {
-                "href-template": "https://api-sandbox.pmp.io/groups{?limit,offset,tag,collection,text,searchsort,has}",
-                "title": "Query for groups",
+                "href-template": "https://api-sandbox.pmp.io/docs{?guid,limit,offset,searchsort,startdate,enddate,writeable,tag,language,profile,collection,has,distributor,distributorgroup,author,text}",
+                "title": "Query for documents",
                 "rels": [
-                    "urn:pmp:query:groups"
+                    "urn:collectiondoc:query:docs"
                 ],
                 "href-vars": {
-                    "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "tag": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "collection": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "text": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "searchsort": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+                    "guid": "http://docs.pmp.io/wiki/Content-Retrieval#guid",
+                    "limit": "http://docs.pmp.io/wiki/Content-Retrieval#limit",
+                    "offset": "http://docs.pmp.io/wiki/Content-Retrieval#offset",
+                    "searchsort": "http://docs.pmp.io/wiki/Content-Retrieval#searchsort",
+                    "startdate": "http://docs.pmp.io/wiki/Content-Retrieval#startdate",
+                    "enddate": "http://docs.pmp.io/wiki/Content-Retrieval#enddate",
+                    "writeable": "http://docs.pmp.io/wiki/Content-Retrieval#writeable",
+                    "tag": "http://docs.pmp.io/wiki/Content-Retrieval#tag",
+                    "language": "http://docs.pmp.io/wiki/Content-Retrieval#language",
+                    "profile": "http://docs.pmp.io/wiki/Content-Retrieval#profile",
+                    "collection": "http://docs.pmp.io/wiki/Content-Retrieval#collection",
+                    "has": "http://docs.pmp.io/wiki/Content-Retrieval#has",
+                    "distributor": "http://docs.pmp.io/wiki/Content-Retrieval#distributor",
+                    "distributorgroup": "http://docs.pmp.io/wiki/Content-Retrieval#distributorgroup",
+                    "author": "http://docs.pmp.io/wiki/Content-Retrieval#author",
+                    "text": "http://docs.pmp.io/wiki/Content-Retrieval#text"
                 },
                 "hints": {
                     "allow": [
@@ -119,10 +118,34 @@
                 "href-template": "https://api-sandbox.pmp.io/profiles{/guid}",
                 "title": "Access profiles",
                 "rels": [
-                    "urn:pmp:hreftpl:profiles"
+                    "urn:collectiondoc:hreftpl:profiles"
                 ],
                 "href-vars": {
-                    "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+                    "guid": "http://docs.pmp.io/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+                },
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            {
+                "href-template": "https://api-sandbox.pmp.io/profiles{?guid,limit,offset,searchsort,startdate,enddate,writeable,tag,collection,text}",
+                "title": "Query for profiles",
+                "rels": [
+                    "urn:collectiondoc:query:profiles"
+                ],
+                "href-vars": {
+                    "guid": "http://docs.pmp.io/wiki/Content-Retrieval#guid",
+                    "limit": "http://docs.pmp.io/wiki/Content-Retrieval#limit",
+                    "offset": "http://docs.pmp.io/wiki/Content-Retrieval#offset",
+                    "searchsort": "http://docs.pmp.io/wiki/Content-Retrieval#searchsort",
+                    "startdate": "http://docs.pmp.io/wiki/Content-Retrieval#startdate",
+                    "enddate": "http://docs.pmp.io/wiki/Content-Retrieval#enddate",
+                    "writeable": "http://docs.pmp.io/wiki/Content-Retrieval#writeable",
+                    "tag": "http://docs.pmp.io/wiki/Content-Retrieval#tag",
+                    "collection": "http://docs.pmp.io/wiki/Content-Retrieval#collection",
+                    "text": "http://docs.pmp.io/wiki/Content-Retrieval#text"
                 },
                 "hints": {
                     "allow": [
@@ -134,28 +157,10 @@
                 "href-template": "https://api-sandbox.pmp.io/schemas{/guid}",
                 "title": "Access schemas",
                 "rels": [
-                    "urn:pmp:hreftpl:schemas"
+                    "urn:collectiondoc:hreftpl:schemas"
                 ],
                 "href-vars": {
-                    "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
-                },
-                "hints": {
-                    "allow": [
-                        "GET"
-                    ]
-                },
-                "type": "application/schema+json"
-            },
-            {
-                "href-template": "https://api-sandbox.pmp.io/docs{/guid}{?limit,offset}",
-                "title": "Access documents",
-                "rels": [
-                    "urn:pmp:hreftpl:docs"
-                ],
-                "href-vars": {
-                    "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+                    "guid": "http://docs.pmp.io/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
                 },
                 "hints": {
                     "allow": [
@@ -164,26 +169,71 @@
                 }
             },
             {
-                "href-template": "https://api-sandbox.pmp.io/docs{?limit,offset,tag,collection,text,searchsort,has,author,distributor,distributorgroup,startdate,enddate,profile,language}",
-                "title": "Query for documents",
+                "href-template": "https://api-sandbox.pmp.io/schemas{?guid,limit,offset,searchsort,startdate,enddate,writeable,tag,collection,text}",
+                "title": "Query for schemas",
                 "rels": [
-                    "urn:pmp:query:docs"
+                    "urn:collectiondoc:query:schemas"
                 ],
                 "href-vars": {
-                    "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "tag": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "collection": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "text": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "searchsort": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "has": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "author": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "distributor": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "distributorgroup": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "startdate": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "enddate": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "profile": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "language": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
+                    "guid": "http://docs.pmp.io/wiki/Content-Retrieval#guid",
+                    "limit": "http://docs.pmp.io/wiki/Content-Retrieval#limit",
+                    "offset": "http://docs.pmp.io/wiki/Content-Retrieval#offset",
+                    "searchsort": "http://docs.pmp.io/wiki/Content-Retrieval#searchsort",
+                    "startdate": "http://docs.pmp.io/wiki/Content-Retrieval#startdate",
+                    "enddate": "http://docs.pmp.io/wiki/Content-Retrieval#enddate",
+                    "writeable": "http://docs.pmp.io/wiki/Content-Retrieval#writeable",
+                    "tag": "http://docs.pmp.io/wiki/Content-Retrieval#tag",
+                    "collection": "http://docs.pmp.io/wiki/Content-Retrieval#collection",
+                    "text": "http://docs.pmp.io/wiki/Content-Retrieval#text"
+                },
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            {
+                "href-template": "https://api-sandbox.pmp.io/users{?guid,limit,offset,searchsort,startdate,enddate,writeable,tag,collection,text}",
+                "title": "Query for users",
+                "rels": [
+                    "urn:collectiondoc:query:users"
+                ],
+                "href-vars": {
+                    "guid": "http://docs.pmp.io/wiki/Content-Retrieval#guid",
+                    "limit": "http://docs.pmp.io/wiki/Content-Retrieval#limit",
+                    "offset": "http://docs.pmp.io/wiki/Content-Retrieval#offset",
+                    "searchsort": "http://docs.pmp.io/wiki/Content-Retrieval#searchsort",
+                    "startdate": "http://docs.pmp.io/wiki/Content-Retrieval#startdate",
+                    "enddate": "http://docs.pmp.io/wiki/Content-Retrieval#enddate",
+                    "writeable": "http://docs.pmp.io/wiki/Content-Retrieval#writeable",
+                    "tag": "http://docs.pmp.io/wiki/Content-Retrieval#tag",
+                    "collection": "http://docs.pmp.io/wiki/Content-Retrieval#collection",
+                    "text": "http://docs.pmp.io/wiki/Content-Retrieval#text"
+                },
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            {
+                "href-template": "https://api-sandbox.pmp.io/groups{?guid,limit,offset,searchsort,startdate,enddate,writeable,tag,collection,has,text}",
+                "title": "Query for groups",
+                "rels": [
+                    "urn:collectiondoc:query:groups"
+                ],
+                "href-vars": {
+                    "guid": "http://docs.pmp.io/wiki/Content-Retrieval#guid",
+                    "limit": "http://docs.pmp.io/wiki/Content-Retrieval#limit",
+                    "offset": "http://docs.pmp.io/wiki/Content-Retrieval#offset",
+                    "searchsort": "http://docs.pmp.io/wiki/Content-Retrieval#searchsort",
+                    "startdate": "http://docs.pmp.io/wiki/Content-Retrieval#startdate",
+                    "enddate": "http://docs.pmp.io/wiki/Content-Retrieval#enddate",
+                    "writeable": "http://docs.pmp.io/wiki/Content-Retrieval#writeable",
+                    "tag": "http://docs.pmp.io/wiki/Content-Retrieval#tag",
+                    "collection": "http://docs.pmp.io/wiki/Content-Retrieval#collection",
+                    "has": "http://docs.pmp.io/wiki/Content-Retrieval#has",
+                    "text": "http://docs.pmp.io/wiki/Content-Retrieval#text"
                 },
                 "hints": {
                     "allow": [
@@ -195,7 +245,7 @@
                 "href": "https://api-sandbox.pmp.io/guids",
                 "title": "Generate guids",
                 "rels": [
-                    "urn:pmp:query:guids"
+                    "urn:collectiondoc:query:guids"
                 ],
                 "hints": {
                     "allow": [
@@ -213,70 +263,70 @@
                 "href-template": "https://publish-sandbox.pmp.io/docs{/guid}",
                 "title": "Document Save",
                 "rels": [
-                    "urn:pmp:form:documentsave"
+                    "urn:collectiondoc:form:documentsave"
                 ],
                 "href-vars": {
-                    "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+                    "guid": "http://docs.pmp.io/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
                 },
                 "hints": {
                     "formats": [
-                        "application/vnd.pmp.collection.doc+json"
+                        "application/vnd.collection.doc+json"
                     ],
                     "allow": [
                         "PUT",
                         "DELETE"
                     ],
-                    "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Collection.doc-JSON-Media-Type"
+                    "docs": "http://docs.pmp.io/wiki/Collection.doc-JSON-Media-Type"
                 }
             },
             {
                 "href-template": "https://publish-sandbox.pmp.io/profiles{/guid}",
                 "title": "Profile Save",
                 "rels": [
-                    "urn:pmp:form:profilesave"
+                    "urn:collectiondoc:form:profilesave"
                 ],
                 "href-vars": {
-                    "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+                    "guid": "http://docs.pmp.io/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
                 },
                 "hints": {
                     "formats": [
-                        "application/vnd.pmp.collection.doc+json"
+                        "application/vnd.collection.doc+json"
                     ],
                     "allow": [
                         "PUT",
                         "DELETE"
                     ],
-                    "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Profile-profile"
+                    "docs": "http://docs.pmp.io/wiki/Profile-profile"
                 }
             },
             {
                 "href-template": "https://publish-sandbox.pmp.io/schemas{/guid}",
                 "title": "Schema Save",
                 "rels": [
-                    "urn:pmp:form:schemasave"
+                    "urn:collectiondoc:form:schemasave"
                 ],
                 "href-vars": {
-                    "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+                    "guid": "http://docs.pmp.io/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
                 },
                 "hints": {
                     "formats": [
-                        "application/schema+json"
+                        "application/vnd.collection.doc+json"
                     ],
                     "allow": [
                         "PUT",
                         "DELETE"
                     ],
-                    "docs": "http://json-schema.org/"
+                    "docs": "http://docs.pmp.io/wiki/Schema-profile"
                 }
             },
             {
                 "href": "https://publish-sandbox.pmp.io/files",
                 "title": "Upload a rich media file",
                 "rels": [
-                    "urn:pmp:form:mediaupload"
+                    "urn:collectiondoc:form:mediaupload"
                 ],
                 "href-vars": {
-                    "submission": "https://github.com/publicmediaplatform/pmpdocs/wiki/Media-File-Upload"
+                    "submission": "http://docs.pmp.io/wiki/Media-File-Upload"
                 },
                 "hints": {
                     "allow": [
@@ -287,241 +337,172 @@
                     ]
                 }
             }
+        ],
+        "auth": [
+            {
+                "href": "https://publish-sandbox.pmp.io/auth/credentials",
+                "title": "Create OAuth2 Credentials",
+                "rels": [
+                    "urn:collectiondoc:form:createcredentials"
+                ],
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ],
+                    "docs": "http://docs.pmp.io/wiki/Authenticating-with-the-API#generating-credentials"
+                }
+            },
+            {
+                "href-template": "https://publish-sandbox.pmp.io/auth/credentials/{client_id}",
+                "title": "Remove OAuth2 Credentials",
+                "rels": [
+                    "urn:collectiondoc:form:removecredentials"
+                ],
+                "hints": {
+                    "allow": [
+                        "DELETE"
+                    ],
+                    "docs": "http://docs.pmp.io/wiki/Authenticating-with-the-API#removing-a-credential"
+                }
+            },
+            {
+                "href": "https://api-sandbox.pmp.io/auth/access_token",
+                "title": "Issue OAuth2 Token",
+                "rels": [
+                    "urn:collectiondoc:form:issuetoken"
+                ],
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ],
+                    "accept-post": [
+                        "application/x-www-form-urlencoded"
+                    ],
+                    "docs": "http://docs.pmp.io/wiki/Authentication-Model#token-management"
+                }
+            },
+            {
+                "href": "https://publish-sandbox.pmp.io/auth/access_token",
+                "title": "Revoke OAuth2 Token",
+                "rels": [
+                    "urn:collectiondoc:form:revoketoken"
+                ],
+                "hints": {
+                    "allow": [
+                        "DELETE"
+                    ],
+                    "docs": "http://docs.pmp.io/wiki/Authentication-Model#revoke-a-token"
+                }
+            }
         ]
     },
     "items": [
         {
             "version": "1.0",
+            "href": "https://api-sandbox.pmp.io/docs/a360c31b-58ec-46a0-8198-a92efa960188",
             "attributes": {
                 "valid": {
-                    "from": "2013-10-17T14:57:16+00:00",
-                    "to": "3013-10-17T14:57:16+00:00"
+                    "from": "2014-11-13T14:43:38+00:00",
+                    "to": "3014-08-05T13:43:40+00:00"
                 },
-                "created": "2013-10-17T14:57:16+00:00",
-                "modified": "2013-10-18T02:52:05+00:00",
-                "title": "some title",
-                "published": "2013-10-17T14:57:16+00:00",
-                "guid": "03acacda-f397-4515-857e-ad1f199dc8f0"
+                "created": "2014-08-05T13:43:40+00:00",
+                "modified": "2014-08-05T13:43:40+00:00",
+                "title": "eHG3DgJbKekW7S1qSLlS",
+                "guid": "a360c31b-58ec-46a0-8198-a92efa960188",
+                "published": "2014-11-13T14:43:38+00:00"
             },
             "links": {
+                "profile": [
+                    {
+                        "href": "https://api-sandbox.pmp.io/profiles/story"
+                    }
+                ],
                 "creator": [
                     {
-                        "href": "https://api-sandbox.pmp.io/docs/fc53c568-e939-4d9c-86ea-c2a2c70f1a99"
+                        "href": "https://api-sandbox.pmp.io/docs/39b744ba-e132-4ef3-9099-885aef0ff2f1"
                     }
                 ],
+                "item": [],
                 "navigation": [
                     {
-                        "href": "https://api-sandbox.pmp.io/docs?guid=03acacda-f397-4515-857e-ad1f199dc8f0",
+                        "href": "https://api-sandbox.pmp.io/docs?guid=a360c31b-58ec-46a0-8198-a92efa960188",
                         "rels": [
-                            "urn:pmp:navigation:self"
+                            "self"
                         ]
-                    }
-                ],
-                "edit": [
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/docs{/guid}",
-                        "title": "Document Save",
-                        "rels": [
-                            "urn:pmp:form:documentsave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Collection.doc-JSON-Media-Type"
-                        }
-                    },
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/profiles{/guid}",
-                        "title": "Profile Save",
-                        "rels": [
-                            "urn:pmp:form:profilesave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Profile-profile"
-                        }
-                    },
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/schemas{/guid}",
-                        "title": "Schema Save",
-                        "rels": [
-                            "urn:pmp:form:schemasave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/schema+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "http://json-schema.org/"
-                        }
-                    },
-                    {
-                        "href": "https://publish-sandbox.pmp.io/files",
-                        "title": "Upload a rich media file",
-                        "rels": [
-                            "urn:pmp:form:mediaupload"
-                        ],
-                        "href-vars": {
-                            "submission": "https://github.com/publicmediaplatform/pmpdocs/wiki/Media-File-Upload"
-                        },
-                        "hints": {
-                            "allow": [
-                                "POST"
-                            ],
-                            "accept-post": [
-                                "multipart/form-data"
-                            ]
-                        }
                     }
                 ]
             }
         },
         {
             "version": "1.0",
+            "href": "https://api-sandbox.pmp.io/docs/e77aa925-53e0-4cfd-8f16-db6146faef3e",
             "attributes": {
                 "valid": {
-                    "from": "2013-10-17T02:08:21+00:00",
-                    "to": "3013-10-17T02:08:21+00:00"
+                    "from": "2014-08-05T16:44:08+00:00",
+                    "to": "3014-08-05T16:44:08+00:00"
                 },
-                "created": "2013-10-17T02:08:21+00:00",
-                "modified": "2013-10-18T02:52:06+00:00",
-                "guid": "03796e02-48f4-40aa-b457-2ffeba3d8d39",
-                "published": "2013-10-17T02:08:21+00:00"
-            },
-            "links": {
-                "creator": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs/fc53c568-e939-4d9c-86ea-c2a2c70f1a99"
-                    }
-                ],
-                "navigation": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs?guid=03796e02-48f4-40aa-b457-2ffeba3d8d39",
-                        "rels": [
-                            "urn:pmp:navigation:self"
-                        ]
-                    }
-                ],
-                "edit": [
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/docs{/guid}",
-                        "title": "Document Save",
-                        "rels": [
-                            "urn:pmp:form:documentsave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Collection.doc-JSON-Media-Type"
-                        }
-                    },
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/profiles{/guid}",
-                        "title": "Profile Save",
-                        "rels": [
-                            "urn:pmp:form:profilesave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Profile-profile"
-                        }
-                    },
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/schemas{/guid}",
-                        "title": "Schema Save",
-                        "rels": [
-                            "urn:pmp:form:schemasave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/schema+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "http://json-schema.org/"
-                        }
-                    },
-                    {
-                        "href": "https://publish-sandbox.pmp.io/files",
-                        "title": "Upload a rich media file",
-                        "rels": [
-                            "urn:pmp:form:mediaupload"
-                        ],
-                        "href-vars": {
-                            "submission": "https://github.com/publicmediaplatform/pmpdocs/wiki/Media-File-Upload"
-                        },
-                        "hints": {
-                            "allow": [
-                                "POST"
-                            ],
-                            "accept-post": [
-                                "multipart/form-data"
-                            ]
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "version": "1.0",
-            "attributes": {
-                "valid": {
-                    "from": "2013-10-16T14:47:50+00:00",
-                    "to": "3013-10-16T14:47:50+00:00"
-                },
-                "created": "2013-10-16T14:47:50+00:00",
-                "modified": "2013-10-18T02:52:06+00:00",
+                "created": "2014-08-05T16:44:08+00:00",
+                "modified": "2014-08-05T16:44:09+00:00",
                 "hreflang": "en",
-                "guid": "0bab001c-5eb9-2d2f-011c-111751a609ca",
-                "title": "Go SOX!",
-                "published": "2013-10-16T14:47:49+00:00",
-                "teaser": "Top of 2, and score 0-0 And Johnny Gomes fouling off lots of pitches...But Napoli is THA MAN! ",
-                "contentencoded": "<p>Top of 2, and score 0-0</p><p>And Johnny Gomes fouling off lots of pitches...But Napoli is THA MAN!</p>"
+                "guid": "e77aa925-53e0-4cfd-8f16-db6146faef3e",
+                "title": "image-2.jpg",
+                "published": "2014-08-05T16:38:55+00:00",
+                "byline": "Anonymous"
+            },
+            "links": {
+                "profile": [
+                    {
+                        "href": "https://api-sandbox.pmp.io/profiles/image"
+                    }
+                ],
+                "alternate": [
+                    {
+                        "href": "/file/8"
+                    }
+                ],
+                "enclosure": [
+                    {
+                        "href": "http://pmp42dev/sites/default/files/simpletest/557860/image-2.jpg",
+                        "meta": {
+                            "crop": "primary",
+                            "height": 60,
+                            "width": 80
+                        },
+                        "type": "image/jpeg"
+                    }
+                ],
+                "creator": [
+                    {
+                        "href": "https://api-sandbox.pmp.io/docs/39b744ba-e132-4ef3-9099-885aef0ff2f1"
+                    }
+                ],
+                "item": [],
+                "navigation": [
+                    {
+                        "href": "https://api-sandbox.pmp.io/docs?guid=e77aa925-53e0-4cfd-8f16-db6146faef3e",
+                        "rels": [
+                            "self"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "version": "1.0",
+            "href": "https://api-sandbox.pmp.io/docs/70809fac-82d1-4864-ae13-b58fb3543a6e",
+            "attributes": {
+                "valid": {
+                    "from": "2014-08-05T16:49:09+00:00",
+                    "to": "3014-08-05T16:49:09+00:00"
+                },
+                "created": "2014-08-05T16:49:09+00:00",
+                "modified": "2014-08-05T16:49:09+00:00",
+                "hreflang": "en",
+                "guid": "70809fac-82d1-4864-ae13-b58fb3543a6e",
+                "title": "PMPAPI Simpletest test: 12:49:07",
+                "published": "2014-08-05T16:38:55+00:00",
+                "byline": "po9KgBZO",
+                "contentencoded": "cUmWxBQKcigEnDOETqSnAb5R4E0Ou0AN"
             },
             "links": {
                 "profile": [
@@ -531,122 +512,104 @@
                 ],
                 "alternate": [
                     {
-                        "href": "http://cp-pmp.local/content/go-sox",
+                        "href": "/node/1"
+                    }
+                ],
+                "item": [
+                    {
+                        "href": "https://api-sandbox.pmp.io/docs/0c9eeb61-dba5-431a-be8e-ad74c64aad2b"
+                    }
+                ],
+                "creator": [
+                    {
+                        "href": "https://api-sandbox.pmp.io/docs/39b744ba-e132-4ef3-9099-885aef0ff2f1"
+                    }
+                ],
+                "navigation": [
+                    {
+                        "href": "https://api-sandbox.pmp.io/docs?guid=70809fac-82d1-4864-ae13-b58fb3543a6e",
+                        "rels": [
+                            "self"
+                        ],
+                        "totalitems": 1,
+                        "totalpages": 1,
+                        "pagenum": 1
+                    }
+                ]
+            },
+            "items": [
+                {
+                    "version": "1.0",
+                    "href": "https://api-sandbox.pmp.io/docs/0c9eeb61-dba5-431a-be8e-ad74c64aad2b",
+                    "attributes": {
+                        "valid": {
+                            "from": "2014-08-05T16:49:05+00:00",
+                            "to": "3014-08-05T16:49:05+00:00"
+                        },
+                        "created": "2014-08-05T16:49:05+00:00",
+                        "modified": "2014-08-05T16:49:06+00:00",
                         "hreflang": "en",
-                        "type": "text/html"
-                    }
-                ],
-                "creator": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs/af676335-21df-4486-ab43-e88c1b48f026"
-                    }
-                ],
-                "navigation": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs?guid=0bab001c-5eb9-2d2f-011c-111751a609ca",
-                        "rels": [
-                            "urn:pmp:navigation:self"
+                        "guid": "0c9eeb61-dba5-431a-be8e-ad74c64aad2b",
+                        "title": "image-test.jpg",
+                        "published": "2014-08-05T16:38:55+00:00",
+                        "byline": "Anonymous"
+                    },
+                    "links": {
+                        "profile": [
+                            {
+                                "href": "https://api-sandbox.pmp.io/profiles/image"
+                            }
+                        ],
+                        "alternate": [
+                            {
+                                "href": "/file/9"
+                            }
+                        ],
+                        "enclosure": [
+                            {
+                                "href": "http://pmp42dev/sites/default/files/simpletest/989728/image-test.jpg",
+                                "meta": {
+                                    "crop": "primary",
+                                    "height": 20,
+                                    "width": 40
+                                },
+                                "type": "image/jpeg"
+                            }
+                        ],
+                        "creator": [
+                            {
+                                "href": "https://api-sandbox.pmp.io/docs/39b744ba-e132-4ef3-9099-885aef0ff2f1"
+                            }
+                        ],
+                        "item": [],
+                        "navigation": [
+                            {
+                                "href": "https://api-sandbox.pmp.io/docs?guid=0c9eeb61-dba5-431a-be8e-ad74c64aad2b",
+                                "rels": [
+                                    "self"
+                                ]
+                            }
                         ]
                     }
-                ],
-                "edit": [
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/docs{/guid}",
-                        "title": "Document Save",
-                        "rels": [
-                            "urn:pmp:form:documentsave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Collection.doc-JSON-Media-Type"
-                        }
-                    },
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/profiles{/guid}",
-                        "title": "Profile Save",
-                        "rels": [
-                            "urn:pmp:form:profilesave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Profile-profile"
-                        }
-                    },
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/schemas{/guid}",
-                        "title": "Schema Save",
-                        "rels": [
-                            "urn:pmp:form:schemasave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/schema+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "http://json-schema.org/"
-                        }
-                    },
-                    {
-                        "href": "https://publish-sandbox.pmp.io/files",
-                        "title": "Upload a rich media file",
-                        "rels": [
-                            "urn:pmp:form:mediaupload"
-                        ],
-                        "href-vars": {
-                            "submission": "https://github.com/publicmediaplatform/pmpdocs/wiki/Media-File-Upload"
-                        },
-                        "hints": {
-                            "allow": [
-                                "POST"
-                            ],
-                            "accept-post": [
-                                "multipart/form-data"
-                            ]
-                        }
-                    }
-                ]
-            }
+                }
+            ]
         },
         {
             "version": "1.0",
+            "href": "https://api-sandbox.pmp.io/docs/3e53f16a-e086-4269-ba84-196cf21bf8a9",
             "attributes": {
                 "valid": {
-                    "from": "2013-10-12T19:44:12+00:00",
-                    "to": "3013-10-12T19:44:12+00:00"
+                    "from": "2014-08-05T16:44:12+00:00",
+                    "to": "3014-08-05T16:44:12+00:00"
                 },
-                "created": "2013-10-12T19:44:12+00:00",
-                "modified": "2013-10-18T02:52:05+00:00",
-                "guid": "ca7b2bba-4157-4ac3-810e-9f6a0fbe3968",
-                "tags": [
-                    "pri",
-                    "theworld"
-                ],
-                "title": "Pri - The World - Sample Document 1710653593",
-                "published": "2013-10-12T19:44:12+00:00"
+                "created": "2014-08-05T16:44:12+00:00",
+                "modified": "2014-08-05T16:44:12+00:00",
+                "hreflang": "en",
+                "guid": "3e53f16a-e086-4269-ba84-196cf21bf8a9",
+                "title": "PMPAPI Simpletest test: 12:44:10",
+                "published": "2014-08-05T16:38:55+00:00",
+                "byline": "tOG9x5mk",
+                "contentencoded": "n43BRp1rmlo0FNDzPFnRd03nR20w1Orr"
             },
             "links": {
                 "profile": [
@@ -654,132 +617,158 @@
                         "href": "https://api-sandbox.pmp.io/profiles/story"
                     }
                 ],
-                "collection": [
+                "alternate": [
                     {
-                        "href": "https://api-sandbox.pmp.io/docs/03796e02-48f4-40aa-b457-2ffeba3d8d39"
-                    },
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs/ea18ee8a-887a-42b5-8579-113b3a53b039"
+                        "href": "/node/1"
                     }
                 ],
-                "permissions": [
+                "item": [
                     {
-                        "href": "https://api-sandbox.pmp.io/groups/empty",
-                        "operation": "read",
-                        "blacklist": true
+                        "href": "https://api-sandbox.pmp.io/docs/e77aa925-53e0-4cfd-8f16-db6146faef3e"
                     }
                 ],
                 "creator": [
                     {
-                        "href": "https://api-sandbox.pmp.io/docs/7a865268-c9de-4b27-a3c1-983adad90921"
+                        "href": "https://api-sandbox.pmp.io/docs/39b744ba-e132-4ef3-9099-885aef0ff2f1"
                     }
                 ],
                 "navigation": [
                     {
-                        "href": "https://api-sandbox.pmp.io/docs?guid=ca7b2bba-4157-4ac3-810e-9f6a0fbe3968",
+                        "href": "https://api-sandbox.pmp.io/docs?guid=3e53f16a-e086-4269-ba84-196cf21bf8a9",
                         "rels": [
-                            "urn:pmp:navigation:self"
+                            "self"
+                        ],
+                        "totalitems": 1,
+                        "totalpages": 1,
+                        "pagenum": 1
+                    }
+                ]
+            },
+            "items": [
+                {
+                    "version": "1.0",
+                    "href": "https://api-sandbox.pmp.io/docs/e77aa925-53e0-4cfd-8f16-db6146faef3e",
+                    "attributes": {
+                        "valid": {
+                            "from": "2014-08-05T16:44:08+00:00",
+                            "to": "3014-08-05T16:44:08+00:00"
+                        },
+                        "created": "2014-08-05T16:44:08+00:00",
+                        "modified": "2014-08-05T16:44:09+00:00",
+                        "hreflang": "en",
+                        "guid": "e77aa925-53e0-4cfd-8f16-db6146faef3e",
+                        "title": "image-2.jpg",
+                        "published": "2014-08-05T16:38:55+00:00",
+                        "byline": "Anonymous"
+                    },
+                    "links": {
+                        "profile": [
+                            {
+                                "href": "https://api-sandbox.pmp.io/profiles/image"
+                            }
+                        ],
+                        "alternate": [
+                            {
+                                "href": "/file/8"
+                            }
+                        ],
+                        "enclosure": [
+                            {
+                                "href": "http://pmp42dev/sites/default/files/simpletest/557860/image-2.jpg",
+                                "meta": {
+                                    "crop": "primary",
+                                    "height": 60,
+                                    "width": 80
+                                },
+                                "type": "image/jpeg"
+                            }
+                        ],
+                        "creator": [
+                            {
+                                "href": "https://api-sandbox.pmp.io/docs/39b744ba-e132-4ef3-9099-885aef0ff2f1"
+                            }
+                        ],
+                        "item": [],
+                        "navigation": [
+                            {
+                                "href": "https://api-sandbox.pmp.io/docs?guid=e77aa925-53e0-4cfd-8f16-db6146faef3e",
+                                "rels": [
+                                    "self"
+                                ]
+                            }
                         ]
                     }
+                }
+            ]
+        },
+        {
+            "version": "1.0",
+            "href": "https://api-sandbox.pmp.io/docs/0c9eeb61-dba5-431a-be8e-ad74c64aad2b",
+            "attributes": {
+                "valid": {
+                    "from": "2014-08-05T16:49:05+00:00",
+                    "to": "3014-08-05T16:49:05+00:00"
+                },
+                "created": "2014-08-05T16:49:05+00:00",
+                "modified": "2014-08-05T16:49:06+00:00",
+                "hreflang": "en",
+                "guid": "0c9eeb61-dba5-431a-be8e-ad74c64aad2b",
+                "title": "image-test.jpg",
+                "published": "2014-08-05T16:38:55+00:00",
+                "byline": "Anonymous"
+            },
+            "links": {
+                "profile": [
+                    {
+                        "href": "https://api-sandbox.pmp.io/profiles/image"
+                    }
                 ],
-                "edit": [
+                "alternate": [
                     {
-                        "href-template": "https://publish-sandbox.pmp.io/docs{/guid}",
-                        "title": "Document Save",
-                        "rels": [
-                            "urn:pmp:form:documentsave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Collection.doc-JSON-Media-Type"
-                        }
-                    },
+                        "href": "/file/9"
+                    }
+                ],
+                "enclosure": [
                     {
-                        "href-template": "https://publish-sandbox.pmp.io/profiles{/guid}",
-                        "title": "Profile Save",
-                        "rels": [
-                            "urn:pmp:form:profilesave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+                        "href": "http://pmp42dev/sites/default/files/simpletest/989728/image-test.jpg",
+                        "meta": {
+                            "crop": "primary",
+                            "height": 20,
+                            "width": 40
                         },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Profile-profile"
-                        }
-                    },
+                        "type": "image/jpeg"
+                    }
+                ],
+                "creator": [
                     {
-                        "href-template": "https://publish-sandbox.pmp.io/schemas{/guid}",
-                        "title": "Schema Save",
-                        "rels": [
-                            "urn:pmp:form:schemasave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/schema+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "http://json-schema.org/"
-                        }
-                    },
+                        "href": "https://api-sandbox.pmp.io/docs/39b744ba-e132-4ef3-9099-885aef0ff2f1"
+                    }
+                ],
+                "item": [],
+                "navigation": [
                     {
-                        "href": "https://publish-sandbox.pmp.io/files",
-                        "title": "Upload a rich media file",
+                        "href": "https://api-sandbox.pmp.io/docs?guid=0c9eeb61-dba5-431a-be8e-ad74c64aad2b",
                         "rels": [
-                            "urn:pmp:form:mediaupload"
-                        ],
-                        "href-vars": {
-                            "submission": "https://github.com/publicmediaplatform/pmpdocs/wiki/Media-File-Upload"
-                        },
-                        "hints": {
-                            "allow": [
-                                "POST"
-                            ],
-                            "accept-post": [
-                                "multipart/form-data"
-                            ]
-                        }
+                            "self"
+                        ]
                     }
                 ]
             }
         },
         {
             "version": "1.0",
+            "href": "https://api-sandbox.pmp.io/docs/a79b1983-bd6e-448c-ac6f-601dd5366f41",
             "attributes": {
                 "valid": {
-                    "from": "2013-10-12T19:42:31+00:00",
-                    "to": "3013-10-12T19:42:31+00:00"
+                    "from": "2014-08-05T16:00:17+00:00",
+                    "to": "3014-08-05T16:00:17+00:00"
                 },
-                "created": "2013-10-12T19:42:31+00:00",
-                "modified": "2013-10-18T02:52:06+00:00",
-                "guid": "465998de-012b-49ff-84fc-2c9c7bf382a6",
-                "tags": [
-                    "pri",
-                    "theworld"
-                ],
-                "title": "Pri - The World - Sample Document 376310831",
-                "published": "2013-10-12T19:42:31+00:00"
+                "created": "2014-08-05T16:00:17+00:00",
+                "modified": "2014-08-05T16:00:18+00:00",
+                "title": "z79ByB7cso3IezP0AA5f",
+                "teaser": "kEuvDs7uvC",
+                "guid": "a79b1983-bd6e-448c-ac6f-601dd5366f41",
+                "published": "2014-08-05T16:00:17+00:00"
             },
             "links": {
                 "profile": [
@@ -787,132 +776,38 @@
                         "href": "https://api-sandbox.pmp.io/profiles/story"
                     }
                 ],
-                "collection": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs/03796e02-48f4-40aa-b457-2ffeba3d8d39"
-                    },
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs/ea18ee8a-887a-42b5-8579-113b3a53b039"
-                    }
-                ],
-                "permissions": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/groups/empty",
-                        "operation": "read",
-                        "blacklist": true
-                    }
-                ],
                 "creator": [
                     {
-                        "href": "https://api-sandbox.pmp.io/docs/7a865268-c9de-4b27-a3c1-983adad90921"
+                        "href": "https://api-sandbox.pmp.io/docs/39b744ba-e132-4ef3-9099-885aef0ff2f1"
                     }
                 ],
+                "item": [],
                 "navigation": [
                     {
-                        "href": "https://api-sandbox.pmp.io/docs?guid=465998de-012b-49ff-84fc-2c9c7bf382a6",
+                        "href": "https://api-sandbox.pmp.io/docs?guid=a79b1983-bd6e-448c-ac6f-601dd5366f41",
                         "rels": [
-                            "urn:pmp:navigation:self"
+                            "self"
                         ]
-                    }
-                ],
-                "edit": [
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/docs{/guid}",
-                        "title": "Document Save",
-                        "rels": [
-                            "urn:pmp:form:documentsave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Collection.doc-JSON-Media-Type"
-                        }
-                    },
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/profiles{/guid}",
-                        "title": "Profile Save",
-                        "rels": [
-                            "urn:pmp:form:profilesave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Profile-profile"
-                        }
-                    },
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/schemas{/guid}",
-                        "title": "Schema Save",
-                        "rels": [
-                            "urn:pmp:form:schemasave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/schema+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "http://json-schema.org/"
-                        }
-                    },
-                    {
-                        "href": "https://publish-sandbox.pmp.io/files",
-                        "title": "Upload a rich media file",
-                        "rels": [
-                            "urn:pmp:form:mediaupload"
-                        ],
-                        "href-vars": {
-                            "submission": "https://github.com/publicmediaplatform/pmpdocs/wiki/Media-File-Upload"
-                        },
-                        "hints": {
-                            "allow": [
-                                "POST"
-                            ],
-                            "accept-post": [
-                                "multipart/form-data"
-                            ]
-                        }
                     }
                 ]
             }
         },
         {
             "version": "1.0",
+            "href": "https://api-sandbox.pmp.io/docs/5acb929e-1ce5-4d5a-a09d-6cb615c05b63",
             "attributes": {
                 "valid": {
-                    "from": "2013-10-12T19:39:53+00:00",
-                    "to": "3013-10-12T19:39:53+00:00"
+                    "from": "2014-08-05T15:53:34+00:00",
+                    "to": "3014-08-05T15:53:34+00:00"
                 },
-                "created": "2013-10-12T19:39:53+00:00",
-                "modified": "2013-10-18T02:52:06+00:00",
-                "guid": "e30690e1-3f20-408a-9dba-94172caf49c7",
-                "tags": [
-                    "pri",
-                    "theworld"
-                ],
-                "title": "Pri - The World - Sample Document 1709974695",
-                "published": "2013-10-12T19:39:53+00:00"
+                "created": "2014-08-05T15:53:34+00:00",
+                "modified": "2014-08-05T15:53:34+00:00",
+                "hreflang": "en",
+                "guid": "5acb929e-1ce5-4d5a-a09d-6cb615c05b63",
+                "title": "PMPAPI Simpletest test: 11:53:32",
+                "published": "2014-08-05T15:48:31+00:00",
+                "byline": "lZonThlB",
+                "contentencoded": "szZiHpR5I028ZQJNsshTV3C6qGyLbTeD"
             },
             "links": {
                 "profile": [
@@ -920,132 +815,214 @@
                         "href": "https://api-sandbox.pmp.io/profiles/story"
                     }
                 ],
-                "collection": [
+                "alternate": [
                     {
-                        "href": "https://api-sandbox.pmp.io/docs/03796e02-48f4-40aa-b457-2ffeba3d8d39"
-                    },
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs/ea18ee8a-887a-42b5-8579-113b3a53b039"
+                        "href": "/node/1"
                     }
                 ],
-                "permissions": [
+                "item": [
                     {
-                        "href": "https://api-sandbox.pmp.io/groups/empty",
-                        "operation": "read",
-                        "blacklist": true
+                        "href": "https://api-sandbox.pmp.io/docs/c2e536cf-f885-493f-a5f1-34dc87d53943"
                     }
                 ],
                 "creator": [
                     {
-                        "href": "https://api-sandbox.pmp.io/docs/7a865268-c9de-4b27-a3c1-983adad90921"
+                        "href": "https://api-sandbox.pmp.io/docs/39b744ba-e132-4ef3-9099-885aef0ff2f1"
                     }
                 ],
                 "navigation": [
                     {
-                        "href": "https://api-sandbox.pmp.io/docs?guid=e30690e1-3f20-408a-9dba-94172caf49c7",
+                        "href": "https://api-sandbox.pmp.io/docs?guid=5acb929e-1ce5-4d5a-a09d-6cb615c05b63",
                         "rels": [
-                            "urn:pmp:navigation:self"
+                            "self"
+                        ],
+                        "totalitems": 1,
+                        "totalpages": 1,
+                        "pagenum": 1
+                    }
+                ]
+            },
+            "items": [
+                {
+                    "version": "1.0",
+                    "href": "https://api-sandbox.pmp.io/docs/c2e536cf-f885-493f-a5f1-34dc87d53943",
+                    "attributes": {
+                        "valid": {
+                            "from": "2014-08-05T15:53:30+00:00",
+                            "to": "3014-08-05T15:53:30+00:00"
+                        },
+                        "created": "2014-08-05T15:53:30+00:00",
+                        "modified": "2014-08-05T15:53:31+00:00",
+                        "hreflang": "en",
+                        "guid": "c2e536cf-f885-493f-a5f1-34dc87d53943",
+                        "title": "image-2.jpg",
+                        "published": "2014-08-05T15:48:31+00:00",
+                        "byline": "Anonymous"
+                    },
+                    "links": {
+                        "profile": [
+                            {
+                                "href": "https://api-sandbox.pmp.io/profiles/image"
+                            }
+                        ],
+                        "alternate": [
+                            {
+                                "href": "/file/8"
+                            }
+                        ],
+                        "enclosure": [
+                            {
+                                "href": "http://pmp42dev/sites/default/files/simpletest/171508/image-2.jpg",
+                                "meta": {
+                                    "crop": "primary",
+                                    "height": 60,
+                                    "width": 80
+                                },
+                                "type": "image/jpeg"
+                            }
+                        ],
+                        "creator": [
+                            {
+                                "href": "https://api-sandbox.pmp.io/docs/39b744ba-e132-4ef3-9099-885aef0ff2f1"
+                            }
+                        ],
+                        "item": [],
+                        "navigation": [
+                            {
+                                "href": "https://api-sandbox.pmp.io/docs?guid=c2e536cf-f885-493f-a5f1-34dc87d53943",
+                                "rels": [
+                                    "self"
+                                ]
+                            }
                         ]
                     }
+                }
+            ]
+        },
+        {
+            "version": "1.0",
+            "href": "https://api-sandbox.pmp.io/docs/c2e536cf-f885-493f-a5f1-34dc87d53943",
+            "attributes": {
+                "valid": {
+                    "from": "2014-08-05T15:53:30+00:00",
+                    "to": "3014-08-05T15:53:30+00:00"
+                },
+                "created": "2014-08-05T15:53:30+00:00",
+                "modified": "2014-08-05T15:53:31+00:00",
+                "hreflang": "en",
+                "guid": "c2e536cf-f885-493f-a5f1-34dc87d53943",
+                "title": "image-2.jpg",
+                "published": "2014-08-05T15:48:31+00:00",
+                "byline": "Anonymous"
+            },
+            "links": {
+                "profile": [
+                    {
+                        "href": "https://api-sandbox.pmp.io/profiles/image"
+                    }
                 ],
-                "edit": [
+                "alternate": [
                     {
-                        "href-template": "https://publish-sandbox.pmp.io/docs{/guid}",
-                        "title": "Document Save",
-                        "rels": [
-                            "urn:pmp:form:documentsave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Collection.doc-JSON-Media-Type"
-                        }
-                    },
+                        "href": "/file/8"
+                    }
+                ],
+                "enclosure": [
                     {
-                        "href-template": "https://publish-sandbox.pmp.io/profiles{/guid}",
-                        "title": "Profile Save",
-                        "rels": [
-                            "urn:pmp:form:profilesave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+                        "href": "http://pmp42dev/sites/default/files/simpletest/171508/image-2.jpg",
+                        "meta": {
+                            "crop": "primary",
+                            "height": 60,
+                            "width": 80
                         },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Profile-profile"
-                        }
-                    },
+                        "type": "image/jpeg"
+                    }
+                ],
+                "creator": [
                     {
-                        "href-template": "https://publish-sandbox.pmp.io/schemas{/guid}",
-                        "title": "Schema Save",
-                        "rels": [
-                            "urn:pmp:form:schemasave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/schema+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "http://json-schema.org/"
-                        }
-                    },
+                        "href": "https://api-sandbox.pmp.io/docs/39b744ba-e132-4ef3-9099-885aef0ff2f1"
+                    }
+                ],
+                "item": [],
+                "navigation": [
                     {
-                        "href": "https://publish-sandbox.pmp.io/files",
-                        "title": "Upload a rich media file",
+                        "href": "https://api-sandbox.pmp.io/docs?guid=c2e536cf-f885-493f-a5f1-34dc87d53943",
                         "rels": [
-                            "urn:pmp:form:mediaupload"
-                        ],
-                        "href-vars": {
-                            "submission": "https://github.com/publicmediaplatform/pmpdocs/wiki/Media-File-Upload"
-                        },
-                        "hints": {
-                            "allow": [
-                                "POST"
-                            ],
-                            "accept-post": [
-                                "multipart/form-data"
-                            ]
-                        }
+                            "self"
+                        ]
                     }
                 ]
             }
         },
         {
             "version": "1.0",
+            "href": "https://api-sandbox.pmp.io/docs/46f3e464-7f76-4529-8a69-fd20cb5047a0",
             "attributes": {
                 "valid": {
-                    "from": "2013-10-12T02:44:02+00:00",
-                    "to": "3013-10-12T02:44:02+00:00"
+                    "from": "2014-08-05T15:58:23+00:00",
+                    "to": "3014-08-05T15:58:23+00:00"
                 },
-                "created": "2013-10-12T02:44:02+00:00",
-                "modified": "2013-10-18T02:52:06+00:00",
-                "guid": "d93c9f40-377f-40fa-a5b5-627211a72299",
-                "tags": [
-                    "pri",
-                    "theworld"
+                "created": "2014-08-05T15:58:23+00:00",
+                "modified": "2014-08-05T15:58:24+00:00",
+                "hreflang": "en",
+                "guid": "46f3e464-7f76-4529-8a69-fd20cb5047a0",
+                "title": "image-test.jpg",
+                "published": "2014-08-05T15:48:31+00:00",
+                "byline": "Anonymous"
+            },
+            "links": {
+                "profile": [
+                    {
+                        "href": "https://api-sandbox.pmp.io/profiles/image"
+                    }
                 ],
-                "title": "Pri - The World - Sample Document 1064030999",
-                "published": "2013-10-12T02:44:02+00:00"
+                "alternate": [
+                    {
+                        "href": "/file/9"
+                    }
+                ],
+                "enclosure": [
+                    {
+                        "href": "http://pmp42dev/sites/default/files/simpletest/70746/image-test.jpg",
+                        "meta": {
+                            "crop": "primary",
+                            "height": 20,
+                            "width": 40
+                        },
+                        "type": "image/jpeg"
+                    }
+                ],
+                "creator": [
+                    {
+                        "href": "https://api-sandbox.pmp.io/docs/39b744ba-e132-4ef3-9099-885aef0ff2f1"
+                    }
+                ],
+                "item": [],
+                "navigation": [
+                    {
+                        "href": "https://api-sandbox.pmp.io/docs?guid=46f3e464-7f76-4529-8a69-fd20cb5047a0",
+                        "rels": [
+                            "self"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "version": "1.0",
+            "href": "https://api-sandbox.pmp.io/docs/bb6e5679-c581-4db5-8b17-94365230d7e2",
+            "attributes": {
+                "valid": {
+                    "from": "2014-08-05T15:58:26+00:00",
+                    "to": "3014-08-05T15:58:26+00:00"
+                },
+                "created": "2014-08-05T15:58:26+00:00",
+                "modified": "2014-08-05T15:58:27+00:00",
+                "hreflang": "en",
+                "guid": "bb6e5679-c581-4db5-8b17-94365230d7e2",
+                "title": "PMPAPI Simpletest test: 11:58:24",
+                "published": "2014-08-05T15:48:31+00:00",
+                "byline": "vaNZcWxz",
+                "contentencoded": "b7pgQu6komlhJWKaXNw5CWOqS69qkbXi"
             },
             "links": {
                 "profile": [
@@ -1053,486 +1030,89 @@
                         "href": "https://api-sandbox.pmp.io/profiles/story"
                     }
                 ],
-                "collection": [
+                "alternate": [
                     {
-                        "href": "https://api-sandbox.pmp.io/docs/03796e02-48f4-40aa-b457-2ffeba3d8d39"
-                    },
+                        "href": "/node/1"
+                    }
+                ],
+                "item": [
                     {
-                        "href": "https://api-sandbox.pmp.io/docs/ea18ee8a-887a-42b5-8579-113b3a53b039"
+                        "href": "https://api-sandbox.pmp.io/docs/46f3e464-7f76-4529-8a69-fd20cb5047a0"
                     }
                 ],
                 "creator": [
                     {
-                        "href": "https://api-sandbox.pmp.io/docs/7a865268-c9de-4b27-a3c1-983adad90921"
+                        "href": "https://api-sandbox.pmp.io/docs/39b744ba-e132-4ef3-9099-885aef0ff2f1"
                     }
                 ],
                 "navigation": [
                     {
-                        "href": "https://api-sandbox.pmp.io/docs?guid=d93c9f40-377f-40fa-a5b5-627211a72299",
+                        "href": "https://api-sandbox.pmp.io/docs?guid=bb6e5679-c581-4db5-8b17-94365230d7e2",
                         "rels": [
-                            "urn:pmp:navigation:self"
-                        ]
-                    }
-                ],
-                "edit": [
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/docs{/guid}",
-                        "title": "Document Save",
-                        "rels": [
-                            "urn:pmp:form:documentsave"
+                            "self"
                         ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Collection.doc-JSON-Media-Type"
-                        }
-                    },
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/profiles{/guid}",
-                        "title": "Profile Save",
-                        "rels": [
-                            "urn:pmp:form:profilesave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Profile-profile"
-                        }
-                    },
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/schemas{/guid}",
-                        "title": "Schema Save",
-                        "rels": [
-                            "urn:pmp:form:schemasave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/schema+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "http://json-schema.org/"
-                        }
-                    },
-                    {
-                        "href": "https://publish-sandbox.pmp.io/files",
-                        "title": "Upload a rich media file",
-                        "rels": [
-                            "urn:pmp:form:mediaupload"
-                        ],
-                        "href-vars": {
-                            "submission": "https://github.com/publicmediaplatform/pmpdocs/wiki/Media-File-Upload"
-                        },
-                        "hints": {
-                            "allow": [
-                                "POST"
-                            ],
-                            "accept-post": [
-                                "multipart/form-data"
-                            ]
-                        }
+                        "totalitems": 1,
+                        "totalpages": 1,
+                        "pagenum": 1
                     }
                 ]
-            }
-        },
-        {
-            "version": "1.0",
-            "attributes": {
-                "valid": {
-                    "from": "2013-10-12T02:43:11+00:00",
-                    "to": "3013-10-12T02:43:11+00:00"
-                },
-                "created": "2013-10-12T02:43:11+00:00",
-                "modified": "2013-10-18T02:52:06+00:00",
-                "guid": "2335cc13-a9ad-4692-98df-9c2b72e50dbd",
-                "tags": [
-                    "pri",
-                    "theworld"
-                ],
-                "title": "Pri - The World - Sample Document 787006142",
-                "published": "2013-10-12T02:43:11+00:00"
             },
-            "links": {
-                "profile": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/profiles/story"
-                    }
-                ],
-                "collection": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs/03796e02-48f4-40aa-b457-2ffeba3d8d39"
+            "items": [
+                {
+                    "version": "1.0",
+                    "href": "https://api-sandbox.pmp.io/docs/46f3e464-7f76-4529-8a69-fd20cb5047a0",
+                    "attributes": {
+                        "valid": {
+                            "from": "2014-08-05T15:58:23+00:00",
+                            "to": "3014-08-05T15:58:23+00:00"
+                        },
+                        "created": "2014-08-05T15:58:23+00:00",
+                        "modified": "2014-08-05T15:58:24+00:00",
+                        "hreflang": "en",
+                        "guid": "46f3e464-7f76-4529-8a69-fd20cb5047a0",
+                        "title": "image-test.jpg",
+                        "published": "2014-08-05T15:48:31+00:00",
+                        "byline": "Anonymous"
                     },
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs/ea18ee8a-887a-42b5-8579-113b3a53b039"
-                    }
-                ],
-                "creator": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs/7a865268-c9de-4b27-a3c1-983adad90921"
-                    }
-                ],
-                "navigation": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs?guid=2335cc13-a9ad-4692-98df-9c2b72e50dbd",
-                        "rels": [
-                            "urn:pmp:navigation:self"
+                    "links": {
+                        "profile": [
+                            {
+                                "href": "https://api-sandbox.pmp.io/profiles/image"
+                            }
+                        ],
+                        "alternate": [
+                            {
+                                "href": "/file/9"
+                            }
+                        ],
+                        "enclosure": [
+                            {
+                                "href": "http://pmp42dev/sites/default/files/simpletest/70746/image-test.jpg",
+                                "meta": {
+                                    "crop": "primary",
+                                    "height": 20,
+                                    "width": 40
+                                },
+                                "type": "image/jpeg"
+                            }
+                        ],
+                        "creator": [
+                            {
+                                "href": "https://api-sandbox.pmp.io/docs/39b744ba-e132-4ef3-9099-885aef0ff2f1"
+                            }
+                        ],
+                        "item": [],
+                        "navigation": [
+                            {
+                                "href": "https://api-sandbox.pmp.io/docs?guid=46f3e464-7f76-4529-8a69-fd20cb5047a0",
+                                "rels": [
+                                    "self"
+                                ]
+                            }
                         ]
                     }
-                ],
-                "edit": [
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/docs{/guid}",
-                        "title": "Document Save",
-                        "rels": [
-                            "urn:pmp:form:documentsave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Collection.doc-JSON-Media-Type"
-                        }
-                    },
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/profiles{/guid}",
-                        "title": "Profile Save",
-                        "rels": [
-                            "urn:pmp:form:profilesave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Profile-profile"
-                        }
-                    },
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/schemas{/guid}",
-                        "title": "Schema Save",
-                        "rels": [
-                            "urn:pmp:form:schemasave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/schema+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "http://json-schema.org/"
-                        }
-                    },
-                    {
-                        "href": "https://publish-sandbox.pmp.io/files",
-                        "title": "Upload a rich media file",
-                        "rels": [
-                            "urn:pmp:form:mediaupload"
-                        ],
-                        "href-vars": {
-                            "submission": "https://github.com/publicmediaplatform/pmpdocs/wiki/Media-File-Upload"
-                        },
-                        "hints": {
-                            "allow": [
-                                "POST"
-                            ],
-                            "accept-post": [
-                                "multipart/form-data"
-                            ]
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "version": "1.0",
-            "attributes": {
-                "valid": {
-                    "from": "2013-10-12T02:22:39+00:00",
-                    "to": "3013-10-12T02:22:39+00:00"
-                },
-                "created": "2013-10-12T02:22:39+00:00",
-                "modified": "2013-10-18T02:52:06+00:00",
-                "guid": "d2754131-3c4d-4edb-a186-cce67ed68995",
-                "tags": [
-                    "pri",
-                    "theworld"
-                ],
-                "title": "Pri - The World - Sample Document 523684005",
-                "published": "2013-10-12T02:22:39+00:00"
-            },
-            "links": {
-                "profile": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/profiles/story"
-                    }
-                ],
-                "collection": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs/03796e02-48f4-40aa-b457-2ffeba3d8d39"
-                    },
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs/ea18ee8a-887a-42b5-8579-113b3a53b039"
-                    }
-                ],
-                "creator": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs/7a865268-c9de-4b27-a3c1-983adad90921"
-                    }
-                ],
-                "navigation": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs?guid=d2754131-3c4d-4edb-a186-cce67ed68995",
-                        "rels": [
-                            "urn:pmp:navigation:self"
-                        ]
-                    }
-                ],
-                "edit": [
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/docs{/guid}",
-                        "title": "Document Save",
-                        "rels": [
-                            "urn:pmp:form:documentsave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Collection.doc-JSON-Media-Type"
-                        }
-                    },
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/profiles{/guid}",
-                        "title": "Profile Save",
-                        "rels": [
-                            "urn:pmp:form:profilesave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Profile-profile"
-                        }
-                    },
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/schemas{/guid}",
-                        "title": "Schema Save",
-                        "rels": [
-                            "urn:pmp:form:schemasave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/schema+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "http://json-schema.org/"
-                        }
-                    },
-                    {
-                        "href": "https://publish-sandbox.pmp.io/files",
-                        "title": "Upload a rich media file",
-                        "rels": [
-                            "urn:pmp:form:mediaupload"
-                        ],
-                        "href-vars": {
-                            "submission": "https://github.com/publicmediaplatform/pmpdocs/wiki/Media-File-Upload"
-                        },
-                        "hints": {
-                            "allow": [
-                                "POST"
-                            ],
-                            "accept-post": [
-                                "multipart/form-data"
-                            ]
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "version": "1.0",
-            "attributes": {
-                "valid": {
-                    "from": "2013-10-12T02:22:05+00:00",
-                    "to": "3013-10-12T02:22:05+00:00"
-                },
-                "created": "2013-10-12T02:22:05+00:00",
-                "modified": "2013-10-18T02:52:06+00:00",
-                "guid": "3268cca2-8879-40e4-8d11-f1bacbda2866",
-                "tags": [
-                    "pri",
-                    "theworld"
-                ],
-                "title": "Pri - The World - Sample Document 1383125008",
-                "published": "2013-10-12T02:22:05+00:00"
-            },
-            "links": {
-                "profile": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/profiles/story"
-                    }
-                ],
-                "collection": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs/03796e02-48f4-40aa-b457-2ffeba3d8d39"
-                    },
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs/ea18ee8a-887a-42b5-8579-113b3a53b039"
-                    }
-                ],
-                "creator": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs/7a865268-c9de-4b27-a3c1-983adad90921"
-                    }
-                ],
-                "navigation": [
-                    {
-                        "href": "https://api-sandbox.pmp.io/docs?guid=3268cca2-8879-40e4-8d11-f1bacbda2866",
-                        "rels": [
-                            "urn:pmp:navigation:self"
-                        ]
-                    }
-                ],
-                "edit": [
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/docs{/guid}",
-                        "title": "Document Save",
-                        "rels": [
-                            "urn:pmp:form:documentsave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Collection.doc-JSON-Media-Type"
-                        }
-                    },
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/profiles{/guid}",
-                        "title": "Profile Save",
-                        "rels": [
-                            "urn:pmp:form:profilesave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/vnd.pmp.collection.doc+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Profile-profile"
-                        }
-                    },
-                    {
-                        "href-template": "https://publish-sandbox.pmp.io/schemas{/guid}",
-                        "title": "Schema Save",
-                        "rels": [
-                            "urn:pmp:form:schemasave"
-                        ],
-                        "href-vars": {
-                            "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                        },
-                        "hints": {
-                            "formats": [
-                                "application/schema+json"
-                            ],
-                            "allow": [
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "docs": "http://json-schema.org/"
-                        }
-                    },
-                    {
-                        "href": "https://publish-sandbox.pmp.io/files",
-                        "title": "Upload a rich media file",
-                        "rels": [
-                            "urn:pmp:form:mediaupload"
-                        ],
-                        "href-vars": {
-                            "submission": "https://github.com/publicmediaplatform/pmpdocs/wiki/Media-File-Upload"
-                        },
-                        "hints": {
-                            "allow": [
-                                "POST"
-                            ],
-                            "accept-post": [
-                                "multipart/form-data"
-                            ]
-                        }
-                    }
-                ]
-            }
+                }
+            ]
         }
     ]
 }

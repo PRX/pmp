@@ -28,7 +28,7 @@ module PMP
 
     def doc_of_type(type, opts={})
       doc = PMP::CollectionDocument.new(options.merge(root:root(opts)).merge(opts))
-      doc.links['profile'] = Link.new(href: profile_href_for_type(type), type: "application/vnd.pmp.collection.doc+json")
+      doc.links['profile'] = Link.new(href: profile_href_for_type(type), type: "application/vnd.collection.doc+json")
       doc
     end
 

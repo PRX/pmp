@@ -1,244 +1,368 @@
 {
+    "version": "1.0",
+    "href": "https://api-sandbox.pmp.io/",
     "attributes": {
-        "created": "2013-10-01T15:57:55+00:00",
-        "guid": "04224975-e93c-4b17-9df9-96db37d318f3",
-        "modified": "2013-10-17T17:24:32+00:00",
-        "published": "2013-07-04T04:00:44+00:00",
-        "title": "PMP Home Document",
         "valid": {
             "from": "2013-07-04T04:00:44+00:00",
             "to": "3013-07-04T04:00:44+00:00"
-        }
+        },
+        "created": "2014-07-24T23:02:27+00:00",
+        "modified": "2014-07-24T23:02:27+00:00",
+        "guid": "04224975-e93c-4b17-9df9-96db37d318f3",
+        "title": "PMP Home Document",
+        "published": "2013-07-04T04:00:44+00:00"
     },
     "links": {
+        "bookmark": [
+            {
+                "href": "https://api-sandbox.pmp.io/docs/trove",
+                "rels": [
+                    "urn:pmp:trove"
+                ]
+            }
+        ],
         "creator": [
             {
                 "href": "https://api-sandbox.pmp.io/docs/af676335-21df-4486-ab43-e88c1b48f026"
             }
         ],
-        "edit": [
-            {
-                "hints": {
-                    "allow": [
-                        "PUT",
-                        "DELETE"
-                    ],
-                    "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Collection.doc-JSON-Media-Type",
-                    "formats": [
-                        "application/vnd.pmp.collection.doc+json"
-                    ]
-                },
-                "href-template": "https://publish-sandbox.pmp.io/docs{/guid}",
-                "href-vars": {
-                    "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                },
-                "rels": [
-                    "urn:pmp:form:documentsave"
-                ],
-                "title": "Document Save"
-            },
-            {
-                "hints": {
-                    "allow": [
-                        "PUT",
-                        "DELETE"
-                    ],
-                    "docs": "https://github.com/publicmediaplatform/pmpdocs/wiki/Profile-profile",
-                    "formats": [
-                        "application/vnd.pmp.collection.doc+json"
-                    ]
-                },
-                "href-template": "https://publish-sandbox.pmp.io/profiles{/guid}",
-                "href-vars": {
-                    "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                },
-                "rels": [
-                    "urn:pmp:form:profilesave"
-                ],
-                "title": "Profile Save"
-            },
-            {
-                "hints": {
-                    "allow": [
-                        "PUT",
-                        "DELETE"
-                    ],
-                    "docs": "http://json-schema.org/",
-                    "formats": [
-                        "application/schema+json"
-                    ]
-                },
-                "href-template": "https://publish-sandbox.pmp.io/schemas{/guid}",
-                "href-vars": {
-                    "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
-                },
-                "rels": [
-                    "urn:pmp:form:schemasave"
-                ],
-                "title": "Schema Save"
-            },
-            {
-                "hints": {
-                    "accept-post": [
-                        "multipart/form-data"
-                    ],
-                    "allow": [
-                        "POST"
-                    ]
-                },
-                "href": "https://publish-sandbox.pmp.io/files",
-                "href-vars": {
-                    "submission": "https://github.com/publicmediaplatform/pmpdocs/wiki/Media-File-Upload"
-                },
-                "rels": [
-                    "urn:pmp:form:mediaupload"
-                ],
-                "title": "Upload a rich media file"
-            }
-        ],
+        "item": [],
         "navigation": [
             {
                 "href": "https://api-sandbox.pmp.io/docs?guid=04224975-e93c-4b17-9df9-96db37d318f3",
                 "rels": [
-                    "urn:pmp:navigation:self"
+                    "self"
                 ]
             }
         ],
         "query": [
             {
-                "hints": {
-                    "allow": [
-                        "GET"
-                    ]
-                },
-                "href-template": "https://api-sandbox.pmp.io/users{?limit,offset,tag,collection,text,searchsort,has}",
-                "href-vars": {
-                    "collection": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "has": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "searchsort": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "tag": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "text": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
-                },
-                "rels": [
-                    "urn:pmp:query:users"
-                ],
-                "title": "Query for users"
-            },
-            {
-                "hints": {
-                    "allow": [
-                        "GET"
-                    ]
-                },
-                "href-template": "https://api-sandbox.pmp.io/groups{?limit,offset,tag,collection,text,searchsort,has}",
-                "href-vars": {
-                    "collection": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "searchsort": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "tag": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "text": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
-                },
-                "rels": [
-                    "urn:pmp:query:groups"
-                ],
-                "title": "Query for groups"
-            },
-            {
-                "hints": {
-                    "allow": [
-                        "GET"
-                    ]
-                },
-                "href-template": "https://api-sandbox.pmp.io/profiles{/guid}",
-                "href-vars": {
-                    "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
-                },
-                "rels": [
-                    "urn:pmp:hreftpl:profiles"
-                ],
-                "title": "Access profiles"
-            },
-            {
-                "hints": {
-                    "allow": [
-                        "GET"
-                    ]
-                },
-                "href-template": "https://api-sandbox.pmp.io/schemas{/guid}",
-                "href-vars": {
-                    "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
-                },
-                "rels": [
-                    "urn:pmp:hreftpl:schemas"
-                ],
-                "title": "Access schemas",
-                "type": "application/schema+json"
-            },
-            {
-                "hints": {
-                    "allow": [
-                        "GET"
-                    ]
-                },
                 "href-template": "https://api-sandbox.pmp.io/docs{/guid}{?limit,offset}",
-                "href-vars": {
-                    "guid": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
-                },
+                "title": "Access documents",
                 "rels": [
-                    "urn:pmp:hreftpl:docs"
+                    "urn:collectiondoc:hreftpl:docs"
                 ],
-                "title": "Access documents"
-            },
-            {
+                "href-vars": {
+                    "guid": "http://docs.pmp.io/wiki/Globaly-Unique-Identifiers-for-PMP-Documents",
+                    "limit": "http://docs.pmp.io/wiki/Content-Retrieval#limit",
+                    "offset": "http://docs.pmp.io/wiki/Content-Retrieval#offset"
+                },
                 "hints": {
                     "allow": [
                         "GET"
                     ]
-                },
-                "href-template": "https://api-sandbox.pmp.io/docs{?limit,offset,tag,collection,text,searchsort,has,author,distributor,distributorgroup,startdate,enddate,profile,language}",
-                "href-vars": {
-                    "author": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "collection": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "distributor": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "distributorgroup": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "enddate": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "has": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "language": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "limit": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "offset": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "profile": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "searchsort": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "startdate": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "tag": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval",
-                    "text": "https://github.com/publicmediaplatform/pmpdocs/wiki/Content-Retrieval"
-                },
-                "rels": [
-                    "urn:pmp:query:docs"
-                ],
-                "title": "Query for documents"
+                }
             },
             {
+                "href-template": "https://api-sandbox.pmp.io/docs{?guid,limit,offset,searchsort,startdate,enddate,writeable,tag,language,profile,collection,has,distributor,distributorgroup,author,text}",
+                "title": "Query for documents",
+                "rels": [
+                    "urn:collectiondoc:query:docs"
+                ],
+                "href-vars": {
+                    "guid": "http://docs.pmp.io/wiki/Content-Retrieval#guid",
+                    "limit": "http://docs.pmp.io/wiki/Content-Retrieval#limit",
+                    "offset": "http://docs.pmp.io/wiki/Content-Retrieval#offset",
+                    "searchsort": "http://docs.pmp.io/wiki/Content-Retrieval#searchsort",
+                    "startdate": "http://docs.pmp.io/wiki/Content-Retrieval#startdate",
+                    "enddate": "http://docs.pmp.io/wiki/Content-Retrieval#enddate",
+                    "writeable": "http://docs.pmp.io/wiki/Content-Retrieval#writeable",
+                    "tag": "http://docs.pmp.io/wiki/Content-Retrieval#tag",
+                    "language": "http://docs.pmp.io/wiki/Content-Retrieval#language",
+                    "profile": "http://docs.pmp.io/wiki/Content-Retrieval#profile",
+                    "collection": "http://docs.pmp.io/wiki/Content-Retrieval#collection",
+                    "has": "http://docs.pmp.io/wiki/Content-Retrieval#has",
+                    "distributor": "http://docs.pmp.io/wiki/Content-Retrieval#distributor",
+                    "distributorgroup": "http://docs.pmp.io/wiki/Content-Retrieval#distributorgroup",
+                    "author": "http://docs.pmp.io/wiki/Content-Retrieval#author",
+                    "text": "http://docs.pmp.io/wiki/Content-Retrieval#text"
+                },
                 "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            {
+                "href-template": "https://api-sandbox.pmp.io/profiles{/guid}",
+                "title": "Access profiles",
+                "rels": [
+                    "urn:collectiondoc:hreftpl:profiles"
+                ],
+                "href-vars": {
+                    "guid": "http://docs.pmp.io/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+                },
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            {
+                "href-template": "https://api-sandbox.pmp.io/profiles{?guid,limit,offset,searchsort,startdate,enddate,writeable,tag,collection,text}",
+                "title": "Query for profiles",
+                "rels": [
+                    "urn:collectiondoc:query:profiles"
+                ],
+                "href-vars": {
+                    "guid": "http://docs.pmp.io/wiki/Content-Retrieval#guid",
+                    "limit": "http://docs.pmp.io/wiki/Content-Retrieval#limit",
+                    "offset": "http://docs.pmp.io/wiki/Content-Retrieval#offset",
+                    "searchsort": "http://docs.pmp.io/wiki/Content-Retrieval#searchsort",
+                    "startdate": "http://docs.pmp.io/wiki/Content-Retrieval#startdate",
+                    "enddate": "http://docs.pmp.io/wiki/Content-Retrieval#enddate",
+                    "writeable": "http://docs.pmp.io/wiki/Content-Retrieval#writeable",
+                    "tag": "http://docs.pmp.io/wiki/Content-Retrieval#tag",
+                    "collection": "http://docs.pmp.io/wiki/Content-Retrieval#collection",
+                    "text": "http://docs.pmp.io/wiki/Content-Retrieval#text"
+                },
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            {
+                "href-template": "https://api-sandbox.pmp.io/schemas{/guid}",
+                "title": "Access schemas",
+                "rels": [
+                    "urn:collectiondoc:hreftpl:schemas"
+                ],
+                "href-vars": {
+                    "guid": "http://docs.pmp.io/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+                },
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            {
+                "href-template": "https://api-sandbox.pmp.io/schemas{?guid,limit,offset,searchsort,startdate,enddate,writeable,tag,collection,text}",
+                "title": "Query for schemas",
+                "rels": [
+                    "urn:collectiondoc:query:schemas"
+                ],
+                "href-vars": {
+                    "guid": "http://docs.pmp.io/wiki/Content-Retrieval#guid",
+                    "limit": "http://docs.pmp.io/wiki/Content-Retrieval#limit",
+                    "offset": "http://docs.pmp.io/wiki/Content-Retrieval#offset",
+                    "searchsort": "http://docs.pmp.io/wiki/Content-Retrieval#searchsort",
+                    "startdate": "http://docs.pmp.io/wiki/Content-Retrieval#startdate",
+                    "enddate": "http://docs.pmp.io/wiki/Content-Retrieval#enddate",
+                    "writeable": "http://docs.pmp.io/wiki/Content-Retrieval#writeable",
+                    "tag": "http://docs.pmp.io/wiki/Content-Retrieval#tag",
+                    "collection": "http://docs.pmp.io/wiki/Content-Retrieval#collection",
+                    "text": "http://docs.pmp.io/wiki/Content-Retrieval#text"
+                },
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            {
+                "href-template": "https://api-sandbox.pmp.io/users{?guid,limit,offset,searchsort,startdate,enddate,writeable,tag,collection,text}",
+                "title": "Query for users",
+                "rels": [
+                    "urn:collectiondoc:query:users"
+                ],
+                "href-vars": {
+                    "guid": "http://docs.pmp.io/wiki/Content-Retrieval#guid",
+                    "limit": "http://docs.pmp.io/wiki/Content-Retrieval#limit",
+                    "offset": "http://docs.pmp.io/wiki/Content-Retrieval#offset",
+                    "searchsort": "http://docs.pmp.io/wiki/Content-Retrieval#searchsort",
+                    "startdate": "http://docs.pmp.io/wiki/Content-Retrieval#startdate",
+                    "enddate": "http://docs.pmp.io/wiki/Content-Retrieval#enddate",
+                    "writeable": "http://docs.pmp.io/wiki/Content-Retrieval#writeable",
+                    "tag": "http://docs.pmp.io/wiki/Content-Retrieval#tag",
+                    "collection": "http://docs.pmp.io/wiki/Content-Retrieval#collection",
+                    "text": "http://docs.pmp.io/wiki/Content-Retrieval#text"
+                },
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            {
+                "href-template": "https://api-sandbox.pmp.io/groups{?guid,limit,offset,searchsort,startdate,enddate,writeable,tag,collection,has,text}",
+                "title": "Query for groups",
+                "rels": [
+                    "urn:collectiondoc:query:groups"
+                ],
+                "href-vars": {
+                    "guid": "http://docs.pmp.io/wiki/Content-Retrieval#guid",
+                    "limit": "http://docs.pmp.io/wiki/Content-Retrieval#limit",
+                    "offset": "http://docs.pmp.io/wiki/Content-Retrieval#offset",
+                    "searchsort": "http://docs.pmp.io/wiki/Content-Retrieval#searchsort",
+                    "startdate": "http://docs.pmp.io/wiki/Content-Retrieval#startdate",
+                    "enddate": "http://docs.pmp.io/wiki/Content-Retrieval#enddate",
+                    "writeable": "http://docs.pmp.io/wiki/Content-Retrieval#writeable",
+                    "tag": "http://docs.pmp.io/wiki/Content-Retrieval#tag",
+                    "collection": "http://docs.pmp.io/wiki/Content-Retrieval#collection",
+                    "has": "http://docs.pmp.io/wiki/Content-Retrieval#has",
+                    "text": "http://docs.pmp.io/wiki/Content-Retrieval#text"
+                },
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            {
+                "href": "https://api-sandbox.pmp.io/guids",
+                "title": "Generate guids",
+                "rels": [
+                    "urn:collectiondoc:query:guids"
+                ],
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ],
+                    "accept-post": [
+                        "application/x-www-form-urlencoded"
+                    ]
+                },
+                "type": "application/json"
+            }
+        ],
+        "edit": [
+            {
+                "href-template": "https://publish-sandbox.pmp.io/docs{/guid}",
+                "title": "Document Save",
+                "rels": [
+                    "urn:collectiondoc:form:documentsave"
+                ],
+                "href-vars": {
+                    "guid": "http://docs.pmp.io/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+                },
+                "hints": {
+                    "formats": [
+                        "application/vnd.collection.doc+json"
+                    ],
+                    "allow": [
+                        "PUT",
+                        "DELETE"
+                    ],
+                    "docs": "http://docs.pmp.io/wiki/Collection.doc-JSON-Media-Type"
+                }
+            },
+            {
+                "href-template": "https://publish-sandbox.pmp.io/profiles{/guid}",
+                "title": "Profile Save",
+                "rels": [
+                    "urn:collectiondoc:form:profilesave"
+                ],
+                "href-vars": {
+                    "guid": "http://docs.pmp.io/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+                },
+                "hints": {
+                    "formats": [
+                        "application/vnd.collection.doc+json"
+                    ],
+                    "allow": [
+                        "PUT",
+                        "DELETE"
+                    ],
+                    "docs": "http://docs.pmp.io/wiki/Profile-profile"
+                }
+            },
+            {
+                "href-template": "https://publish-sandbox.pmp.io/schemas{/guid}",
+                "title": "Schema Save",
+                "rels": [
+                    "urn:collectiondoc:form:schemasave"
+                ],
+                "href-vars": {
+                    "guid": "http://docs.pmp.io/wiki/Globaly-Unique-Identifiers-for-PMP-Documents"
+                },
+                "hints": {
+                    "formats": [
+                        "application/vnd.collection.doc+json"
+                    ],
+                    "allow": [
+                        "PUT",
+                        "DELETE"
+                    ],
+                    "docs": "http://docs.pmp.io/wiki/Schema-profile"
+                }
+            },
+            {
+                "href": "https://publish-sandbox.pmp.io/files",
+                "title": "Upload a rich media file",
+                "rels": [
+                    "urn:collectiondoc:form:mediaupload"
+                ],
+                "href-vars": {
+                    "submission": "http://docs.pmp.io/wiki/Media-File-Upload"
+                },
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ],
+                    "accept-post": [
+                        "multipart/form-data"
+                    ]
+                }
+            }
+        ],
+        "auth": [
+            {
+                "href": "https://publish-sandbox.pmp.io/auth/credentials",
+                "title": "Create OAuth2 Credentials",
+                "rels": [
+                    "urn:collectiondoc:form:createcredentials"
+                ],
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ],
+                    "docs": "http://docs.pmp.io/wiki/Authenticating-with-the-API#generating-credentials"
+                }
+            },
+            {
+                "href-template": "https://publish-sandbox.pmp.io/auth/credentials/{client_id}",
+                "title": "Remove OAuth2 Credentials",
+                "rels": [
+                    "urn:collectiondoc:form:removecredentials"
+                ],
+                "hints": {
+                    "allow": [
+                        "DELETE"
+                    ],
+                    "docs": "http://docs.pmp.io/wiki/Authenticating-with-the-API#removing-a-credential"
+                }
+            },
+            {
+                "href": "https://api-sandbox.pmp.io/auth/access_token",
+                "title": "Issue OAuth2 Token",
+                "rels": [
+                    "urn:collectiondoc:form:issuetoken"
+                ],
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ],
                     "accept-post": [
                         "application/x-www-form-urlencoded"
                     ],
-                    "allow": [
-                        "POST"
-                    ]
-                },
-                "href": "https://api-sandbox.pmp.io/guids",
+                    "docs": "http://docs.pmp.io/wiki/Authentication-Model#token-management"
+                }
+            },
+            {
+                "href": "https://publish-sandbox.pmp.io/auth/access_token",
+                "title": "Revoke OAuth2 Token",
                 "rels": [
-                    "urn:pmp:query:guids"
+                    "urn:collectiondoc:form:revoketoken"
                 ],
-                "title": "Generate guids",
-                "type": "application/json"
+                "hints": {
+                    "allow": [
+                        "DELETE"
+                    ],
+                    "docs": "http://docs.pmp.io/wiki/Authentication-Model#revoke-a-token"
+                }
             }
         ]
-    },
-    "version": "1.0"
+    }
 }

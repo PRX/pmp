@@ -24,7 +24,7 @@ describe PMP::Client do
     root_doc =  json_file(:collection_root)
 
     stub_request(:get, "https://api.pmp.io/").
-      with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
+      with(:headers => {'Accept'=>'application/vnd.collection.doc+json', 'Content-Type'=>'application/vnd.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
       to_return(:status => 200, :body => root_doc, :headers => {})
 
     @root = @pmp.root
@@ -35,7 +35,7 @@ describe PMP::Client do
     root_doc =  json_file(:collection_root)
 
     stub_request(:get, "https://api.pmp.io/").
-      with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
+      with(:headers => {'Accept'=>'application/vnd.collection.doc+json', 'Content-Type'=>'application/vnd.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
       to_return(:status => 200, :body => root_doc, :headers => {})
 
     @pmp.creator.first.must_be_instance_of PMP::Link
