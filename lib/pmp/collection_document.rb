@@ -3,7 +3,7 @@ require 'ostruct'
 module PMP
 
   # Using OpenStruct for now - perhaps use ActiveModel? hmm...
-  class CollectionDocument < OpenStruct
+  class CollectionDocument
 
     include Configuration
     include Connection
@@ -27,6 +27,9 @@ module PMP
     # has this resource actually been loaded from remote url or json document?
     attr_accessor :loaded
 
+    # private var to save attributes obj, to handle object attributes
+    attr_accessor :attributes
+
     # private var to save links obj, to handle link additions
     attr_accessor :links
 
@@ -38,18 +41,18 @@ module PMP
     # assumption is that doc is a parsed json doc confirming to collection.doc+json
     # TODO: check if this is a json string or hash, for now assume it has been mashified
     def initialize(options={}, &block)
-      super()
       apply_configuration(options)
 
-      self.root     = current_options.delete(:root)
-      self.href     = current_options.delete(:href)
-      self.version  = current_options.delete(:version) || '1.0'
-
-      self.links    = PMP::Links.new(self)
-
+      self.root       = current_options.delete(:root)
+      self.href       = current_options.delete(:href)
+      self.version    = current_options.delete(:version) || '1.0'
+      
+      self.attributes = OpenStruct.new
+      self.links      = PMP::Links.new(self)
+      
       # if there is a doc to be had, pull it out
-      self.response = current_options.delete(:response)
-      self.original = current_options.delete(:document)
+      self.response   = current_options.delete(:response)
+      self.original   = current_options.delete(:document)
 
       yield(self) if block_given?
     end
@@ -57,10 +60,6 @@ module PMP
     def items
       load
       @items ||= []
-    end
-
-    def attributes
-      HashWithIndifferentAccess.new(marshal_dump.delete_if{|k,v| links.keys.include?(k.to_s)})
     end
 
     def response=(resp)
@@ -89,7 +88,7 @@ module PMP
     def save
       set_guid_if_blank
       url = edit_link('PUT').where(guid: self.guid).url
-      response = request(:put, url, self)
+      self.response = request(:put, url, self)
       self.href = response.body['url']
     end
 
@@ -153,17 +152,17 @@ module PMP
       PMP::Response.new(raw, {method: method, url: url, body: body})
     end
 
+    def attributes_map
+      HashWithIndifferentAccess.new(attributes.marshal_dump)
+    end
+
     def set_guid_if_blank
       self.guid = SecureRandom.uuid if guid.blank?
     end
 
     def method_missing(method, *args)
-      if (method.to_s.last != '=') && !loaded?
-        load
-        return self.send(method, *args) if self.respond_to?(method)
-      end
-
-      super
+      load if (method.to_s.last != '=')
+      respond_to?(method) ? send(method, *args) : attributes.send(method, *args)
     end
 
   end

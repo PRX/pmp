@@ -15,8 +15,8 @@ class TestParser < OpenStruct
     @links ||= PMP::Links.new(self)
   end
 
-  def attributes
-    marshal_dump.delete_if{|k,v| links.keys.include?(k)}
+  def attributes_map
+    marshal_dump
   end
 
 end

@@ -22,7 +22,7 @@ module PMP
       name = name.to_sym
       unless parent.respond_to?(name)
         parent.define_singleton_method(name) { self.links[name] }
-        parent.define_singleton_method("#{name}=") { |x|  puts "setter: #{self.inspect}";  self.links[name] = x }
+        parent.define_singleton_method("#{name}=") { |x| self.links[name] = x }
       end
     end
 

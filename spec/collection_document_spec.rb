@@ -78,8 +78,8 @@ describe PMP::CollectionDocument do
     end
 
     it "provides list of attributes (not links)" do
-      @doc.attributes.keys.must_be :include?, 'title'
-      @doc.attributes.keys.wont_be :include?, 'self'
+      @doc.attributes_map.keys.must_be :include?, 'title'
+      @doc.attributes_map.keys.wont_be :include?, 'self'
     end
 
   end
@@ -217,20 +217,32 @@ describe PMP::CollectionDocument do
 
       # stub getting the root doc
       root_doc =  json_file(:collection_root)
+
       stub_request(:get, "https://api.pmp.io/").
         with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
         to_return(:status => 200, :body => root_doc, :headers => {})
 
-      # stub saving the new doc
+      doc = PMP::CollectionDocument.new(oauth_token: 'thisisatestvalueonly')
+
+
       stub_request(:put, "https://publish-sandbox.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42").
-        with(:headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'publish-sandbox.pmp.io:443'}).
+        with(:body => "{\"version\":\"1.0\",\"links\":{},\"attributes\":{\"guid\":\"c144e4df-021b-41e6-9cf3-42ac49bcbd42\",\"title\":\"testing\"}}",
+             :headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Authorization'=>'Bearer thisisatestvalueonly', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'publish-sandbox.pmp.io:443'}).
         to_return(:status => 200, :body => '{"url":"https://api-sandbox.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42"}')
 
-      doc = PMP::CollectionDocument.new(oauth_token: 'thisisatestvalueonly')
       doc.guid = "c144e4df-021b-41e6-9cf3-42ac49bcbd42"
       doc.title = "testing"
+      doc.wont_be :loaded
       doc.save
+      
+      doc.must_be :loaded
       doc.href.must_equal "https://api-sandbox.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42"
+
+
+      stub_request(:put, "https://publish-sandbox.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42").
+        with(:body => "{\"version\":\"1.0\",\"links\":{},\"attributes\":{\"guid\":\"c144e4df-021b-41e6-9cf3-42ac49bcbd42\",\"title\":\"testing an update\"}}",
+             :headers => {'Accept'=>'application/vnd.pmp.collection.doc+json', 'Authorization'=>'Bearer thisisatestvalueonly', 'Content-Type'=>'application/vnd.pmp.collection.doc+json', 'Host'=>'publish-sandbox.pmp.io:443'}).
+        to_return(:status => 200, :body => '{"url":"https://api-sandbox.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42"}')
 
       doc.title.must_equal "testing"
       doc.title = "testing an update"

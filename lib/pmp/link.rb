@@ -34,14 +34,8 @@ module PMP
       [:href, :href_template, :method].each{|m| self.send("#{m}=", nil) unless respond_to?(m)}
     end
 
-    def attributes
-      attrs = HashWithIndifferentAccess.new(marshal_dump)
-      attrs.delete(attrs[:href_template].blank? ? :href_template : :href)
-      attrs
-    end
-
     def where(params={})
-      self.class.new(attributes.merge({'params'=>params}), parent)
+      self.class.new(attributes_map.merge({'params'=>params}), parent)
     end
 
     def as_json(options={})
@@ -59,6 +53,12 @@ module PMP
       # puts "retrieve url: #{url}"
       # response = parent.request((method || 'get').to_sym, url)
       @doc ||= PMP::CollectionDocument.new(parent.options.merge(href: url, root: parent.root))
+    end
+
+    def attributes_map
+      attrs = HashWithIndifferentAccess.new(marshal_dump)
+      attrs.delete(attrs[:href_template].blank? ? :href_template : :href)
+      attrs
     end
 
     def method_missing(method, *args)

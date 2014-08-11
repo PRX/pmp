@@ -15,7 +15,7 @@ module PMP
     end
 
     def extract_attributes(obj=self)
-      obj.attributes.inject({}) do |result, pair|
+      obj.attributes_map.inject({}) do |result, pair|
         value = pair.last
         name = to_json_key_name(pair.first)
         result[name] = value
