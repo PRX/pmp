@@ -3,7 +3,7 @@
 require 'active_support/concern'
 
 module PMP
-  module Configuration 
+  module Configuration
 
     extend ActiveSupport::Concern
 
@@ -23,18 +23,18 @@ module PMP
     # this you need to get from pmp, not covered by this
     DEFAULT_CLIENT_ID     = nil
     DEFAULT_CLIENT_SECRET = nil
-    
+
     # Adapters are whatever Faraday supports - I like excon alot, so I'm defaulting it
     DEFAULT_ADAPTER       = :excon
-    
+
     # The api endpoint for YQL
     DEFAULT_ENDPOINT      = 'https://api.pmp.io/'.freeze
-    
+
     # The value sent in the http header for 'User-Agent' if none is set
     DEFAULT_USER_AGENT    = "PMP Ruby Gem #{PMP::VERSION}".freeze
 
     DEFAULT_TOKEN_TYPE    = 'Bearer'
-    
+
     # debug is defaulted to the ENV['DEBUG'], see below
 
     attr_accessor *VALID_OPTIONS_KEYS
@@ -60,6 +60,9 @@ module PMP
 
     def apply_configuration(opts={})
       options = PMP.options.merge(opts)
+      if options[:endpoint] && options[:endpoint][-1] != '/'
+        options[:endpoint] += '/'
+      end
       self.current_options = options
       VALID_OPTIONS_KEYS.each do |key|
         send("#{key}=", options[key])
@@ -92,7 +95,7 @@ module PMP
 
       def keys
         VALID_OPTIONS_KEYS
-      end      
+      end
 
     end
 
