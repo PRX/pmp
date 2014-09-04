@@ -1,4 +1,5 @@
 require 'ostruct'
+require 'uri'
 
 module PMP
 
@@ -46,10 +47,10 @@ module PMP
       self.root       = current_options.delete(:root)
       self.href       = current_options.delete(:href)
       self.version    = current_options.delete(:version) || '1.0'
-      
+
       self.attributes = OpenStruct.new
       self.links      = PMP::Links.new(self)
-      
+
       # if there is a doc to be had, pull it out
       self.response   = current_options.delete(:response)
       self.original   = current_options.delete(:document)
@@ -87,7 +88,7 @@ module PMP
 
     def save
       set_guid_if_blank
-      url = edit_link('PUT').where(guid: self.guid).url
+      url = save_link.where(guid: self.guid).url
       self.response = request(:put, url, self)
       self.href = response.body['url']
     end
@@ -95,13 +96,19 @@ module PMP
     def delete
       raise 'No guid specified to delete' if self.guid.blank?
 
-      url = edit_link('DELETE').where(guid: self.guid).url
+      url = delete_link.where(guid: self.guid).url
       request(:delete, url)
     end
 
-    def edit_link(method)
+    def save_link
       link = root_document.edit['urn:collectiondoc:form:documentsave']
-      raise "Edit link does not specify saving via #{method}" unless (link && link.hints.allow.include?(method))
+      raise 'Save link not found' unless link
+      link
+    end
+
+    def delete_link
+      link = root_document.edit['urn:collectiondoc:form:documentdelete']
+      raise 'Delete link not found' unless link
       link
     end
 
