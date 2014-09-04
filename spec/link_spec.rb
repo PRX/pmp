@@ -67,8 +67,8 @@ describe PMP::Link do
     docs = @link.where(limit: 10, tag: 'test')
     docs.must_be_instance_of PMP::Link
     guids = docs.items.collect(&:guid).sort
-    guids.first.must_equal "0c9eeb61-dba5-431a-be8e-ad74c64aad2b"
-    guids.last.must_equal "e77aa925-53e0-4cfd-8f16-db6146faef3e"
+    guids.first.must_equal "0390510e-f1cb-4cef-b362-1e916d4c92f1"
+    guids.last.must_equal "f237f87d-1f40-4178-9eba-b068b5dc6f7b"
   end
 
   def query_document_info
