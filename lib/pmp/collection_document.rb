@@ -139,7 +139,9 @@ module PMP
     # url includes any params - full url
     def request(method, url, body=nil) # :nodoc:
 
-      setup_oauth_token
+      unless ['/', ''].include?(URI::parse(url).path)
+        setup_oauth_token
+      end
 
       begin
         raw = connection(current_options.merge({url: url})).send(method) do |request|
