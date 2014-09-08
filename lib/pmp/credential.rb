@@ -53,7 +53,7 @@ module PMP
     end
 
     def credentials_url
-      "#{endpoint}auth/credentials"
+      root_document.auth['urn:collectiondoc:form:listcredentials'].url
     end
 
     def create_credentials_url

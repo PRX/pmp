@@ -54,7 +54,7 @@ describe PMP::Parser do
     tc = TestParser.new
     tc.parse(json_fixture(:collection_root))
     tc.query.must_be_instance_of HashWithIndifferentAccess
-    tc.query.keys.sort.must_equal ["urn:collectiondoc:hreftpl:docs", "urn:collectiondoc:hreftpl:profiles", "urn:collectiondoc:hreftpl:schemas", "urn:collectiondoc:query:docs", "urn:collectiondoc:query:groups", "urn:collectiondoc:query:guids", "urn:collectiondoc:query:profiles", "urn:collectiondoc:query:schemas", "urn:collectiondoc:query:users"]
+    tc.query.keys.sort.must_equal ["urn:collectiondoc:hreftpl:docs", "urn:collectiondoc:hreftpl:profiles", "urn:collectiondoc:hreftpl:schemas", "urn:collectiondoc:query:docs", "urn:collectiondoc:query:groups", "urn:collectiondoc:query:profiles", "urn:collectiondoc:query:schemas", "urn:collectiondoc:query:users"]
   end
 
   it "will unparse links" do

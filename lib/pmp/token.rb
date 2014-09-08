@@ -14,7 +14,7 @@ module PMP
     end
 
     def token_url
-      options['token_url'] || '/auth/access_token'
+      root_document.auth['urn:collectiondoc:form:issuetoken'].url
     end
 
     def get_token
@@ -48,6 +48,10 @@ module PMP
 
       # clean out any that don't belong
       options.select{|k,v| PMP::Connection::ALLOWED_CONNECTION_OPTIONS.include?(k.to_sym)}
+    end
+
+    def root_document
+      @root ||= PMP::CollectionDocument.new(current_options.merge(href: endpoint))
     end
 
   end

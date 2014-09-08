@@ -4,9 +4,10 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe PMP::Client do
 
-  before(:each) {
+  before do
     @pmp = PMP::Client.new(oauth_token: 'thisisatestvalueonly')
-  }
+    @root_doc = json_file(:collection_root)
+  end
 
   it "make with options and pass along" do
     pmp = PMP::Client.new(oauth_token: 'thisisatestvalueonly')
@@ -21,23 +22,13 @@ describe PMP::Client do
   end
 
   it "root doc can be loaded" do
-    root_doc =  json_file(:collection_root)
-
-    stub_request(:get, "https://api.pmp.io/").
-      with(:headers => {'Accept'=>'application/vnd.collection.doc+json', 'Content-Type'=>'application/vnd.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
-      to_return(:status => 200, :body => root_doc, :headers => {})
-
+    stub_request(:get, 'https://api.pmp.io').to_return(:status => 200, :body => @root_doc)
     @root = @pmp.root
     @root.creator.first.must_be_instance_of PMP::Link
   end
 
   it "calls the root doc when client does not have method" do
-    root_doc =  json_file(:collection_root)
-
-    stub_request(:get, "https://api.pmp.io/").
-      with(:headers => {'Accept'=>'application/vnd.collection.doc+json', 'Content-Type'=>'application/vnd.collection.doc+json', 'Host'=>'api.pmp.io:443'}).
-      to_return(:status => 200, :body => root_doc, :headers => {})
-
+    stub_request(:get, 'https://api.pmp.io').to_return(:status => 200, :body => @root_doc)
     @pmp.creator.first.must_be_instance_of PMP::Link
   end
 
@@ -58,10 +49,10 @@ describe PMP::Client do
 
     stub_request(:post, "https://api.pmp.io/auth/access_token").
       with(:body => {"grant_type"=>"client_credentials"},
-           :headers => {'Accept'=>'application/json', 'Authorization'=>'Basic dGhpc2lzbm90YS1yZWFsLWNsaWVudC1pZC1zb3Zlcnlzb3JyeTp0aGlzaXNub3RhcmVhbHNlY3JldGVpdGhlcg==', 'Content-Type'=>'application/x-www-form-urlencoded', 'Host'=>'api.pmp.io:443'}).
+           :headers => {'Accept'=>'application/json', 'Authorization'=>'Basic dGhpc2lzbm90YS1yZWFsLWNsaWVudC1pZC1zb3Zlcnlzb3JyeTp0aGlzaXNub3RhcmVhbHNlY3JldGVpdGhlcg==', 'Content-Type'=>'application/x-www-form-urlencoded'}).
       to_return(:status => 200, :body => response_body, :headers => {'Content-Type' => 'application/json; charset=utf-8'})
 
-
+    stub_request(:get, 'https://api.pmp.io').to_return(:status => 200, :body => @root_doc)
 
     client_id = "thisisnota-real-client-id-soverysorry"
     client_secret = "thisisnotarealsecreteither"
