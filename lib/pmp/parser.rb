@@ -44,11 +44,16 @@ module PMP
 
     def parse(doc)
       return if (!doc)
+      parse_href(doc['href'])
       parse_version(doc['version'])
       parse_attributes(doc['attributes'])
       parse_links(doc['links'])
       parse_items(doc['items'])
       # parse_error(doc)
+    end
+
+    def parse_href(document)
+      self.href = document
     end
 
     def parse_version(document)
