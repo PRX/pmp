@@ -59,7 +59,7 @@ module PMP
     end
 
     def items
-      load
+      get
       @items ||= []
     end
 
@@ -78,13 +78,13 @@ module PMP
       end
     end
 
-    def load
+    def get
       if !loaded? && href
         self.response = request(:get, href)
         self.loaded = true
       end
+      self
     end
-    alias_method :get, :load
 
     def save
       set_guid_if_blank
@@ -149,7 +149,7 @@ module PMP
             request.body = PMP::CollectionDocument.to_persist_json(body)
           end
         end
-      rescue Faraday::Error::ResourceNotFound=>not_found_ex
+      rescue Faraday::Error::ResourceNotFound => not_found_ex
         if (method.to_sym == :get)
           raw = OpenStruct.new(body: nil, status: 404)
         else
@@ -182,7 +182,7 @@ module PMP
     end
 
     def method_missing(method, *args)
-      load if (method.to_s.last != '=')
+      get if (method.to_s.last != '=')
       respond_to?(method) ? send(method, *args) : attributes.send(method, *args)
     end
 

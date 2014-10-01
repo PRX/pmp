@@ -121,7 +121,7 @@ describe PMP::CollectionDocument do
 
     it "should load" do
       @doc.wont_be :loaded
-      @doc.load
+      @doc.get
       @doc.must_be :loaded
     end
 
@@ -138,7 +138,7 @@ describe PMP::CollectionDocument do
     end
 
     it "should provide a list of links" do
-      @doc.load
+      @doc.get
       @doc.links.keys.sort.must_equal ["auth", "bookmark", "creator", "edit", "item", "navigation", "query"]
       @doc.links['creator'].first.must_be_instance_of PMP::Link
     end
