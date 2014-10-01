@@ -89,7 +89,7 @@ module PMP
     end
 
     def parse_items(document)
-      self.items = Array(document).collect{|i| PMP::CollectionDocument.new(options.merge(document:i))}
+      self.items = Array(document).compact.collect{|i| PMP::CollectionDocument.new(options.merge(document:i)) }
     end
 
   end
