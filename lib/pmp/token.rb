@@ -7,14 +7,18 @@ module PMP
 
     include Configuration
 
+    attr_accessor :root
+
     def initialize(options={}, &block)
       apply_configuration(options)
+
+      self.root = current_options.delete(:root)
 
       yield(self) if block_given?
     end
 
     def token_url
-      root_document.auth['urn:collectiondoc:form:issuetoken'].url
+      root.auth['urn:collectiondoc:form:issuetoken'].url
     end
 
     def get_token
@@ -50,7 +54,7 @@ module PMP
       options.select{|k,v| PMP::Connection::ALLOWED_CONNECTION_OPTIONS.include?(k.to_sym)}
     end
 
-    def root_document
+    def root
       @root ||= PMP::CollectionDocument.new(current_options.merge(href: endpoint))
     end
 
