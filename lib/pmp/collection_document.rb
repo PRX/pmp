@@ -42,6 +42,11 @@ module PMP
     # assumption is that doc is a parsed json doc confirming to collection.doc+json
     # TODO: check if this is a json string or hash, for now assume it has been mashified
     def initialize(options={}, &block)
+      @mutex = Mutex.new
+
+      # puts "CollectionDocument.initialize options: #{options.inspect}\n"
+      # puts "\t#{RuntimeException.new.backtrace.join("\n\t")}"
+
       apply_configuration(options)
 
       self.root       = current_options.delete(:root)
@@ -49,7 +54,6 @@ module PMP
       self.version    = current_options.delete(:version) || '1.0'
 
       self.attributes = OpenStruct.new
-      self.links      = PMP::Links.new(self)
 
       # if there is a doc to be had, pull it out
       self.response   = current_options.delete(:response)
@@ -61,6 +65,15 @@ module PMP
     def items
       get
       @items ||= []
+    end
+
+    def attributes
+      get
+      attributes_object
+    end
+
+    def attributes_object
+      @attributes || OpenStruct.new
     end
 
     def response=(resp)
@@ -79,11 +92,21 @@ module PMP
     end
 
     def get
-      if !loaded? && href
+      return if loaded? || !href
+      @mutex.synchronize {
         self.response = request(:get, href)
         self.loaded = true
-      end
+      }
       self
+    end
+
+    def links
+      get
+      links_object
+    end
+
+    def links_object
+      @links ||= PMP::Links.new(self)
     end
 
     def save
@@ -101,27 +124,28 @@ module PMP
     end
 
     def save_link
-      link = root_document.edit['urn:collectiondoc:form:documentsave']
+      link = root.edit['urn:collectiondoc:form:documentsave']
       raise 'Save link not found' unless link
       link
     end
 
     def delete_link
-      link = root_document.edit['urn:collectiondoc:form:documentdelete']
+      link = root.edit['urn:collectiondoc:form:documentdelete']
       raise 'Delete link not found' unless link
       link
-    end
-
-    def root
-      @root
     end
 
     def root=(r)
       @root = r
     end
 
-    def root_document
-      @root ||= PMP::CollectionDocument.new(current_options.merge(href: endpoint))
+    def root
+      @root ||= new_root
+    end
+
+    def new_root
+      root_options = current_options.merge(href: endpoint)
+      PMP::CollectionDocument.new(root_options).tap{|r| r.root = r }
     end
 
     def loaded?
@@ -130,23 +154,31 @@ module PMP
 
     def setup_oauth_token
       if !oauth_token && current_options[:client_id] && current_options[:client_secret]
-        token = PMP::Token.new(current_options).get_token
+        token = PMP::Token.new(current_options.merge(root: root)).get_token
         self.oauth_token = token.token
         self.token_type  = token.params['token_type']
+
+        if @root
+          @root.oauth_token = token.token
+          @root.token_type  = token.params['token_type']
+        end
+
       end
     end
 
     # url includes any params - full url
     def request(method, url, body=nil) # :nodoc:
 
+      # puts "CD::request: obj: #{self.object_id} #{method}, #{url}, #{body.inspect}"
+
       unless ['/', ''].include?(URI::parse(url).path)
         setup_oauth_token
       end
 
       begin
-        raw = connection(current_options.merge({url: url})).send(method) do |request|
+        raw = connection(current_options.merge({url: url})).send(method) do |req|
           if [:post, :put].include?(method.to_sym) && !body.blank?
-            request.body = PMP::CollectionDocument.to_persist_json(body)
+            req.body = PMP::CollectionDocument.to_persist_json(body)
           end
         end
       rescue Faraday::Error::ResourceNotFound => not_found_ex
@@ -183,7 +215,7 @@ module PMP
 
     def method_missing(method, *args)
       get if (method.to_s.last != '=')
-      respond_to?(method) ? send(method, *args) : attributes.send(method, *args)
+      respond_to?(method) ? send(method, *args) : attributes_object.send(method, *args)
     end
 
   end
