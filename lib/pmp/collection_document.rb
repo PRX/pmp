@@ -198,7 +198,7 @@ module PMP
     def self.to_persist_json(body)
       return body.to_s if body.is_a?(String) || !body.respond_to?(:as_json)
 
-      result = body.as_json.select! { |k,v| %w(attributes links).include?(k) }
+      result = body.as_json.select { |k,v| %w(version attributes links).include?(k) }
       result['attributes'].reject! { |k,v| %w(created modified).include?(k) }
       result['links'].reject! { |k,v| %w(creator query edit auth).include?(k) }
 

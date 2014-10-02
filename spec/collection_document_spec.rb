@@ -206,7 +206,7 @@ describe PMP::CollectionDocument do
       doc = PMP::CollectionDocument.new(oauth_token: 'thisisatestvalueonly')
 
       stub_request(:put, "https://publish.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42").
-        with(:body => "{\"links\":{},\"attributes\":{\"guid\":\"c144e4df-021b-41e6-9cf3-42ac49bcbd42\",\"title\":\"testing\"}}",
+        with(:body => "{\"version\":\"1.0\",\"links\":{},\"attributes\":{\"guid\":\"c144e4df-021b-41e6-9cf3-42ac49bcbd42\",\"title\":\"testing\"}}",
              :headers => {'Accept'=>'application/vnd.collection.doc+json', 'Authorization'=>'Bearer thisisatestvalueonly', 'Content-Type'=>'application/vnd.collection.doc+json'}).
         to_return(:status => 200, :body => '{"url":"https://api.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42"}')
 
@@ -219,7 +219,7 @@ describe PMP::CollectionDocument do
       doc.href.must_equal "https://api.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42"
 
       stub_request(:put, "https://publish.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42").
-        with(:body => "{\"links\":{},\"attributes\":{\"guid\":\"c144e4df-021b-41e6-9cf3-42ac49bcbd42\",\"title\":\"testing an update\"}}",
+        with(:body => "{\"version\":\"1.0\",\"links\":{},\"attributes\":{\"guid\":\"c144e4df-021b-41e6-9cf3-42ac49bcbd42\",\"title\":\"testing an update\"}}",
              :headers => {'Accept'=>'application/vnd.collection.doc+json', 'Authorization'=>'Bearer thisisatestvalueonly', 'Content-Type'=>'application/vnd.collection.doc+json'}).
         to_return(:status => 200, :body => '{"url":"https://api.pmp.io/docs/c144e4df-021b-41e6-9cf3-42ac49bcbd42"}')
 
