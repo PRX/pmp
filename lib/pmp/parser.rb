@@ -70,7 +70,7 @@ module PMP
       Array(document).each do |k,v|
         link = parse_link(k,v)
         if link
-          self.links[k] = link
+          self.links_object[k] = link
         end
       end
     end
