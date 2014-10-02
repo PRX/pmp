@@ -22,8 +22,12 @@ module PMP
 
     def root(opts={})
       @root = nil if (opts != {})
-      opts = options.merge(href: endpoint).merge(opts)
-      @root ||= PMP::CollectionDocument.new(opts)
+      @root ||= new_root(opts)
+    end
+
+    def new_root(opts={})
+      root_options = options.merge(opts).merge(href: endpoint)
+      PMP::CollectionDocument.new(root_options).tap{|r| r.root = r }
     end
 
     def doc_of_type(type, opts={})
