@@ -117,7 +117,7 @@ module PMP
     end
 
     def root=(r)
-      @root
+      @root = r
     end
 
     def root_document
