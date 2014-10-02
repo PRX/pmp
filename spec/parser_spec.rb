@@ -12,6 +12,10 @@ class TestParser < OpenStruct
   attr_accessor :version
 
   def links
+    links_object
+  end
+
+  def links_object
     @links ||= PMP::Links.new(self)
   end
 
