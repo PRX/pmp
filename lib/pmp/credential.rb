@@ -10,8 +10,12 @@ module PMP
 
     CREDENTIAL_PARAMS = [:scope, :token_expires_in, :label]
 
+    attr_accessor :root
+
     def initialize(options={}, &block)
       apply_configuration(options)
+
+      self.root = current_options.delete(:root)
 
       yield(self) if block_given?
     end
@@ -53,19 +57,19 @@ module PMP
     end
 
     def credentials_url
-      root_document.auth['urn:collectiondoc:form:listcredentials'].url
+      root.auth['urn:collectiondoc:form:listcredentials'].url
     end
 
     def create_credentials_url
-      root_document.auth['urn:collectiondoc:form:createcredentials'].url
+      root.auth['urn:collectiondoc:form:createcredentials'].url
     end
 
     def remove_credentials_url(client_id)
-      link = root_document.auth['urn:collectiondoc:form:removecredentials']
+      link = root.auth['urn:collectiondoc:form:removecredentials']
       link.where(client_id: client_id).url
     end
 
-    def root_document
+    def root
       @root ||= PMP::CollectionDocument.new(current_options.merge(href: endpoint))
     end
 
