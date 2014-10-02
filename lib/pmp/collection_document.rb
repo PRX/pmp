@@ -44,9 +44,6 @@ module PMP
     def initialize(options={}, &block)
       @mutex = Mutex.new
 
-      # puts "CollectionDocument.initialize options: #{options.inspect}\n"
-      # puts "\t#{RuntimeException.new.backtrace.join("\n\t")}"
-
       apply_configuration(options)
 
       self.root       = current_options.delete(:root)
@@ -168,8 +165,6 @@ module PMP
 
     # url includes any params - full url
     def request(method, url, body=nil) # :nodoc:
-
-      # puts "CD::request: obj: #{self.object_id} #{method}, #{url}, #{body.inspect}"
 
       unless ['/', ''].include?(URI::parse(url).path)
         setup_oauth_token
