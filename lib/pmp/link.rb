@@ -27,11 +27,15 @@ module PMP
 
     def initialize(link={}, parent=nil)
       super()
-      self.parent = parent || link.delete('parent') || PMP::CollectionDocument.new
+      self.parent = parent || link.delete('parent')
       self.params = link.delete('params') || {}
       # puts "params: #{params.inspect}"
       parse_attributes(link)
       [:href, :href_template, :method].each{|m| self.send("#{m}=", nil) unless respond_to?(m)}
+    end
+
+    def parent
+      @parent ||= PMP::CollectionDocument.new
     end
 
     def where(params={})
