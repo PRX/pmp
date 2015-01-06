@@ -165,7 +165,7 @@ describe PMP::CollectionDocument do
 
       stub_request(:get, "https://api.pmp.io/docs").
         with(:headers => {'Accept'=>'application/vnd.collection.doc+json', 'Authorization'=>'Bearer thisisatesttoken', 'Content-Type'=>'application/vnd.collection.doc+json'}).
-        to_return(:status=>404, :body=>"Not Found", :remote_ip=>"107.20.158.113", :headers=>{"Access-Control-Allow-Headers"=>"origin, x-http-method-override, accept, content-type, authorization, x-pingother", "Access-Control-Allow-Methods"=>"GET,OPTIONS,HEAD,PUT,POST,DELETE,PATCH", "Access-Control-Allow-Origin"=>"*", "Content-Type"=>"application/vnd.collection.doc+json", "Date"=>"Thu, 24 Oct 2013 17:20:04 GMT", "Vary"=>"Accept-Encoding", "X-Powered-By"=>"Express", "X-Response-Time"=>"18ms", "Content-Length"=>"9", "Connection"=>"keep-alive"})
+        to_return(:status=>404, :body=>"Not Found", :headers=>{"Access-Control-Allow-Headers"=>"origin, x-http-method-override, accept, content-type, authorization, x-pingother", "Access-Control-Allow-Methods"=>"GET,OPTIONS,HEAD,PUT,POST,DELETE,PATCH", "Access-Control-Allow-Origin"=>"*", "Content-Type"=>"application/vnd.collection.doc+json", "Date"=>"Thu, 24 Oct 2013 17:20:04 GMT", "Vary"=>"Accept-Encoding", "X-Powered-By"=>"Express", "X-Response-Time"=>"18ms", "Content-Length"=>"9", "Connection"=>"keep-alive"})
 
       @doc.query["urn:collectiondoc:query:docs"].items.must_equal []
     end
