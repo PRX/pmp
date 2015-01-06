@@ -89,8 +89,8 @@ module PMP
     end
 
     def get
-      return if loaded? || !href
       @mutex.synchronize {
+        return self if loaded? || !href
         self.response = request(:get, href)
         self.loaded = true
       }
@@ -109,8 +109,9 @@ module PMP
     def save
       set_guid_if_blank
       url = save_link.where(guid: self.guid).url
-      self.response = request(:put, url, self)
-      self.href = response.body['url']
+      resp = request(:put, url, self)
+      self.response = resp
+      self.href = resp.body['url']
     end
 
     def delete
