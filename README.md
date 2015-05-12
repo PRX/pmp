@@ -34,6 +34,10 @@ You should usually go through the `PMP::Client` as a convenience or start with a
 
 Below is a basic guide, you can also [see the examples for more info](example/).
 
+To see it used in a project, there is the [PMP Importer](https://github.com/PRX/pmp-importer.prx.org) which, as it says in the name, imports data from podcast feeds and www.prx.org into the PMP.
+
+[The importer super class](https://github.com/PRX/pmp-importer.prx.org/blob/master/app/models/application_importer.rb) is a good place to look.
+
 
 ```ruby
 
