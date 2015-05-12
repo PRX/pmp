@@ -36,7 +36,7 @@ puts "\n\nSetup complete: pmp client: #{pmp.inspect}\n\n"
 # Step 0: Clean up any old data from prior runs
 # ------------------------------------------------------------------------------
 delete_count = 0
-pmp.query["urn:pmp:query:docs"].where(tag: 'pmp_example_permissions', limit: 100).items.each{|i| i.delete; delete_count+=1 }
+pmp.query["urn:collectiondoc:query:docs"].where(tag: 'pmp_example_permissions', limit: 100).items.each{|i| i.delete; delete_count+=1 }
 puts "\n\nStep 0 complete: deleted #{delete_count}\n\n"
 exit 1 if ARGV[0] == 'delete-only'
 
