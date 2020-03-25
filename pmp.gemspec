@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 
-  gem.add_development_dependency('bundler', '~> 1.3')
+  gem.add_development_dependency('bundler')
   gem.add_development_dependency('rake')
   gem.add_development_dependency('minitest')
   gem.add_development_dependency('webmock')
@@ -32,8 +32,7 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency('faraday')
   gem.add_runtime_dependency('faraday_middleware')
-  gem.add_runtime_dependency('oauth2')
-  gem.add_runtime_dependency('multi_json')
+  gem.add_runtime_dependency('oauth2', '~> 1.2.0')
   gem.add_runtime_dependency('excon')
   gem.add_runtime_dependency('hashie')
   gem.add_runtime_dependency('activesupport')
