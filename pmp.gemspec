@@ -32,7 +32,7 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency('faraday')
   gem.add_runtime_dependency('faraday_middleware')
-  gem.add_runtime_dependency('oauth2', '~> 1.2.0')
+  gem.add_runtime_dependency('oauth2', '< 1.3.0')
   gem.add_runtime_dependency('excon')
   gem.add_runtime_dependency('hashie')
   gem.add_runtime_dependency('activesupport')
